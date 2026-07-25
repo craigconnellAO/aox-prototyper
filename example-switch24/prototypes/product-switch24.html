@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple iPhone 17 — Switch24 | AO</title>
+<link rel="stylesheet" href="https://assets.ao.com/design-system/assets/icons/latest/strata-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* ============================================================
+   AO Design System — canonical token + typography + component CSS
+   Authored once; inlined verbatim into every self-contained page.
+   ============================================================ */
+@font-face { font-family:'SmileyFace-Headline'; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff') format('woff'); }
+@font-face { font-family:'SmileyFace'; font-weight:100; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Light.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Light.woff') format('woff'); }
+@font-face { font-family:'SmileyFace'; font-weight:400; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Regular.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Regular.woff') format('woff'); }
+@font-face { font-family:'SmileyFace'; font-weight:500; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Medium.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Medium.woff') format('woff'); }
+@font-face { font-family:'SmileyFace'; font-weight:700; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff') format('woff'); }
+
+:root {
+  --gray-10:#f8f9fa; --gray-20:#f0f2f2; --gray-30:#e2e7e8; --gray-40:#d6dddf;
+  --gray-50:#c1c7c9; --gray-60:#abb1b4; --gray-70:#727677; --gray-80:#595d5e;
+  --gray-90:#3f4344; --gray-100:#212121;
+  --brand-primary-base:#12c35a; --brand-primary-light:#befcc8; --brand-primary-dark:#02422b;
+  --type-primary:#011f44; --type-secondary:#212121; --type-tertiary:#595d5e; --shadow-overlay:#011630;
+  --action-primary-base:#00893e; --action-primary-hover:#00560b; --action-primary-focus:#00893e;
+  --action-primary-active:#003d00; --action-primary-contrast:#ffffff; --action-primary-glow:#12c35a;
+  --action-secondary-base:#0564c2; --action-secondary-hover:#00318f; --action-secondary-focus:#0564c2;
+  --action-secondary-active:#001876; --action-secondary-contrast:#ffffff; --action-secondary-glow:#40a1f8;
+  --action-light-base:#ffffff; --action-light-contrast:#011f44; --action-light-glow:#40a1f8;
+  --action-dark-base:#011f44; --action-dark-contrast:#ffffff; --action-dark-glow:#40a1f8;
+  --action-inactive-base:#727677; --action-inactive-contrast:#ffffff;
+  --ui-core-base:#ffffff; --ui-core-contrast:#212121; --ui-core-accent:#d6dddf;
+  --ui-neutral-base:#f0f2f2; --ui-neutral-contrast:#212121; --ui-neutral-accent:#abb1b4;
+  --ui-highlight-base:#edf2ff; --ui-highlight-contrast:#00318f; --ui-highlight-accent:#00318f;
+  --ui-success-base:#f4fce3; --ui-success-contrast:#02422b; --ui-success-accent:#00893e;
+  --ui-warning-base:#fff4e6; --ui-warning-contrast:#ad5a00; --ui-warning-accent:#ff9e36;
+  --ui-error-base:#fff0f6; --ui-error-contrast:#b50016; --ui-error-accent:#b50016;
+  --ui-light-base:#ffffff; --ui-light-contrast:#011f44; --ui-light-accent:#ffffff;
+  --ui-dark-base:#011f44; --ui-dark-contrast:#ffffff; --ui-dark-accent:#011f44;
+  --notice-warning-bg:#ffe3c2; --notice-success-bg:#befcc8; --notice-error-bg:#ffd8d2;
+  /* Switch24 — new Switch-specific brand token */
+  --switch-purple:#8023bd; --switch-purple-bg:#f6ecfc; --switch-purple-border:#e3cdf2;
+  --palette-bread:#ffe3c2; --palette-toast:#ffa878; --palette-jam:#422439; --palette-simmer:#ffd8d2;
+  --palette-heat:#f96155; --palette-burn:#60222f; --palette-steam:#c8d1ff; --palette-ice:#4a6dce; --palette-water:#011f44;
+  --radius-xs:4px; --radius-sm:8px; --radius-md:16px; --radius-xl:24px; --radius-2xl:40px;
+  --shadow:0 1px 3px rgba(1,22,48,0.08),0 1px 2px rgba(1,22,48,0.05);
+  --shadow-md:0 4px 8px rgba(1,22,48,0.10),0 2px 4px rgba(1,22,48,0.06);
+  --shadow-lg:0 10px 28px rgba(1,22,48,0.13),0 4px 8px rgba(1,22,48,0.07);
+  --shadow-xl:0 20px 48px rgba(1,22,48,0.18),0 8px 16px rgba(1,22,48,0.10);
+}
+
+*,*::before,*::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; font-family:'Inter',ui-sans-serif,system-ui,sans-serif; color:var(--type-secondary);
+  font-size:1rem; line-height:1.625; background:var(--gray-10); -webkit-font-smoothing:antialiased; }
+
+/* Typography */
+.t-display-headline { font-family:'SmileyFace-Headline',Georgia,serif; font-size:2.5rem; line-height:1.0; color:var(--type-primary); margin:0; }
+.t-display-lg { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:2rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-display { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.5rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-title-lg { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.25rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-title { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-title-sm { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-cta { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1rem; line-height:1.25; }
+.t-body { font-family:'Inter',sans-serif; font-size:1rem; line-height:1.625; margin:0; }
+.t-body-sm { font-family:'Inter',sans-serif; font-size:0.875rem; line-height:1.625; margin:0; }
+.t-caption { font-family:'Inter',sans-serif; font-size:0.75rem; line-height:1.625; color:var(--type-tertiary); margin:0; }
+.t-link { font-family:'Inter',sans-serif; font-weight:700; font-size:1rem; text-decoration:none; color:var(--action-secondary-base); }
+.t-link-sm { font-family:'Inter',sans-serif; font-weight:700; font-size:0.875rem; text-decoration:none; color:var(--action-secondary-base); }
+.t-link:hover,.t-link-sm:hover { text-decoration:underline; }
+.t-secondary { color:var(--type-tertiary); }
+.visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* Button */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.875rem 1.5rem; border-radius:var(--radius-sm);
+  font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1rem; line-height:1; border:1px solid transparent; cursor:pointer; white-space:nowrap; text-decoration:none;
+  transition:background 150ms,color 150ms,border-color 150ms,box-shadow 150ms,transform 150ms; }
+.btn:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+@media (prefers-reduced-motion:no-preference){ .btn:active:not(:disabled):not(.is-disabled){ transform:translateY(1px); box-shadow:var(--shadow); } }
+.btn-primary { background:var(--action-primary-base); color:var(--action-primary-contrast); border-color:var(--action-primary-base); }
+.btn-primary:hover:not(:disabled):not(.is-disabled){ background:var(--action-primary-hover); border-color:var(--action-primary-hover); }
+.btn-primary:active:not(:disabled):not(.is-disabled){ background:var(--action-primary-active); border-color:var(--action-primary-active); }
+.btn-primary:disabled,.btn-primary.is-disabled { background:var(--gray-30); color:var(--gray-70); border-color:var(--gray-30); cursor:not-allowed; transform:none; }
+.btn-secondary { background:transparent; color:var(--action-secondary-base); border-color:var(--action-secondary-base); }
+.btn-secondary:hover:not(:disabled):not(.is-disabled){ background:var(--ui-highlight-base); border-color:var(--action-secondary-hover); color:var(--action-secondary-hover); }
+.btn-secondary:active:not(:disabled):not(.is-disabled){ background:var(--ui-highlight-base); border-color:var(--action-secondary-active); color:var(--action-secondary-active); }
+.btn-tertiary { background:transparent; color:var(--type-secondary); border-color:var(--gray-40); }
+.btn-tertiary:hover:not(:disabled):not(.is-disabled){ background:var(--gray-20); border-color:var(--gray-50); }
+.btn-tertiary:active:not(:disabled):not(.is-disabled){ background:var(--gray-30); border-color:var(--gray-60); }
+.btn-white { background:var(--action-light-base); color:var(--action-light-contrast); border-color:var(--action-light-base); }
+.btn-white:hover { background:var(--gray-20); border-color:var(--gray-20); }
+.btn-dark { background:var(--action-dark-base); color:var(--action-dark-contrast); border-color:var(--action-dark-base); }
+.btn-dark:hover { background:var(--action-secondary-hover); border-color:var(--action-secondary-hover); }
+.btn-inactive { background:var(--gray-30); color:var(--gray-70); border-color:var(--gray-30); cursor:not-allowed; }
+.btn-lg { padding:1.125rem 2rem; font-size:1.0625rem; }
+.btn-sm { padding:0.6875rem 1rem; font-size:0.875rem; }
+.btn-icon { padding:0.6875rem; }
+.btn-full { width:100%; }
+
+/* Field / Input / Select */
+.field { display:flex; flex-direction:column; gap:0.25rem; }
+.field-label { font-size:0.875rem; font-weight:400; color:var(--type-secondary); }
+.field-label-required::after { content:' *'; color:var(--ui-error-accent); }
+.field-input { height:48px; padding:0 0.875rem; border:1px solid var(--gray-50); border-radius:var(--radius-sm);
+  font-family:'Inter',sans-serif; font-size:0.875rem; color:var(--type-secondary); background:var(--ui-core-base); outline:none; width:100%; transition:border-color 150ms,box-shadow 150ms; }
+.field-input::placeholder { color:var(--gray-60); }
+.field-input:focus-visible { border-color:var(--action-secondary-base); box-shadow:0 0 0 3px rgba(5,100,194,0.15); }
+.field-input.is-error { border-color:var(--ui-error-accent); background:var(--ui-error-base); }
+.field-input.is-success { border-color:var(--ui-success-accent); background:var(--ui-success-base); }
+.field-msg { font-size:0.8125rem; }
+.field-msg.is-error { color:var(--ui-error-contrast); }
+.field-msg.is-success { color:var(--ui-success-contrast); }
+.field-msg.is-helper { color:var(--type-tertiary); }
+.field-select-wrap { position:relative; }
+.field-select-wrap::after { content:''; pointer-events:none; position:absolute; right:0.75rem; top:50%; transform:translateY(-50%);
+  width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid var(--gray-70); }
+select.field-input { appearance:none; -webkit-appearance:none; padding-right:2.5rem; }
+
+/* Toggle items */
+.toggle-group { display:flex; flex-direction:column; gap:0.5rem; border:0; padding:0; margin:0; }
+.toggle-group--inline { flex-direction:row; flex-wrap:wrap; }
+.toggle-group--inline > .toggle-item { flex:1 1 0; min-width:0; }
+.toggle-group--full { width:100%; }
+.toggle-item { position:relative; display:flex; align-items:flex-start; gap:0.75rem; padding:1rem 1.125rem; border-radius:var(--radius-sm);
+  border:1px solid var(--gray-50); background:var(--ui-core-base); cursor:pointer; transition:border-color 150ms,background 150ms,box-shadow 150ms; }
+.toggle-group--pill .toggle-item { border-radius:var(--radius-md); padding:1rem 1.25rem; }
+.toggle-item input { appearance:none; -webkit-appearance:none; width:20px; height:20px; flex-shrink:0; margin:1px 0 0;
+  border:2px solid var(--gray-50); background:var(--ui-core-base); cursor:pointer; transition:border-color 150ms,background 150ms; }
+.toggle-item input[type="radio"] { border-radius:50%; }
+.toggle-item input[type="checkbox"] { border-radius:var(--radius-xs); }
+.toggle-item input:checked { border-color:var(--action-secondary-base); background:var(--action-secondary-base);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 11.5L3 8l1-1 2.5 2.5 5-5 1 1z' fill='white'/%3E%3C/svg%3E");
+  background-size:14px; background-position:center; background-repeat:no-repeat; }
+.toggle-item input[type="radio"]:checked { background-image:none; box-shadow:inset 0 0 0 4px var(--ui-core-base); }
+.toggle-item input:focus-visible { box-shadow:0 0 0 3px rgba(5,100,194,0.15); border-color:var(--action-secondary-base); outline:none; }
+.toggle-item-body { display:flex; flex-direction:column; gap:0.125rem; min-width:0; flex:1; }
+.toggle-item-line { display:block; }
+.toggle-item-label { font-size:0.9375rem; font-weight:700; color:var(--type-secondary); }
+.toggle-item-sub { font-size:0.8125rem; color:var(--type-tertiary); }
+.toggle-item-sub--xs { font-size:0.75rem; color:var(--type-tertiary); }
+.toggle-item:hover { border-color:var(--gray-60); background:var(--gray-10); }
+.toggle-item:has(:focus-visible) { outline:0; box-shadow:0 0 0 4px var(--action-secondary-glow); border-color:var(--action-secondary-base); }
+.toggle-item:has(:checked) { border-color:var(--action-secondary-base); background:color-mix(in srgb,var(--action-secondary-base) 8%,white); }
+.toggle-item:has(:checked) .toggle-item-label,.toggle-item:has(:checked) .toggle-item-line { color:var(--type-primary); }
+.toggle-item.is-disabled,.toggle-item:has(:disabled) { background:var(--gray-20); border-color:var(--gray-30); cursor:not-allowed; color:var(--gray-90); }
+.toggle-item.is-disabled .toggle-item-label { color:var(--gray-90); }
+.toggle-item--highlight { border-width:2px; border-color:var(--action-secondary-base); background:color-mix(in srgb,var(--action-secondary-base) 6%,white); border-radius:var(--radius-md); padding:1rem 1.125rem 1.125rem; }
+.toggle-item--highlight .tag-recommended { position:absolute; top:-0.625rem; left:1rem; background:var(--action-secondary-base); color:var(--action-secondary-contrast); border-color:var(--action-secondary-base); }
+.toggle-item-head { display:flex; justify-content:space-between; align-items:baseline; gap:0.5rem; }
+.toggle-item-title { font-family:'SmileyFace',Georgia,serif; font-size:1.25rem; color:var(--type-primary); }
+.toggle-item-price { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.25rem; color:var(--type-primary); }
+.toggle-item-price-unit { font-size:0.875rem; color:var(--type-tertiary); font-weight:400; }
+.toggle-item-desc { font-size:0.9375rem; color:var(--type-secondary); margin:0.5rem 0; }
+.toggle-item-features { margin:0.5rem 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:0.25rem; font-size:0.875rem; }
+.toggle-item-features li::before { content:"\2713 "; color:var(--action-secondary-base); font-weight:700; }
+
+/* Tag */
+.tag { display:inline-flex; align-items:center; gap:0.25rem; padding:0.2rem 0.625rem; border-radius:var(--radius-2xl); font-size:0.75rem; font-weight:500; line-height:1.4; border:1px solid transparent; font-family:'Inter',sans-serif; }
+.tag-core { background:var(--ui-core-base); color:var(--type-secondary); border-color:var(--gray-40); }
+.tag-success { background:var(--ui-success-base); color:var(--ui-success-contrast); border-color:var(--ui-success-accent); }
+.tag-highlight { background:var(--ui-highlight-base); color:var(--ui-highlight-contrast); border-color:var(--ui-highlight-accent); }
+.tag-neutral { background:var(--ui-neutral-base); color:var(--type-secondary); border-color:var(--gray-40); }
+.tag-warning { background:var(--ui-warning-base); color:var(--ui-warning-contrast); border-color:var(--ui-warning-accent); }
+.tag-error { background:var(--ui-error-base); color:var(--ui-error-contrast); border-color:var(--ui-error-accent); }
+.tag-dark { background:var(--type-primary); color:#fff; border-color:var(--type-primary); }
+.tag-lg { padding:0.35rem 0.875rem; font-size:0.875rem; }
+
+/* Notice */
+.notice { display:flex; gap:0.5rem; align-items:flex-start; padding:0.75rem; border-radius:var(--radius-sm); font-family:'Inter',sans-serif; font-size:0.75rem; line-height:1.625; }
+.notice-icon { flex-shrink:0; width:1.5rem; height:1.5rem; font-size:1.5rem; line-height:1; }
+.notice-content { display:flex; flex-direction:column; align-items:flex-start; flex:1; min-width:0; }
+.notice-title { font-weight:700; color:var(--type-primary); display:block; }
+.notice-body { font-weight:400; color:var(--type-tertiary); display:block; }
+.notice-link { font-weight:700; color:var(--action-secondary-base); text-decoration:none; padding-top:2px; }
+.notice-link:hover { text-decoration:underline; }
+.notice-info { background:var(--ui-highlight-base); } .notice-info .notice-icon { color:var(--action-secondary-base); }
+.notice-warning { background:var(--notice-warning-bg); } .notice-warning .notice-icon { color:var(--ui-warning-accent); }
+.notice-success { background:var(--notice-success-bg); } .notice-success .notice-icon { color:var(--action-primary-base); }
+.notice-error { background:var(--notice-error-bg); } .notice-error .notice-icon { color:var(--ui-error-accent); }
+
+/* Card */
+.card { background:var(--ui-core-base); border:1px solid var(--gray-40); border-radius:var(--radius-md); padding:1.5rem; }
+.card-raised { box-shadow:var(--shadow-md); }
+.card-success { background:var(--ui-success-base); border-color:var(--ui-success-accent); }
+.card-highlight { background:var(--ui-highlight-base); border-color:var(--ui-highlight-accent); }
+.card-error { background:var(--ui-error-base); border-color:var(--ui-error-accent); }
+.card-divider { height:1px; background:var(--gray-30); margin:1rem -1.5rem; }
+
+/* Breadcrumb */
+.crumb { display:flex; gap:0.375rem; align-items:center; list-style:none; flex-wrap:wrap; padding:0; margin:0; }
+.crumb li { display:flex; align-items:center; gap:0.375rem; }
+.crumb a { color:var(--action-secondary-base); text-decoration:none; font-size:0.8125rem; font-weight:700; }
+.crumb a:hover { text-decoration:underline; }
+.crumb span { font-size:0.8125rem; color:var(--type-tertiary); }
+.crumb-sep { color:var(--gray-60); font-size:0.75rem; }
+
+/* Tabs */
+.tab-list { display:flex; border-bottom:1px solid var(--gray-40); gap:0; overflow-x:auto; }
+.tab-item { padding:1rem; font-size:1rem; color:var(--type-primary); cursor:pointer; border:none; background:transparent; white-space:nowrap;
+  font-family:'SmileyFace',Georgia,serif; font-weight:700; border-bottom:3px solid transparent; margin-bottom:-1px; transition:color 150ms,border-color 150ms; }
+.tab-item:hover { border-bottom-color:var(--gray-40); }
+.tab-item.active { border-bottom-color:var(--action-secondary-base); }
+.tab-item:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+
+/* Quantity stepper */
+.qty-control { display:inline-flex; align-items:stretch; border:1px solid var(--gray-40); border-radius:var(--radius-sm); overflow:hidden; }
+.qty-btn { width:40px; height:40px; background:var(--gray-10); border:none; font-size:1.25rem; color:var(--type-secondary); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 150ms; }
+.qty-btn:hover { background:var(--gray-20); }
+.qty-val { width:48px; text-align:center; font-size:1rem; font-weight:500; line-height:40px; color:var(--type-primary); border-left:1px solid var(--gray-40); border-right:1px solid var(--gray-40); }
+
+/* ---------- Header (all variants) ---------- */
+[data-aods="nav"] { position:sticky; top:0; z-index:20; background:var(--ui-core-base); }
+.nav-mobile { max-width:1200px; margin:0 auto; background:var(--ui-core-base); display:flex; align-items:center; gap:0.75rem; padding:0.75rem 1rem; }
+.nav-mobile-spacer { flex:1; }
+.nav-search--mobile { display:flex; padding:0 1rem 0.75rem; background:#fff; }
+.nav-search--mobile .nav-search-input { flex:1; padding:0 1rem; height:44px; border:1px solid var(--gray-40); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-family:'Inter',sans-serif; font-size:0.875rem; color:var(--type-secondary); outline:none; }
+.nav-search--mobile .nav-search-input::placeholder { color:var(--gray-60); }
+.nav-search--mobile .nav-search-btn { padding:0 1.25rem; height:44px; background:var(--action-primary-base); border:none; border-radius:0 var(--radius-md) var(--radius-md) 0; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.25rem; }
+.nav-desktop { background:#fff; }
+.nav-desktop-top { display:flex; align-items:center; padding:0.75rem 2rem; gap:2rem; }
+.nav-desktop-top .nav-logo .ico { font-size:3.5rem; color:var(--brand-primary-base); }
+.nav-desktop-top .nav-search { flex:1; max-width:520px; margin:0 auto; display:flex; }
+.nav-desktop-top .nav-search-input { flex:1; padding:0 1rem; height:44px; border:1px solid var(--gray-40); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-family:'Inter',sans-serif; font-size:0.875rem; color:var(--type-secondary); outline:none; }
+.nav-desktop-top .nav-search-input::placeholder { color:var(--gray-60); }
+.nav-desktop-top .nav-search-btn { padding:0 1.25rem; height:44px; background:var(--action-primary-base); border:none; border-radius:0 var(--radius-md) var(--radius-md) 0; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.375rem; font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; color:#fff; white-space:nowrap; }
+.nav-desktop-top .nav-search-btn .ico { font-size:1rem; }
+.nav-desktop-icons { display:flex; gap:1.75rem; flex-shrink:0; align-items:flex-start; }
+.nav-icon { position:relative; display:flex; flex-direction:column; align-items:center; text-decoration:none; cursor:pointer; background:none; border:none; gap:0.125rem; }
+.nav-icon:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; border-radius:var(--radius-sm); }
+.nav-icon-img { font-size:1.75rem; color:var(--type-primary); }
+.nav-icon-label { font-family:'Inter',sans-serif; font-size:0.6875rem; font-weight:400; color:var(--type-primary); line-height:1.25; }
+.nav-icon--badge::after { content:attr(data-count); position:absolute; top:-4px; right:-6px; min-width:18px; height:18px; padding:0 4px; border-radius:50%; background:#cf1a30; color:#fff; font-family:'Inter',sans-serif; font-size:0.6875rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+@media (min-width:991px){ .nav-icon-label { font-size:0.8125rem; } }
+.nav-logo { display:flex; align-items:center; text-decoration:none; flex-shrink:0; }
+.nav-logo .ico { font-size:3rem; color:var(--brand-primary-base); }
+.nav-logo:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; border-radius:var(--radius-sm); }
+.nav-categories { display:flex; align-items:center; gap:1.75rem; padding:0.625rem 2rem; font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; }
+.nav-categories a { color:var(--type-primary); text-decoration:none; white-space:nowrap; }
+.nav-categories a:hover { text-decoration:underline; }
+.nav-categories a.is-current { color:var(--action-secondary-base); }
+.nav-categories-deals,.nav-categories-promo { color:#cf1a30; }
+.nav-categories-help { margin-left:auto; }
+.nav-checkout { justify-content:space-between; }
+.nav-checkout-center { flex:1; text-align:center; font-family:'Inter',sans-serif; line-height:1.4; display:none; }
+@media (min-width:544px){ .nav-checkout-center { display:block; } .nav-checkout-icons .nav-checkout-help { display:none; } }
+.nav-checkout-phone { font-size:0.8125rem; color:var(--type-primary); margin:0; }
+.nav-checkout-sub { font-size:0.75rem; color:var(--type-tertiary); margin:2px 0 0; }
+.nav-checkout-icons { display:flex; gap:1.5rem; }
+.nav-accent { height:4px; background:var(--brand-primary-base); }
+.nav-proposition { background:var(--gray-10); display:flex; align-items:center; justify-content:space-between; padding:0.75rem 2rem; border-top:1px solid var(--gray-30); }
+.nav-proposition-item { display:inline-flex; align-items:center; gap:0.5rem; font-family:'Inter',sans-serif; font-size:0.875rem; color:var(--type-tertiary); white-space:nowrap; }
+.nav-proposition-item .ico { font-size:1.25rem; color:var(--action-primary-base); }
+@media (max-width:990px){ .nav-desktop { display:none; } .nav-proposition-item:not(:first-child){ display:none; } }
+@media (min-width:991px){ .nav-mobile { display:none; } .nav-search--mobile { display:none; } }
+
+/* Footer */
+.footer { width:100%; }
+.footer-links { background:var(--gray-90); display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; padding:1.5rem 1rem; }
+.footer-col { display:flex; flex-direction:column; gap:1.5rem; }
+.footer-links a { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; color:#fff; text-decoration:none; }
+.footer-links a:hover { text-decoration:underline; }
+.footer-secondary { background:var(--gray-100); display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; padding:1.5rem 1rem 1rem; }
+.footer-secondary a { font-family:'Inter',sans-serif; font-size:0.875rem; color:#fff; text-decoration:none; line-height:1.625; }
+.footer-legal { background:var(--gray-100); padding:1rem; text-align:center; }
+.footer-legal p { font-family:'Inter',sans-serif; font-size:0.75rem; color:var(--gray-50); line-height:1.625; margin:0 0 1rem; }
+@media (min-width:990px){ .footer-links { padding:1rem 8.5rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; } .footer-links .footer-col { flex-direction:row; gap:2rem; } .footer-secondary { padding:1.5rem 8.5rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; } .footer-secondary .footer-col { flex-direction:row; gap:2rem; } .footer-legal { padding:1rem 9rem 2rem; } }
+
+/* ---------- Shared layout helpers ---------- */
+.page { max-width:1200px; margin:0 auto; padding:0.5rem; }
+@media (min-width:544px){ .page { padding:1rem; } }
+@media (min-width:990px){ .page { padding:1.5rem 2rem; } }
+.stack { display:flex; flex-direction:column; }
+
+/* Neutral CSS phone illustration (tokens only; no invented photography) */
+.phone-illus { display:flex; align-items:center; justify-content:center; background:var(--gray-10); }
+.phone-illus .device { width:46%; max-width:120px; aspect-ratio:9/19; background:#fff; border:1px solid var(--gray-40); border-radius:14px; box-shadow:var(--shadow); position:relative; padding:6px; }
+.phone-illus .device::before { content:''; position:absolute; top:7px; left:50%; transform:translateX(-50%); width:28%; height:5px; border-radius:3px; background:var(--gray-30); }
+.phone-illus .screen { width:100%; height:100%; border-radius:8px; background:linear-gradient(160deg,var(--gray-20),var(--gray-30)); }
+.phone-illus.is-lg .device { max-width:230px; }
+.phone-illus.is-sm .device { max-width:84px; border-radius:10px; }
+
+/* ---------- Homepage gallery ---------- */
+.hp-hero { background:var(--type-primary); color:#fff; border-radius:var(--radius-md); overflow:hidden; display:grid; grid-template-columns:1fr; }
+@media (min-width:768px){ .hp-hero { grid-template-columns:1.1fr 0.9fr; align-items:center; } }
+.hp-hero-copy { padding:1.5rem; }
+@media (min-width:768px){ .hp-hero-copy { padding:2.5rem; } }
+.hp-hero-illus { background:var(--gray-10); min-height:220px; aspect-ratio:16/10; padding:1rem 0; }
+.hp-hero-illus .device { max-width:150px; }
+@media (min-width:768px){ .hp-hero-illus { aspect-ratio:auto; align-self:stretch; padding:1.5rem 0; } .hp-hero-illus .device { max-width:200px; } }
+.hp-strip { display:grid; grid-template-columns:repeat(2,1fr); gap:0.5rem; }
+@media (min-width:768px){ .hp-strip { grid-template-columns:repeat(4,1fr); } }
+.hp-prop { display:flex; gap:0.625rem; align-items:flex-start; background:#fff; border:1px solid var(--gray-40); border-radius:var(--radius-md); padding:0.875rem 1rem; }
+.hp-prop .ico { font-size:1.5rem; color:var(--action-primary-base); flex-shrink:0; }
+.hp-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.75rem; }
+@media (min-width:768px){ .hp-grid { grid-template-columns:repeat(3,1fr); gap:1rem; } }
+@media (min-width:990px){ .hp-grid { grid-template-columns:repeat(4,1fr); } }
+.prod-tile { background:#fff; border:1px solid var(--gray-40); border-radius:var(--radius-md); overflow:hidden; display:flex; flex-direction:column; }
+.prod-tile-img { aspect-ratio:1; border-bottom:1px solid var(--gray-30); }
+.prod-tile-body { padding:0.875rem; display:flex; flex-direction:column; gap:0.375rem; flex:1; }
+.prod-tile-name { font-size:0.9375rem; font-weight:500; color:var(--type-secondary); line-height:1.35; text-decoration:none; }
+.prod-tile-name:hover { text-decoration:underline; }
+.prod-tile-price { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.375rem; color:var(--type-primary); margin-top:auto; padding-top:0.25rem; }
+.prod-tile-mo { font-size:0.75rem; color:var(--type-tertiary); }
+.prod-tile-foot { padding:0 0.875rem 0.875rem; }
+.section-head { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; margin:0 0 1rem; }
+
+/* ---------- PDP ---------- */
+.pdp-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; align-items:start; }
+@media (min-width:768px){ .pdp-grid { grid-template-columns:680px 1fr; gap:3rem; } }
+@media (min-width:990px){ .pdp-grid { grid-template-columns:680px 1fr; gap:3.5rem; } }
+.pdp-media { position:relative; }
+.pdp-media-main { aspect-ratio:1; border:1px solid var(--gray-40); border-radius:var(--radius-md); }
+@media (min-width:768px){ .pdp-media-main.is-sticky { position:sticky; top:96px; } }
+.pdp-thumbs { display:flex; gap:0.5rem; margin-top:0.75rem; }
+.pdp-thumb { width:64px; aspect-ratio:1; border:1px solid var(--gray-40); border-radius:var(--radius-sm); background:var(--gray-10); }
+.pdp-thumb.is-active { border-color:var(--action-secondary-base); border-width:2px; }
+.pdp-detail { display:flex; flex-direction:column; gap:1.25rem; }
+.pdp-price-row { display:flex; align-items:baseline; gap:0.75rem; flex-wrap:wrap; }
+.pdp-price { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:2rem; color:var(--type-primary); }
+.pdp-was { text-decoration:line-through; color:var(--type-tertiary); }
+.pdp-rating { display:inline-flex; align-items:center; gap:0.375rem; color:var(--ui-warning-accent); font-size:0.95rem; }
+.pdp-rating .count { color:var(--type-tertiary); }
+.pdp-benefits { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem; }
+.pdp-benefits li { display:flex; gap:0.5rem; align-items:flex-start; font-size:0.9375rem; }
+.pdp-benefits .ico { color:var(--action-primary-base); margin-top:2px; }
+.opt-label { font-size:0.875rem; font-weight:600; color:var(--type-secondary); margin:0 0 0.5rem; display:flex; justify-content:space-between; gap:0.5rem; }
+.reveal { overflow:hidden; }
+.reveal[hidden] { display:none; }
+.section-block { display:flex; flex-direction:column; gap:0.625rem; }
+.page > .section-block { margin-top:2.5rem; padding-top:1.5rem; }
+.video-placeholder {
+  aspect-ratio: 16/9;
+  background: var(--gray-20);
+  border: 1px solid var(--gray-40);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.video-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--type-tertiary);
+}
+.video-placeholder-inner .ico {
+  font-size: 2.5rem;
+  color: var(--action-secondary-base);
+}
+.spec-table { width:100%; border-collapse:collapse; }
+.spec-table th, .spec-table td { text-align:left; padding:0.75rem 0; border-bottom:1px solid var(--gray-30); font-size:0.9375rem; vertical-align:top; }
+.spec-table th { width:40%; color:var(--type-tertiary); font-weight:500; }
+
+/* Reviews */
+.reviews-summary { display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem; }
+.reviews-summary-stars { display:flex; gap:0.125rem; color:var(--ui-warning-accent); font-size:1.25rem; }
+.reviews-summary-text { font-size:0.9375rem; color:var(--type-secondary); }
+.reviews-list { display:flex; flex-direction:column; gap:1rem; }
+.review-card { padding:1.25rem; }
+.review-stars { display:flex; gap:0.125rem; color:var(--ui-warning-accent); font-size:1rem; margin-bottom:0.5rem; }
+.review-meta { font-size:0.875rem; color:var(--type-tertiary); margin:0 0 0.5rem; }
+.review-meta strong { color:var(--type-secondary); }
+.review-body { font-size:0.9375rem; line-height:1.625; margin:0; }
+
+/* Sticky buy bar (mobile) */
+.buybar { position:fixed; left:0; right:0; bottom:0; z-index:30; background:var(--ui-core-base); border-top:1px solid var(--gray-40); box-shadow:var(--shadow-lg); padding:0.75rem 1rem; display:flex; align-items:center; gap:1rem; }
+.buybar-total { display:flex; flex-direction:column; line-height:1.2; }
+.buybar-total .up { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.25rem; color:var(--type-primary); }
+.buybar-total .mo { font-size:0.75rem; color:var(--type-tertiary); }
+.buybar .btn { flex:1; }
+.buy-inline { display:none; }
+.has-buybar { padding-bottom:84px; }
+@media (min-width:768px){ .buybar { display:none; } .buy-inline { display:flex; flex-direction:column; gap:0.75rem; } .has-buybar { padding-bottom:0; } }
+
+/* Segmented control (product-2) */
+.seg { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--gray-40); border-radius:var(--radius-sm); padding:4px; background:var(--gray-10); }
+.seg label { position:relative; text-align:center; padding:0.625rem 0.5rem; border-radius:var(--radius-xs); cursor:pointer; font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.9375rem; color:var(--type-tertiary); }
+.seg input { position:absolute; opacity:0; inset:0; cursor:pointer; }
+.seg label:has(:checked) { background:#fff; color:var(--type-primary); box-shadow:var(--shadow); }
+.seg label:has(:focus-visible) { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+
+/* Bundle cards (product-3) */
+.bundle-grid { display:grid; grid-template-columns:1fr; gap:0.75rem; }
+@media (min-width:990px){ .bundle-grid { grid-template-columns:repeat(3,1fr); align-items:start; } }
+
+/* Configurator running summary (product-5) */
+.cfg-summary { background:var(--ui-core-base); border:1px solid var(--gray-40); border-radius:var(--radius-md); padding:1.25rem; }
+@media (min-width:768px){ .cfg-summary.is-sticky { position:sticky; top:96px; } }
+.cfg-line { display:flex; justify-content:space-between; gap:0.5rem; font-size:0.9375rem; padding:0.375rem 0; }
+.cfg-line .muted { color:var(--type-tertiary); }
+.swatch-row { display:flex; gap:0.5rem; flex-wrap:wrap; }
+.swatch { width:40px; height:40px; border-radius:50%; border:2px solid var(--gray-40); cursor:pointer; position:relative; }
+.swatch input { position:absolute; opacity:0; inset:0; cursor:pointer; }
+.swatch:has(:checked) { border-color:var(--action-secondary-base); box-shadow:0 0 0 2px var(--ui-core-base) inset; }
+.swatch:has(:focus-visible) { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+
+/* ---------- Checkout / Basket ---------- */
+.checkout-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; max-width:1200px; margin:0 auto; }
+@media (min-width:900px){ .checkout-grid { grid-template-columns:3fr 2fr; gap:2.5rem; } .checkout-sidebar { position:sticky; top:96px; align-self:start; } }
+.checkout-main { min-width:0; } .checkout-sidebar { min-width:0; }
+.steps { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:8px; max-width:1200px; margin:0 auto 1rem; }
+.steps__tab { position:relative; display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; min-height:42px; border:none; background:var(--gray-20);
+  font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.8125rem; line-height:1.2; color:var(--type-tertiary); cursor:not-allowed; text-decoration:none; white-space:nowrap;
+  clip-path:polygon(0% 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 0% 100%, 12px 50%); }
+.steps__tab:first-child { clip-path:polygon(0% 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 0% 100%); }
+.steps__tab[aria-selected="true"] { background:var(--action-secondary-base); color:var(--action-secondary-contrast); cursor:pointer; }
+.steps__tab--completed { background:var(--ui-highlight-base); color:var(--action-secondary-base); cursor:pointer; }
+.summary-product { display:grid; grid-template-columns:56px 1fr auto; gap:12px; align-items:start; margin-bottom:8px; }
+.summary-product__image { width:56px; height:56px; border-radius:var(--radius-xs); background:var(--gray-10); display:flex; align-items:center; justify-content:center; }
+.summary-product__details { display:flex; flex-direction:column; gap:2px; min-width:0; }
+.summary-product__name { font-family:'Inter',sans-serif; font-weight:400; font-size:0.875rem; line-height:1.4; color:var(--type-primary); }
+.summary-product__price { font-family:'Inter',sans-serif; font-weight:700; font-size:0.875rem; color:var(--type-primary); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
+.summary-product__qty { font-family:'Inter',sans-serif; font-size:0.75rem; color:var(--type-tertiary); line-height:1.625; }
+.summary-lines { display:flex; flex-direction:column; gap:8px; padding-top:16px; border-top:1px solid var(--gray-30); }
+.summary-line { display:flex; justify-content:space-between; align-items:baseline; font-family:'Inter',sans-serif; font-size:0.875rem; line-height:1.625; color:var(--type-secondary); }
+.summary-line__value { font-variant-numeric:tabular-nums; font-weight:400; text-align:right; }
+.summary-line--total { padding-top:12px; border-top:1px solid var(--gray-30); }
+.summary-line--total .summary-line__label, .summary-line--total .summary-line__value { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.25rem; line-height:1.25; color:var(--type-primary); }
+.basket-item { display:flex; gap:1rem; }
+.basket-item__img { width:88px; height:88px; flex-shrink:0; border-radius:var(--radius-sm); background:var(--gray-10); display:flex; align-items:center; justify-content:center; }
+.line-row { display:flex; justify-content:space-between; gap:0.5rem; font-size:0.9375rem; }
+
+/* Bottom sheet */
+.bottom-sheet-scrim { position:fixed; inset:0; background:rgba(1,22,48,0.5); z-index:100; display:none; }
+.bottom-sheet-scrim.is-open { display:block; }
+.bottom-sheet { position:fixed; bottom:0; left:0; right:0; background:var(--ui-core-base); border-radius:var(--radius-md) var(--radius-md) 0 0; padding:2rem 1.5rem; z-index:101; transform:translateY(100%); max-height:85vh; overflow-y:auto; pointer-events:none; }
+.bottom-sheet.is-open { transform:translateY(0); pointer-events:auto; }
+@media (prefers-reduced-motion:no-preference){ .bottom-sheet { transition:transform 250ms cubic-bezier(0.22,1,0.36,1); } }
+@media (min-width:900px){ .bottom-sheet { max-width:480px; top:50%; bottom:auto; left:50%; transform:translate(-50%,calc(-50% + 24px)); opacity:0; border-radius:var(--radius-md); max-height:calc(100vh - 48px); }
+  .bottom-sheet.is-open { transform:translate(-50%,-50%); opacity:1; } }
+.sheet-close { position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; font-size:1.25rem; color:var(--type-tertiary); padding:0.25rem; border-radius:var(--radius-sm); }
+.sheet-close:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+
+/* Order complete */
+.oc-wrap { max-width:640px; margin:0 auto; padding:0 1rem 4rem; }
+.oc-hero { text-align:center; padding:2.5rem 1rem 1.5rem; }
+.oc-check { width:72px; height:72px; border-radius:50%; background:var(--ui-success-base); border:2px solid var(--ui-success-accent); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-size:2rem; color:var(--action-primary-base); }
+.oc-orderbadge { display:inline-flex; align-items:center; gap:0.5rem; background:var(--gray-10); border:1px solid var(--gray-40); border-radius:var(--radius-2xl); padding:0.375rem 1rem; font-size:0.875rem; color:var(--type-tertiary); margin-top:0.625rem; }
+.oc-step { display:flex; gap:1rem; padding:0.875rem 0; border-bottom:1px solid var(--gray-30); }
+.oc-step:last-child { border-bottom:none; }
+.oc-step-num { width:28px; height:28px; border-radius:50%; flex-shrink:0; background:var(--type-primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; }
+
+/* Index / prototype hub */
+.idx-grid { display:grid; grid-template-columns:1fr; gap:1rem; }
+@media (min-width:768px){ .idx-grid { grid-template-columns:repeat(2,1fr); } }
+@media (min-width:990px){ .idx-grid { grid-template-columns:repeat(3,1fr); } }
+.idx-card { display:flex; flex-direction:column; gap:0.5rem; background:#fff; border:1px solid var(--gray-40); border-radius:var(--radius-md); padding:1.25rem; text-decoration:none; transition:border-color 150ms, box-shadow 150ms; }
+.idx-card:hover { border-color:var(--action-secondary-base); box-shadow:var(--shadow-md); }
+.idx-card:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+.idx-num { font-family:'SmileyFace',Georgia,serif; font-weight:700; color:var(--action-secondary-base); font-size:0.875rem; }
+.flow-rail { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; }
+.flow-rail .ico { color:var(--gray-60); }
+.flow-pill { display:inline-flex; align-items:center; gap:0.375rem; background:#fff; border:1px solid var(--gray-40); border-radius:var(--radius-2xl); padding:0.375rem 0.875rem; font-size:0.8125rem; text-decoration:none; color:var(--type-secondary); }
+.flow-pill:hover { border-color:var(--action-secondary-base); color:var(--action-secondary-base); }
+
+/* ============================================================
+   Switch24 product page
+   ============================================================ */
+.s24-logo { height:26px; width:auto; display:block; color:var(--switch-purple); }
+
+/* Secondary in-page tab nav */
+.s24-subnav { display:flex; gap:1.25rem; overflow-x:auto; border-bottom:1px solid var(--gray-40); padding:0 0.25rem; }
+.s24-subnav a { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; color:var(--type-primary);
+  text-decoration:none; white-space:nowrap; padding:0.875rem 0; border-bottom:3px solid transparent; margin-bottom:-1px; }
+.s24-subnav a.is-active { border-bottom-color:var(--action-secondary-base); }
+.s24-subnav a:hover { border-bottom-color:var(--gray-40); }
+
+/* Gallery */
+.s24-gallery { position:relative; }
+.s24-gallery-main { position:relative; aspect-ratio:1; background:var(--ui-core-base); border:1px solid var(--gray-30);
+  border-radius:var(--radius-md); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.s24-gallery-main img { width:100%; height:100%; object-fit:contain; }
+.s24-gallery-main.is-placeholder { background: var(--gray-30); }
+.s24-gallery-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:40px; height:40px; border-radius:50%;
+  background:var(--ui-core-base); border:1px solid var(--gray-40); box-shadow:var(--shadow); color:var(--action-secondary-base);
+  display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.25rem; }
+.s24-gallery-arrow:hover { background:var(--gray-10); }
+.s24-gallery-arrow:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+.s24-gallery-arrow.prev { left:0.5rem; } .s24-gallery-arrow.next { right:0.5rem; }
+.s24-counter { position:absolute; bottom:0.5rem; left:50%; transform:translateX(-50%); background:rgba(1,31,68,0.75); color:#fff;
+  font-size:0.75rem; padding:0.125rem 0.625rem; border-radius:var(--radius-2xl); }
+.s24-thumbs { display:flex; gap:0.5rem; margin-top:0.75rem; overflow-x:auto; padding-bottom:0.25rem; }
+.s24-thumb { flex:0 0 auto; width:56px; height:56px; border:1px solid var(--gray-40); border-radius:var(--radius-sm); overflow:hidden;
+  background:var(--ui-core-base); cursor:pointer; padding:0; }
+.s24-thumb img { width:100%; height:100%; object-fit:contain; }
+.s24-thumb.is-active { border-color:var(--action-secondary-base); border-width:2px; }
+.s24-thumb:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+
+/* Colour swatches */
+.s24-swatches { display:flex; gap:0.75rem; flex-wrap:wrap; }
+.s24-swatch { position:relative; display:flex; flex-direction:column; align-items:center; gap:0.25rem; cursor:pointer; }
+.s24-swatch .dot { width:44px; height:44px; border-radius:50%; border:2px solid var(--gray-40); }
+.s24-swatch input { position:absolute; opacity:0; inset:0; cursor:pointer; }
+.s24-swatch .px { font-size:0.6875rem; color:var(--type-tertiary); }
+.s24-swatch:has(:checked) .dot { border-color:var(--action-secondary-base); box-shadow:0 0 0 2px var(--ui-core-base) inset; }
+.s24-swatch:has(:focus-visible) .dot { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+
+/* Payment option selector cards */
+.s24-options { display:flex; flex-direction:column; gap:0.75rem; }
+.s24-option { border:2px solid var(--gray-40); border-radius:var(--radius-md); background:var(--ui-core-base); overflow:hidden; cursor:pointer; }
+.s24-option--switch.is-selected { border-color:var(--switch-purple); }
+.s24-option--full.is-selected { border-color:var(--action-secondary-base); }
+.s24-option-head { display:flex; align-items:center; gap:0.5rem; padding:0.75rem; flex-wrap:wrap; }
+.s24-option-head .t-title-sm { flex:0 0 auto; white-space:nowrap; }
+.s24-providers { gap:1rem; }
+@media (min-width:545px){
+  .s24-option-head { gap:0.75rem; padding:1rem; flex-wrap:nowrap; }
+  .s24-providers { gap:0.5rem; }
+}
+.s24-radio { appearance:none; -webkit-appearance:none; width:24px; height:24px; flex-shrink:0; border:2px solid var(--gray-50);
+  border-radius:50%; cursor:pointer; background:var(--ui-core-base); transition:border-color 150ms,box-shadow 150ms; }
+.s24-radio:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+.s24-option--switch .s24-radio:checked { border-color:var(--switch-purple); box-shadow:inset 0 0 0 5px var(--switch-purple); }
+.s24-option--full .s24-radio:checked { border-color:var(--action-secondary-base); box-shadow:inset 0 0 0 5px var(--action-secondary-base); }
+.s24-head-meta { margin-left:auto; font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.75rem; color:var(--type-primary); text-align:right; }
+.s24-body { padding:0 1rem 1rem; display:flex; flex-direction:column; gap:0.75rem; }
+.s24-panel-content { max-height:0; overflow:hidden; transition:max-height 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+.s24-option.is-selected .s24-panel-content { max-height:800px; }
+
+/* Member price pods */
+.s24-pods { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; }
+.s24-pod { border:1px solid var(--gray-40); border-radius:var(--radius-sm); padding:0.75rem; display:flex; flex-direction:column; gap:0.25rem; }
+.s24-pod-label { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.75rem; color:var(--switch-purple); }
+.s24-pod-price { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.25rem; color:var(--type-primary); line-height:1.1; }
+.s24-pod-price .u { font-family:'SmileyFace',Georgia,serif; font-weight:400; font-size:0.75rem; }
+.s24-pod-note { font-size:0.75rem; line-height:1.45; color:var(--type-secondary); }
+.s24-pod-note a { color:var(--action-secondary-base); font-weight:700; text-decoration:none; }
+.s24-pod-note a:hover { text-decoration:underline; }
+.s24-upfront { border:1px solid var(--gray-40); border-radius:var(--radius-sm); padding:0.625rem 0.875rem; font-size:0.8125rem; color:var(--type-primary); }
+.s24-upfront b { font-family:'SmileyFace',Georgia,serif; color:var(--switch-purple); }
+
+/* Payment breakdown expander */
+.s24-breakdown-toggle { display:flex; align-items:center; gap:0.375rem; width:100%; background:none; border:none; cursor:pointer;
+  padding:0.25rem 0; font-family:'Inter',sans-serif; font-weight:700; font-size:0.75rem; color:var(--action-secondary-base); }
+.s24-breakdown-toggle .ico { transition:transform 200ms; margin-left:auto; }
+.s24-breakdown-toggle[aria-expanded="true"] .ico { transform:rotate(180deg); }
+.s24-breakdown-toggle:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; border-radius:var(--radius-xs); }
+.s24-breakdown[hidden] { display:none; }
+.s24-breakdown { display:flex; flex-direction:column; }
+.s24-bd-rows { padding:0.5rem 0; }
+.s24-bd-row { display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; padding:0.3125rem 0; }
+.s24-bd-row .lbl { font-size:0.75rem; }
+.s24-bd-row .lbl strong { font-weight:600; color:var(--type-primary); display:block; }
+.s24-bd-row .lbl .sub { color:var(--type-secondary); font-weight:400; }
+.s24-bd-row .val { font-family:'SmileyFace',Georgia,serif; font-weight:400; font-size:0.875rem; color:var(--type-primary); white-space:nowrap; }
+.s24-bd-row.total .lbl strong { font-weight:700; color:var(--type-secondary); }
+.s24-bd-row.total .val { font-weight:700; }
+.s24-bd-memberrow { display:flex; align-items:center; gap:0.5rem; padding-bottom:0.5rem; }
+.s24-bd-memberrow .ask { flex:1; font-size:0.75rem; color:var(--type-primary); }
+.s24-bd-memberrow .ask a { display:block; color:var(--palette-ice); font-weight:700; text-decoration:none; }
+.member-toggle { display:flex; gap:0.5rem; }
+.member-toggle label { position:relative; min-width:54px; text-align:center; padding:0.625rem 0.75rem; border:1px solid var(--gray-50);
+  border-radius:var(--radius-sm); cursor:pointer; font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; color:var(--type-primary); }
+.member-toggle input { position:absolute; opacity:0; inset:0; cursor:pointer; }
+.member-toggle label:has(:checked) { background:var(--ui-highlight-base); border-color:var(--action-secondary-base); }
+.member-toggle label:has(:focus-visible) { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+.s24-after { background:var(--gray-10); border-radius:var(--radius-sm); padding:1rem; margin-top:0.25rem; display:flex; flex-direction:column; gap:0.875rem; }
+.s24-after h3 { margin:0; }
+.s24-after p { margin:0; font-size:0.8125rem; line-height:1.5; color:var(--type-secondary); }
+.s24-after .lede { font-family:'Inter',sans-serif; font-weight:700; font-size:0.875rem; color:var(--type-primary); margin-bottom:0.25rem; }
+.s24-after a { color:var(--action-secondary-base); font-weight:700; text-decoration:none; }
+.s24-after a:hover { text-decoration:underline; }
+
+/* Pay in full price pods */
+.s24-fullpods { display:flex; gap:0.5rem; }
+.s24-fullpod { flex:1; border-radius:var(--radius-sm); padding:0.625rem 0.75rem; }
+.s24-fullpod.nonmember { border:1px solid var(--gray-30); background:var(--ui-core-base); }
+.s24-fullpod.member { background:#ecfeef; }
+.s24-fullpod .h { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.75rem; color:var(--type-primary); margin:0 0 0.25rem 0; line-height:1; }
+.s24-fullpod.member .h { color:var(--brand-primary-dark); }
+.s24-fullpod .big { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.25rem; color:var(--type-secondary); display:inline-flex; align-items:baseline; gap:0.375rem; margin:0; line-height:1; }
+.s24-fullpod.member .big { color:var(--brand-primary-dark); }
+.s24-fullpod .save { font-family:'Inter',sans-serif; font-weight:700; font-size:0.75rem; color:#cf1a30; margin:0; line-height:1; }
+.s24-fullpod .sub { font-size:0.75rem; color:var(--type-primary); font-weight:600; margin:0.25rem 0 0 0; line-height:1.2; }
+/* Pay in full panel extras */
+.s24-full-promo { display:flex; align-items:center; gap:0.5rem; background:var(--ui-success-base); border:1px solid var(--ui-success-accent); border-radius:var(--radius-sm); padding:0.625rem 0.875rem; }
+.s24-full-promo-star { width:20px; height:20px; color:var(--ui-warning-accent); flex-shrink:0; }
+.s24-full-promo-text { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; color:var(--brand-primary-dark); }
+.s24-full-membership { margin:0; }
+.s24-full-benefits { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.375rem; }
+.s24-full-benefits li { display:flex; align-items:flex-start; gap:0.5rem; font-size:0.875rem; color:var(--type-secondary); }
+.s24-full-benefits .ico { color:var(--action-primary-base); font-size:1rem; flex-shrink:0; margin-top:1px; }
+.s24-full-logos { display:flex; align-items:center; gap:0.75rem; justify-content:center; padding-top:0.25rem; }
+.s24-full-logos .pay-logo { height:16px; width:auto; }
+
+.s24-providers { display:flex; align-items:center; gap:0.5rem; flex-wrap:nowrap; white-space:nowrap; margin-left:auto; }
+.s24-providers .pay-logo { display:block; flex:0 0 auto; height:14px; width:auto; }
+.s24-aofinance { background:var(--palette-steam); color:var(--type-primary); font-family:'SmileyFace',Georgia,serif; font-weight:700;
+  font-size:0.625rem; padding:0.1875rem 0.4375rem; border-radius:4px; flex:0 0 auto; white-space:nowrap; }
+.s24-finance-info { font-size:0.6875rem; line-height:1.5; color:var(--type-tertiary); }
+.s24-finance-info strong { color:var(--type-secondary); }
+
+/* === Loading Overlay === */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease-out;
+}
+
+.loading-overlay.is-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.loading-overlay[hidden] {
+  display: none;
+}
+
+.loading-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* === AO Spinner === */
+.ao-spinner {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  animation: spinner-entrance 200ms ease-out both;
+}
+
+.ao-spinner-ring {
+  position: absolute;
+  inset: 0;
+  border: 4px solid transparent;
+  border-top-color: var(--brand-primary-base);
+  border-radius: 50%;
+  animation: spinner-rotate 1.2s linear infinite;
+}
+
+.ao-spinner-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ao-spinner-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes spinner-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinner-entrance {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* === Page Entrance Animation === */
+@keyframes page-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-content {
+  animation: page-entrance 300ms ease-out both;
+}
+
+.site-header,
+.checkout-header {
+  opacity: 1;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .ao-spinner {
+    animation: none;
+  }
+  .ao-spinner-ring {
+    animation: none;
+    border-color: var(--brand-primary-base);
+    border-top-color: transparent;
+  }
+  .page-content {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .s24-panel-content {
+    transition: none;
+  }
+  .s24-breakdown-toggle .ico {
+    transition: none;
+  }
+}
+
+
+</style>
+</head>
+<body class="has-buybar">
+<!-- Shared inline SVG sprite (defined once, reused via <use>). Switch24 logo + payment marks. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="ic-switch24" viewBox="0 0 132 34">
+      <text x="0" y="26" font-size="25" font-weight="700" fill="#8023bd" style="font-family:'SmileyFace','Trebuchet MS',Verdana,sans-serif">Switch</text>
+      <rect x="86" y="5" width="42" height="24" rx="8" fill="#8023bd"/>
+      <text x="107" y="23" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" style="font-family:'SmileyFace','Trebuchet MS',Verdana,sans-serif">24</text>
+    </symbol>
+    <symbol id="ic-visa" viewBox="0 0 48 16">
+      <text x="24" y="13" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-style="italic" font-size="14" letter-spacing="1.2" fill="#1434cb">VISA</text>
+    </symbol>
+    <symbol id="ic-mastercard" viewBox="0 0 38 22">
+      <circle cx="15" cy="11" r="10" fill="#eb001b"/>
+      <circle cx="23" cy="11" r="10" fill="#f79e1b" fill-opacity="0.85"/>
+    </symbol>
+    <symbol id="ic-maestro" viewBox="0 0 38 22">
+      <circle cx="15" cy="11" r="10" fill="#0099df"/>
+      <circle cx="23" cy="11" r="10" fill="#ed0006" fill-opacity="0.82"/>
+    </symbol>
+    <symbol id="ic-amex" viewBox="0 0 40 24">
+      <rect width="40" height="24" rx="3" fill="#1f72cd"/>
+      <text x="20" y="15.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="7.5" letter-spacing="0.3" fill="#ffffff">AMEX</text>
+    </symbol>
+    <symbol id="ic-paypal" viewBox="0 0 58 16">
+      <text x="0" y="13" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-style="italic" font-size="14" fill="#003087">Pay</text>
+      <text x="28" y="13" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-style="italic" font-size="14" fill="#009cde">Pal</text>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===== Core Site Header ===== -->
+<header data-aods="nav">
+  <nav class="nav-mobile">
+    <a href="homepage.html" class="nav-logo" aria-label="AO Home"><i class="ico ico-ao-logo" aria-hidden="true"></i></a>
+    <button class="nav-icon" aria-label="Menu"><i class="ico ico-menu nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Menu</span></button>
+    <div class="nav-mobile-spacer"></div>
+    <a href="#" class="nav-icon"><i class="ico ico-account nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Sign In</span></a>
+    <a href="basket.html" class="nav-icon nav-icon--badge" data-count="1" aria-label="Basket, 1 item"><i class="ico ico-basket nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Basket</span></a>
+  </nav>
+  <div class="nav-search--mobile">
+    <label class="visually-hidden" for="m-search">Search products, brands or advice</label>
+    <input class="nav-search-input" id="m-search" type="search" placeholder="Search phones, brands or advice">
+    <button class="nav-search-btn" aria-label="Search"><i class="ico ico-search" aria-hidden="true"></i></button>
+  </div>
+  <div class="nav-desktop">
+    <div class="nav-desktop-top">
+      <a href="homepage.html" class="nav-logo" aria-label="AO Home"><i class="ico ico-ao-logo" aria-hidden="true"></i></a>
+      <div class="nav-search">
+        <label class="visually-hidden" for="d-search">Search products, brands or advice</label>
+        <input class="nav-search-input" id="d-search" type="search" placeholder="Search phones, brands or advice">
+        <button class="nav-search-btn"><i class="ico ico-search" aria-hidden="true"></i> Let's Go!</button>
+      </div>
+      <div class="nav-desktop-icons">
+        <a href="#" class="nav-icon"><i class="ico ico-track-your-order nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Track Order</span></a>
+        <a href="#" class="nav-icon"><i class="ico ico-account nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Sign In</span></a>
+        <a href="basket.html" class="nav-icon nav-icon--badge" data-count="1" aria-label="Basket, 1 item"><i class="ico ico-basket nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Basket</span></a>
+      </div>
+    </div>
+    <nav class="nav-categories">
+      <a href="#">Appliances</a><a href="#">TV &amp; Audio</a><a href="#">Computing &amp; Gaming</a>
+      <a href="homepage.html" class="is-current">Mobile Phones</a><a href="#">Smart Tech</a><a href="#">Floorcare</a>
+      <a href="#" class="nav-categories-deals">Deals</a><a href="#" class="nav-categories-help">Help &amp; Advice</a>
+    </nav>
+  </div>
+  <div class="nav-accent"></div>
+  <div class="nav-proposition">
+    <span class="nav-proposition-item"><i class="ico ico-next-day-delivery" aria-hidden="true"></i> Free next-day delivery, 7 days a week</span>
+    <span class="nav-proposition-item"><i class="ico ico-tag" aria-hidden="true"></i> Big-network SIM plans from £8/month</span>
+    <span class="nav-proposition-item"><i class="ico ico-recycling" aria-hidden="true"></i> Trade in and save up to £400</span>
+    <span class="nav-proposition-item"><i class="ico ico-finance-gbp" aria-hidden="true"></i> Spread the cost with AO Finance</span>
+    <span class="nav-proposition-item"><i class="ico ico-price-match-gbp" aria-hidden="true"></i> Price Match Guarantee</span>
+  </div>
+</header>
+
+<main class="page page-content">
+
+  <nav aria-label="Breadcrumb" data-aods="breadcrumb" style="margin-bottom:1rem;">
+    <ol class="crumb">
+      <li><a href="homepage.html">Home</a><span class="crumb-sep" aria-hidden="true">&rsaquo;</span></li>
+      <li><a href="homepage.html">Mobile Phones</a><span class="crumb-sep" aria-hidden="true">&rsaquo;</span></li>
+      <li><span aria-current="page">Apple iPhone 17</span></li>
+    </ol>
+  </nav>
+
+  <p class="t-caption" style="margin-bottom:1rem;"><strong style="color:var(--switch-purple);">Switch24 product page</strong> · iPhone only &nbsp;<a href="index.html" class="t-link-sm">back to prototype</a></p>
+
+  <!-- In-page subnav -->
+  <nav class="s24-subnav" aria-label="Product sections" style="margin-bottom:1.25rem;">
+    <a href="#product-info" class="is-active">Overview</a>
+    <a href="#specification">Specs</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+
+  <div class="pdp-grid">
+      <div class="pdp-media" id="gallery">
+        <div class="s24-gallery">
+          <div class="s24-gallery-main">
+            <button class="s24-gallery-arrow prev" aria-label="Previous image" onclick="galleryStep(-1)"><i class="ico ico-chevron-left" aria-hidden="true"></i></button>
+            <img id="gallery-main-img" src="assets/iPhone_17_Black_01.webp" alt="Apple iPhone 17 128GB in Black, front and back">
+            <button class="s24-gallery-arrow next" aria-label="Next image" onclick="galleryStep(1)"><i class="ico ico-chevron-right" aria-hidden="true"></i></button>
+            <span class="s24-counter" id="gallery-counter">1 / 5</span>
+          </div>
+          <div class="notice notice-warning" style="margin: 1rem 0;">
+            <i class="ico ico-warning notice-icon" aria-hidden="true"></i>
+            <div class="notice-content">
+              <span class="notice-title">Delivery update</span>
+              <span class="notice-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus.</span>
+            </div>
+          </div>
+          <div class="s24-thumbs" role="group" aria-label="Product images">
+            <button class="s24-thumb is-active" onclick="gallerySet(0)" aria-label="Image 1"><img src="assets/iPhone_17_Black_01.webp" alt=""></button>
+            <button class="s24-thumb" onclick="gallerySet(1)" aria-label="Image 2"><div style="width:100%;height:100%;background:var(--gray-30);"></div></button>
+            <button class="s24-thumb" onclick="gallerySet(2)" aria-label="Image 3"><div style="width:100%;height:100%;background:var(--gray-30);"></div></button>
+            <button class="s24-thumb" onclick="gallerySet(3)" aria-label="Image 4"><div style="width:100%;height:100%;background:var(--gray-30);"></div></button>
+            <button class="s24-thumb" onclick="gallerySet(4)" aria-label="Image 5"><div style="width:100%;height:100%;background:var(--gray-30);"></div></button>
+          </div>
+        </div>
+      </div>
+      <div class="pdp-detail">
+        <span class="tag tag-success" data-aods="tag" style="align-self:flex-start;"><i class="ico ico-tick" aria-hidden="true"></i> Available</span>
+        <h1 class="t-display">Apple iPhone 17 128GB in Black</h1>
+        <div class="pdp-rating">
+          <i class="ico ico-star" aria-hidden="true"></i><i class="ico ico-star" aria-hidden="true"></i><i class="ico ico-star" aria-hidden="true"></i><i class="ico ico-star" aria-hidden="true"></i><i class="ico ico-star" aria-hidden="true"></i>
+          <span class="count t-body-sm"><strong style="color:var(--type-secondary);">5/5</strong>&nbsp;<a href="#reviews" class="t-link-sm">Read 5 customer reviews</a></span>
+        </div>
+        <div class="section-block">
+          <p class="opt-label" id="colour-label">Colour <span class="t-body-sm t-secondary" id="colour-value">Black</span></p>
+          <fieldset class="s24-swatches" aria-labelledby="colour-label" style="border:0; padding:0; margin:0;">
+            <legend class="visually-hidden">Choose colour</legend>
+            <label class="s24-swatch"><span class="dot" style="background:var(--gray-100);"></span><span class="px">£799</span><input type="radio" name="colour" value="Black" checked aria-label="Black"></label>
+            <label class="s24-swatch"><span class="dot" style="background:var(--ui-light-base);"></span><span class="px">£799</span><input type="radio" name="colour" value="White" aria-label="White"></label>
+            <label class="s24-swatch"><span class="dot" style="background:var(--palette-simmer);"></span><span class="px">£799</span><input type="radio" name="colour" value="Pink" aria-label="Pink"></label>
+            <label class="s24-swatch"><span class="dot" style="background:var(--brand-primary-light);"></span><span class="px">£799</span><input type="radio" name="colour" value="Teal" aria-label="Teal"></label>
+            <label class="s24-swatch"><span class="dot" style="background:var(--palette-ice);"></span><span class="px">£799</span><input type="radio" name="colour" value="Ultramarine" aria-label="Ultramarine"></label>
+          </fieldset>
+        </div>
+        <div class="section-block">
+          <p class="t-title" style="margin-bottom:0.25rem;">Payment</p>
+          <div class="s24-options" role="radiogroup" aria-label="Choose how to pay">
+            <div class="s24-option s24-option--switch is-selected" id="opt-switch">
+              <div class="s24-option-head">
+                <input class="s24-radio" type="radio" name="payopt" value="switch" checked aria-label="Pay with Switch24, 0% interest for 24 months">
+                <svg class="s24-logo" viewBox="0 0 132 34" role="img" aria-label="Switch24"><use href="#ic-switch24"/></svg>
+                <span class="s24-head-meta">0% Interest for 24 months</span>
+              </div>
+              <div class="s24-body"><div class="s24-panel-content">
+                <div class="s24-pods">
+                  <div class="s24-pod"><span class="s24-pod-label">Already a member?</span><span class="s24-pod-price">£17.00 <span class="u">per month</span></span><span class="s24-pod-note"><a href="#">Sign in now</a> to unlock the member price</span></div>
+                  <div class="s24-pod"><span class="s24-pod-label">Joining AO membership</span><span class="s24-pod-price">£18.67 <span class="u">per month</span></span><span class="s24-pod-note">£17.00 phone + £1.67 membership fee</span></div>
+                </div>
+                <div class="s24-upfront"><b>£39.95</b> Upfront payment</div>
+                <button class="btn btn-primary btn-full" data-aods="button" data-loading-target="basket.html"><i class="ico ico-basket" aria-hidden="true"></i> Add to basket</button>
+              </div></div>
+            </div>
+            <div class="s24-option s24-option--full" id="opt-full">
+              <div class="s24-option-head">
+                <input class="s24-radio" type="radio" name="payopt" value="full" aria-label="Pay in full">
+                <span class="t-title-sm">Pay in full</span>
+                <span class="s24-providers" style="margin-left:auto;">
+                  <svg class="pay-logo" viewBox="0 0 48 16" role="img" aria-label="Visa"><use href="#ic-visa"/></svg>
+                  <svg class="pay-logo" viewBox="0 0 38 22" role="img" aria-label="Mastercard"><use href="#ic-mastercard"/></svg>
+                  <svg class="pay-logo" viewBox="0 0 40 24" role="img" aria-label="American Express"><use href="#ic-amex"/></svg>
+                  <svg class="pay-logo" viewBox="0 0 58 16" role="img" aria-label="PayPal"><use href="#ic-paypal"/></svg>
+                </span>
+              </div>
+              <div class="s24-body"><div class="s24-panel-content"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="s24-finance-info" id="info">
+          <p style="margin:0 0 0.5rem;"><strong>0% interest for 24 months</strong> with Switch24 on AO Finance.</p>
+          <p style="margin:0;">Representative 39.9% APR (variable), 29.9% p.a. purchase rate (variable), £1,200 assumed credit limit.</p>
+        </div>
+      </div>
+    </div>
+
+  <!-- Product Info Section -->
+  <section id="product-info" class="section-block">
+    <h2 class="t-display">About this product</h2>
+    <p class="t-body">The Apple iPhone 17 delivers a leap forward with the A19 chip, enabling faster performance and advanced on-device intelligence. Its 48MP Fusion camera system with a redesigned ultra-wide lens captures stunning detail in any light, while the 6.1-inch Super Retina XDR display offers ProMotion-like smoothness and vibrant colour accuracy. Built with a durable aluminium frame and Ceramic Shield front, it's designed to keep up with your life.</p>
+    <div class="video-placeholder">
+      <div class="video-placeholder-inner">
+        <i class="ico ico-play"></i>
+        <span>Watch the video</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="specification" class="section-block">
+    <h2 class="t-display">Specifications</h2>
+    <table class="spec-table">
+      <tbody>
+        <tr><th>Display</th><td>6.1" Super Retina XDR OLED</td></tr>
+        <tr><th>Processor</th><td>Apple A19 chip</td></tr>
+        <tr><th>Storage</th><td>128GB</td></tr>
+        <tr><th>RAM</th><td>8GB</td></tr>
+        <tr><th>Rear Camera</th><td>48MP Main + 12MP Ultra Wide</td></tr>
+        <tr><th>Front Camera</th><td>12MP TrueDepth</td></tr>
+        <tr><th>Battery</th><td>3,900 mAh</td></tr>
+        <tr><th>Operating System</th><td>iOS 19</td></tr>
+        <tr><th>Connectivity</th><td>5G, Wi-Fi 7, Bluetooth 5.4, NFC</td></tr>
+        <tr><th>Dimensions</th><td>147.8 × 71.6 × 7.4 mm</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="reviews" class="section-block">
+    <h2 class="t-display">Customer Reviews</h2>
+    <div class="reviews-summary">
+      <div class="reviews-summary-stars">
+        <i class="ico ico-star" aria-hidden="true"></i>
+        <i class="ico ico-star" aria-hidden="true"></i>
+        <i class="ico ico-star" aria-hidden="true"></i>
+        <i class="ico ico-star" aria-hidden="true"></i>
+        <i class="ico ico-star-half" aria-hidden="true"></i>
+      </div>
+      <span class="reviews-summary-text">4.7 out of 5 (128 reviews)</span>
+    </div>
+    <div class="reviews-list">
+      <article class="review-card card">
+        <div class="review-stars">
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+        </div>
+        <p class="review-meta"><strong>Sarah T.</strong> · 3 June 2025</p>
+        <p class="review-body">The camera on the iPhone 17 is a genuine step up. Night mode photos are crisp and the ultra-wide lens captures far more detail than my old phone. Battery easily lasts a full day even with heavy use. Absolutely delighted with it.</p>
+      </article>
+      <article class="review-card card">
+        <div class="review-stars">
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+        </div>
+        <p class="review-meta"><strong>James M.</strong> · 28 May 2025</p>
+        <p class="review-body">Switched from Android and the transition was seamless. The A19 chip makes everything feel instant — apps open in a blink and multitasking is effortless. The build quality is excellent too, feels premium without being bulky.</p>
+      </article>
+      <article class="review-card card">
+        <div class="review-stars">
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star-empty" aria-hidden="true"></i>
+        </div>
+        <p class="review-meta"><strong>Priya K.</strong> · 15 May 2025</p>
+        <p class="review-body">Really solid phone overall. Performance is fantastic and the display is gorgeous for watching videos. Only reason for 4 stars is I wish they'd included a faster charger in the box. The phone itself is brilliant though.</p>
+      </article>
+      <article class="review-card card">
+        <div class="review-stars">
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+          <i class="ico ico-star" aria-hidden="true"></i>
+        </div>
+        <p class="review-meta"><strong>David R.</strong> · 8 May 2025</p>
+        <p class="review-body">Battery life is the biggest improvement for me. I'm getting through a full day of work calls, streaming, and browsing with 20% to spare. The camera picks up incredible detail in portraits and the Ceramic Shield gives me peace of mind.</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- Sticky buy bar -->
+<div class="buybar" role="region" aria-label="Add to basket">
+  <div class="buybar-total">
+    <span class="up" id="bar-upfront">From £17.00</span>
+    <span class="mo" id="bar-monthly">£39.95 Upfront</span>
+  </div>
+  <button class="btn btn-primary" data-aods="button" data-loading-target="basket.html">Add to basket</button>
+</div>
+
+<script>
+  /* Gallery */
+  var galleryImgs = [
+    'assets/iPhone_17_Black_01.webp',
+    null, null, null, null
+  ];
+  var galleryIdx = 0;
+  function gallerySet(i){
+    galleryIdx = (i + galleryImgs.length) % galleryImgs.length;
+    var img = document.getElementById('gallery-main-img');
+    var src = galleryImgs[galleryIdx];
+    if (src) {
+      img.src = src;
+      img.style.display = '';
+      img.parentElement.classList.remove('is-placeholder');
+    } else {
+      img.style.display = 'none';
+      img.parentElement.classList.add('is-placeholder');
+    }
+    document.getElementById('gallery-counter').textContent = (galleryIdx + 1) + ' / ' + galleryImgs.length;
+    document.querySelectorAll('.s24-thumb').forEach(function(t, n) {
+      t.classList.toggle('is-active', n === galleryIdx);
+    });
+  }
+  function galleryStep(d){ gallerySet(galleryIdx + d); }
+
+  /* Colour */
+  document.querySelectorAll('input[name="colour"]').forEach(function(el){
+    el.addEventListener('change', function(){ document.getElementById('colour-value').textContent = el.value; });
+  });
+
+  /* Payment option selection */
+  var currentPayopt = document.querySelector('input[name="payopt"]:checked').value;
+
+  function selectOption(newValue){
+    // No-op if the selected option is already active
+    if (newValue === currentPayopt) return;
+    currentPayopt = newValue;
+
+    // Remove is-selected from all option containers, then add to the active one
+    document.querySelectorAll('.s24-option').forEach(function(el){
+      el.classList.remove('is-selected');
+    });
+    var activeOption = document.querySelector('input[name="payopt"]:checked');
+    if (activeOption) {
+      activeOption.closest('.s24-option').classList.add('is-selected');
+    }
+
+    // Update sticky buy bar pricing
+    var up = document.getElementById('bar-upfront'), mo = document.getElementById('bar-monthly');
+    if (newValue === 'switch'){ up.textContent = 'From £17.00'; mo.textContent = '£39.95 Upfront'; }
+    else { up.textContent = '£799'; mo.textContent = 'AO member price'; }
+  }
+
+  /* Listen for radio change events on payment option radios */
+  document.querySelectorAll('input[name="payopt"]').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      selectOption(this.value);
+    });
+  });
+
+  /* Full-card clickable (except links) */
+  document.querySelectorAll('.s24-option').forEach(function(card){
+    card.addEventListener('click', function(e){
+      if (e.target.closest('a')) return; // Don't select if clicking a link
+      var radio = card.querySelector('input[type="radio"]');
+      if (radio && !radio.checked) {
+        radio.checked = true;
+        selectOption(radio.value);
+      }
+    });
+  });
+
+  /* Payment breakdown expander */
+  function toggleBreakdown(){
+    var t = document.getElementById('bd-toggle'), p = document.getElementById('bd-panel');
+    var open = t.getAttribute('aria-expanded') === 'true';
+    t.setAttribute('aria-expanded', String(!open));
+    p.hidden = open;
+  }
+
+  /* Member Yes/No drives the breakdown figures */
+  function updateBreakdown(){
+    var member = document.querySelector('input[name="member"]:checked').value === 'yes';
+    document.getElementById('bd-instalment').textContent = member ? '£17.00' : '£18.67';
+    document.getElementById('bd-feerow').hidden = member;
+    document.getElementById('bd-total').textContent = member ? '£799.00' : '£838.99';
+  }
+
+  function addToBasket(){ window.location.href = 'basket.html'; }
+
+  /* Smooth scroll for subnav links with offset compensation */
+  document.querySelectorAll('.s24-subnav a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+      var headerHeight = document.querySelector('[data-aods="nav"]').offsetHeight;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+</script>
+
+<!-- ===== Footer ===== -->
+<footer class="footer" data-aods="footer">
+  <div class="footer-links">
+    <div class="footer-col"><a href="#">Contact us</a><a href="#">Help &amp; advice</a><a href="#">About us</a><a href="#">Privacy</a><a href="#">Cookies</a></div>
+    <div class="footer-col"><a href="#">Our services</a><a href="#">Track your order</a><a href="#">My account</a><a href="#">AO Care</a></div>
+  </div>
+  <div class="footer-secondary">
+    <div class="footer-col"><a href="#">Terms &amp; Conditions</a><a href="#">Careers</a><a href="#">AO Life</a></div>
+    <div class="footer-col"><a href="#">Modern Slavery Statement</a><a href="#">Affiliates</a><a href="#">Partners</a></div>
+  </div>
+  <div class="footer-legal">
+    <p>ao.com is operated by AO Retail Limited, registered in England with company number 03914998 whose registered office is at 5a, The Parklands, Lostock, Bolton, BL6 4SD.</p>
+    <p>The goods you buy from this site will be purchased from AO Retail Limited.</p>
+    <p>Credit is provided by NewDay Ltd. AO Retail Limited acts as a credit broker for NewDay Ltd on an exclusive basis and is not a lender. Subject to status. Terms apply.</p>
+  </div>
+</footer>
+
+
+<div class="bottom-sheet-scrim" id="s24-scrim" onclick="closeSheet()"></div>
+<div class="bottom-sheet" id="s24-sheet" style="max-width: 1100px; padding: 0;">
+  <button class="sheet-close" onclick="closeSheet()" style="position:absolute; top:1rem; right:1rem; z-index:10; background:var(--gray-20); border:none; width:40px; height:40px; border-radius:50%; font-size:1.5rem; cursor:pointer; display:flex; align-items:center; justify-content:center;">&times;</button>
+  <div style="overflow-y: auto; max-height: 100%; padding: 1rem;">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
+  <!-- Left Column -->
+  <div style="flex: 1;">
+    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+      <span style="border: 1px solid var(--action-secondary-base); color: var(--action-secondary-base); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">New</span>
+      <span style="border: 1px solid var(--action-primary-base); color: var(--action-primary-base); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">✓ In stock</span>
+    </div>
+    <h1 class="t-display-lg" style="margin-bottom: 0.5rem;">Build your iPhone 15 deal</h1>
+    <div style="color: #fca311; font-size: 1rem; margin-bottom: 2rem;">★★★★★ <span class="t-body-sm t-secondary" style="color: var(--gray-70);">4.8 (2,914)</span></div>
+    
+    <!-- Storage -->
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+        <h3 class="t-title">1. Storage</h3>
+        <span class="t-body-sm t-secondary">128GB</span>
+      </div>
+      <div style="display: flex; gap: 1rem;">
+        <label class="toggle-item" style="flex: 1; align-items: center; border-color: var(--action-secondary-base); box-shadow: 0 0 0 1px var(--action-secondary-base);">
+          <input type="radio" name="ref-storage" checked>
+          <div class="toggle-item-body" style="text-align: center;">
+            <span class="t-title">128GB</span>
+            <span class="t-body-sm t-secondary">£799</span>
+          </div>
+        </label>
+        <label class="toggle-item" style="flex: 1; align-items: center;">
+          <input type="radio" name="ref-storage">
+          <div class="toggle-item-body" style="text-align: center;">
+            <span class="t-title">256GB</span>
+            <span class="t-body-sm t-secondary">£899</span>
+          </div>
+        </label>
+        <label class="toggle-item" style="flex: 1; align-items: center;">
+          <input type="radio" name="ref-storage">
+          <div class="toggle-item-body" style="text-align: center;">
+            <span class="t-title">512GB</span>
+            <span class="t-body-sm t-secondary">£1,099</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Colour -->
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+        <h3 class="t-title">2. Colour</h3>
+        <span class="t-body-sm t-secondary">Blue</span>
+      </div>
+      <div style="display: flex; gap: 1rem;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #c1ccf0; border: 2px solid var(--action-secondary-base); box-shadow: 0 0 0 2px white inset;"></div>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #fce1d6;"></div>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #fae4be;"></div>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #c4f5c9;"></div>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #2f343b;"></div>
+      </div>
+    </div>
+
+    <!-- Data plan -->
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+        <h3 class="t-title">3. Data plan</h3>
+        <span class="t-body-sm t-secondary">30-day rolling</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <!-- No plan -->
+        <label class="toggle-item" style="padding: 1.5rem; align-items: center;">
+          <input type="radio" name="ref-data">
+          <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="t-title">No plan</span>
+              <div class="t-body-sm t-secondary">Keep your current SIM and number.</div>
+            </div>
+            <span class="t-title-lg">£0</span>
+          </div>
+        </label>
+        <!-- 5GB -->
+        <label class="toggle-item" style="padding: 1.5rem; align-items: center;">
+          <input type="radio" name="ref-data">
+          <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="t-title">5GB</span>
+              <div class="t-body-sm t-secondary">Light browsing, email and maps.</div>
+            </div>
+            <span class="t-title-lg">£8<span class="t-body-sm t-secondary">/month</span></span>
+          </div>
+        </label>
+        <!-- 25GB (Selected & Recommended) -->
+        <div style="position: relative;">
+          <div style="position: absolute; top: -10px; left: 1.5rem; background: var(--action-secondary-base); color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; z-index: 1;">Recommended</div>
+          <label class="toggle-item" style="padding: 1.5rem; padding-top: 2rem; border-color: var(--action-secondary-base); box-shadow: 0 0 0 1px var(--action-secondary-base); align-items: flex-start;">
+            <input type="radio" name="ref-data" checked>
+            <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <span class="t-title">25GB</span>
+                <div class="t-body t-secondary" style="margin-top: 0.5rem; color: var(--type-secondary);">Streaming, social and everyday browsing.</div>
+                <div class="t-body-sm t-secondary" style="margin-top: 1rem;">
+                  <div style="margin-bottom: 0.25rem;"><span style="color: var(--action-secondary-base); font-weight: bold; margin-right: 0.25rem;">✓</span>UK 5G coverage</div>
+                  <div><span style="color: var(--action-secondary-base); font-weight: bold; margin-right: 0.25rem;">✓</span>EU roaming in 40+ countries</div>
+                </div>
+              </div>
+              <span class="t-title-lg">£12<span class="t-body-sm t-secondary">/month</span></span>
+            </div>
+          </label>
+        </div>
+        <!-- Unlimited -->
+        <label class="toggle-item" style="padding: 1.5rem; align-items: center; background: var(--gray-10);">
+          <input type="radio" name="ref-data">
+          <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="t-title">Unlimited</span>
+              <div class="t-body-sm t-secondary">Stream and tether with no cap.</div>
+            </div>
+            <span class="t-title-lg">£20<span class="t-body-sm t-secondary">/month</span></span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Trade in -->
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+        <h3 class="t-title">4. Trade in</h3>
+        <span class="t-body-sm t-secondary">Optional</span>
+      </div>
+      <label class="toggle-item" style="padding: 1.5rem; align-items: center;">
+        <input type="checkbox" name="ref-tradein">
+        <div class="toggle-item-body">
+          <span class="t-title">Trade in my current phone</span>
+          <div class="t-body-sm t-secondary">Knock the value straight off today's price.</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Right Column -->
+  <div style="flex: 1 1 380px; min-width: 320px; position: sticky; top: 2rem;">
+    <div style="border: 1px solid var(--gray-40); border-radius: var(--radius-md); padding: 2rem; background: white; box-shadow: var(--shadow-md);">
+      <h3 class="t-title-lg" style="margin-bottom: 1.5rem;">Your deal</h3>
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span class="t-body t-secondary">Handset (128GB, Blue)</span>
+        <span class="t-body">£799</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+        <span class="t-body t-secondary">Trade-in credit</span>
+        <span class="t-body" style="color: var(--action-primary-base);">-£0</span>
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="t-title">Pay today</span>
+        <span class="t-title-lg">£799</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <span class="t-body t-secondary">Then each month</span>
+        <span class="t-title">£20.00</span>
+      </div>
+      
+      <button class="btn btn-primary btn-lg btn-full" style="margin-bottom: 1rem; font-size: 1.125rem;">Add to basket</button>
+      
+      <div style="background: var(--ui-success-base); padding: 1.25rem; border-radius: var(--radius-sm); display: flex; gap: 0.75rem; align-items: flex-start;">
+        <svg width="24" height="24" fill="var(--action-primary-base)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <div>
+          <div class="t-title-sm" style="color: var(--brand-primary-dark); margin-bottom: 0.25rem;">Free next-day delivery</div>
+          <div class="t-caption" style="color: var(--brand-primary-dark); font-size: 0.8125rem;">Order before midnight today.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<script>
+function openSheet(e) {
+  if(e) e.preventDefault();
+  document.getElementById('s24-scrim').classList.add('is-open');
+  document.getElementById('s24-sheet').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet() {
+  document.getElementById('s24-scrim').classList.remove('is-open');
+  document.getElementById('s24-sheet').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const btns = document.querySelectorAll('button[data-loading-target="basket.html"], .buybar .btn-primary');
+  btns.forEach(btn => {
+    btn.removeAttribute('data-loading-target');
+    btn.addEventListener('click', openSheet);
+  });
+});
+</script>
+
+</body> -->
+<div class="loading-overlay" id="loadingOverlay"
+     role="status"
+     aria-live="polite"
+     aria-label="Loading, please wait"
+     tabindex="-1"
+     hidden>
+  <header data-aods="nav">
+    <nav class="nav-mobile">
+      <a href="homepage.html" class="nav-logo" aria-label="AO Home"><i class="ico ico-ao-logo" aria-hidden="true"></i></a>
+      <button class="nav-icon" aria-label="Menu"><i class="ico ico-menu nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Menu</span></button>
+      <div class="nav-mobile-spacer"></div>
+      <a href="#" class="nav-icon"><i class="ico ico-account nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Sign In</span></a>
+      <a href="basket.html" class="nav-icon nav-icon--badge" data-count="1" aria-label="Basket, 1 item"><i class="ico ico-basket nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Basket</span></a>
+    </nav>
+    <div class="nav-search--mobile">
+      <label class="visually-hidden" for="m-search-overlay">Search products, brands or advice</label>
+      <input class="nav-search-input" id="m-search-overlay" type="search" placeholder="Search phones, brands or advice">
+      <button class="nav-search-btn" aria-label="Search"><i class="ico ico-search" aria-hidden="true"></i></button>
+    </div>
+    <div class="nav-desktop">
+      <div class="nav-desktop-top">
+        <a href="homepage.html" class="nav-logo" aria-label="AO Home"><i class="ico ico-ao-logo" aria-hidden="true"></i></a>
+        <div class="nav-search">
+          <label class="visually-hidden" for="d-search-overlay">Search products, brands or advice</label>
+          <input class="nav-search-input" id="d-search-overlay" type="search" placeholder="Search phones, brands or advice">
+          <button class="nav-search-btn"><i class="ico ico-search" aria-hidden="true"></i> Let's Go!</button>
+        </div>
+        <div class="nav-desktop-icons">
+          <a href="#" class="nav-icon"><i class="ico ico-track-your-order nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Track Order</span></a>
+          <a href="#" class="nav-icon"><i class="ico ico-account nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Sign In</span></a>
+          <a href="basket.html" class="nav-icon nav-icon--badge" data-count="1" aria-label="Basket, 1 item"><i class="ico ico-basket nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Basket</span></a>
+        </div>
+      </div>
+      <nav class="nav-categories">
+        <a href="#">Appliances</a><a href="#">TV &amp; Audio</a><a href="#">Computing &amp; Gaming</a>
+        <a href="homepage.html" class="is-current">Mobile Phones</a><a href="#">Smart Tech</a><a href="#">Floorcare</a>
+        <a href="#" class="nav-categories-deals">Deals</a><a href="#" class="nav-categories-help">Help &amp; Advice</a>
+      </nav>
+    </div>
+    <div class="nav-accent"></div>
+    <div class="nav-proposition">
+      <span class="nav-proposition-item"><i class="ico ico-next-day-delivery" aria-hidden="true"></i> Free next-day delivery, 7 days a week</span>
+      <span class="nav-proposition-item"><i class="ico ico-tag" aria-hidden="true"></i> Big-network SIM plans from £8/month</span>
+      <span class="nav-proposition-item"><i class="ico ico-recycling" aria-hidden="true"></i> Trade in and save up to £400</span>
+      <span class="nav-proposition-item"><i class="ico ico-finance-gbp" aria-hidden="true"></i> Spread the cost with AO Finance</span>
+      <span class="nav-proposition-item"><i class="ico ico-price-match-gbp" aria-hidden="true"></i> Price Match Guarantee</span>
+    </div>
+  </header>
+  <div class="loading-content">
+    <div class="ao-spinner" aria-hidden="true">
+      <div class="ao-spinner-ring"></div>
+      <div class="ao-spinner-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <circle cx="16" cy="16" r="15" stroke="#12c35a" stroke-width="2"/>
+          <circle cx="11" cy="13" r="2" fill="#12c35a"/>
+          <circle cx="21" cy="13" r="2" fill="#12c35a"/>
+          <path d="M10 20c1.5 3 3.5 4 6 4s4.5-1 6-4" stroke="#12c35a" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* === Loading Transition Controller === */
+(function() {
+  'use strict';
+
+  var DISPLAY_DURATION = 1000; // ms visible spinner time
+  var FADE_DURATION = 150;     // ms fade-out
+  var state = 'idle';          // idle | loading | fading | navigating
+
+  var overlay = document.getElementById('loadingOverlay');
+  var triggers = document.querySelectorAll('[data-loading-target]');
+
+  function startTransition(destinationUrl) {
+    if (state !== 'idle') return; // double-click guard
+    state = 'loading';
+
+    // Show overlay
+    overlay.removeAttribute('hidden');
+    // Force reflow before adding class (ensures transition plays)
+    void overlay.offsetHeight;
+    overlay.classList.add('is-active');
+    overlay.focus();
+
+    // Disable all trigger CTAs
+    triggers.forEach(function(el) {
+      el.style.pointerEvents = 'none';
+    });
+
+    // After display duration, begin fade-out
+    setTimeout(function() {
+      state = 'fading';
+      overlay.classList.remove('is-active');
+
+      // After fade completes, navigate
+      setTimeout(function() {
+        state = 'navigating';
+        window.location = destinationUrl;
+      }, FADE_DURATION);
+    }, DISPLAY_DURATION);
+  }
+
+  // Bind click handlers
+  triggers.forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = el.getAttribute('data-loading-target');
+      if (target) startTransition(target);
+    });
+  });
+
+  // Focus trap: keep focus inside overlay while active
+  overlay.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault(); // trap all tab navigation
+    }
+  });
+})();
+</script>
+
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+
+<div id="configurator-sheet" class="configurator-sheet" aria-hidden="true">
+  <div class="configurator-sheet-overlay" onclick="closeSheet()"></div>
+  <div class="configurator-sheet-content">
+    <div class="configurator-sheet-header">
+      <h2 class="t-title-lg">Add a mobile plan</h2>
+      <button class="btn-icon" aria-label="Close" onclick="closeSheet()" style="background:transparent; border:none; cursor:pointer;"><i class="ico ico-close" aria-hidden="true" style="font-size: 1.5rem;"></i></button>
+    </div>
+    <div class="configurator-sheet-body">
+      <p class="t-body" style="margin-bottom: 1.5rem;">Since you're getting a new phone, want to add an AO Mobile SIM? It's a 30-day rolling contract you can cancel anytime.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem;">
+        <!-- Single plan option -->
+        <label class="toggle-item" style="padding: 1.5rem; border-color: var(--action-secondary-base); box-shadow: 0 0 0 1px var(--action-secondary-base); align-items: flex-start;">
+          <input type="radio" name="mobile-plan" checked>
+          <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span class="t-title">100GB <span style="background: var(--action-secondary-base); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 8px;">Recommended</span></span>
+              <div class="t-body t-secondary" style="margin-top: 0.5rem;">Streaming, social and everyday browsing.</div>
+              <ul class="t-body-sm t-secondary" style="margin-top: 1rem; padding-left: 0; list-style: none;">
+                <li style="margin-bottom: 0.25rem;"><span style="color: var(--action-secondary-base); font-weight: bold; margin-right: 0.25rem;">✓</span>UK 5G coverage</li>
+                <li><span style="color: var(--action-secondary-base); font-weight: bold; margin-right: 0.25rem;">✓</span>EU roaming in 40+ countries</li>
+              </ul>
+            </div>
+            <span class="t-title-lg">£15<span class="t-body-sm t-secondary">/month</span></span>
+          </div>
+        </label>
+        
+        <!-- No plan option -->
+        <label class="toggle-item" style="padding: 1.5rem; align-items: center;">
+          <input type="radio" name="mobile-plan">
+          <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="t-title">No plan</span>
+              <div class="t-body-sm t-secondary">Keep your current SIM and number.</div>
+            </div>
+            <span class="t-title-lg">£0</span>
+          </div>
+        </label>
+      </div>
+
+      <button class="btn btn-primary btn-lg btn-full" onclick="location.href='basket.html'">Continue to basket</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openSheet(e) {
+  if(e) e.preventDefault();
+  document.getElementById('configurator-sheet').setAttribute('aria-hidden', 'false');
+}
+function closeSheet() {
+  document.getElementById('configurator-sheet').setAttribute('aria-hidden', 'true');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Override the Add to Basket buttons to open the bottom sheet instead of navigating
+  const btns = document.querySelectorAll('button[data-loading-target="basket.html"]');
+  btns.forEach(btn => {
+    btn.removeAttribute('data-loading-target');
+    btn.addEventListener('click', openSheet);
+  });
+});
+</script>
+
+
+<div class="bottom-sheet-scrim" id="s24-scrim" onclick="closeSheet()"></div>
+<div class="bottom-sheet" id="s24-sheet" style="max-width: 1100px; padding: 0;">
+  <button class="sheet-close" onclick="closeSheet()" style="position:absolute; top:1rem; right:1rem; z-index:10; background:var(--gray-20); border:none; width:40px; height:40px; border-radius:50%; font-size:1.5rem; cursor:pointer; display:flex; align-items:center; justify-content:center;">&times;</button>
+  <div style="overflow-y: auto; max-height: 100%; padding: 1rem;">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
+  <!-- Left Column -->
+  <div style="flex: 1;">
+    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+      <span style="border: 1px solid var(--action-secondary-base); color: var(--action-secondary-base); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">New</span>
+      <span style="border: 1px solid var(--action-primary-base); color: var(--action-primary-base); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">✓ In stock</span>
+    </div>
+    <h1 class="t-display-lg" style="margin-bottom: 0.5rem;">Build your iPhone 15 deal</h1>
+    <div style="color: #fca311; font-size: 1rem; margin-bottom: 2rem;">★★★★★ <span class="t-body-sm t-secondary" style="color: var(--gray-70);">4.8 (2,914)</span></div>
+    
+    <!-- Storage -->
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+        <h3 class="t-title">1. Storage</h3>
+        <span class="t-body-sm t-secondary">128GB</span>
+      </div>
+      <div style="display: flex; gap: 1rem;">
+        <label class="toggle-item" style="flex: 1; align-items: center; border-color: var(--action-secondary-base); box-shadow: 0 0 0 1px var(--action-secondary-base);">
+          <input type="radio" name="ref-storage" checked>
+          <div class="toggle-item-body" style="text-align: center;">
+            <span class="t-title">128GB</span>
+            <span class="t-body-sm t-secondary">£799</span>
+          </div>
+        </label>
+        <label class="toggle-item" style="flex: 1; align-items: center;">
+          <input type="radio" name="ref-storage">
+          <div class="toggle-item-body" style="text-align: center;">
+            <span class="t-title">256GB</span>
+            <span class="t-body-sm t-secondary">£899</span>
+          </div>
+        </label>
+        <label class="toggle-item" style="flex: 1; align-items: center;">
+          <input type="radio" name="ref-storage">
+          <div class="toggle-item-body" style="text-align: center;">
+            <span class="t-title">512GB</span>
+            <span class="t-body-sm t-secondary">£1,099</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Colour -->
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+        <h3 class="t-title">2. Colour</h3>
+        <span class="t-body-sm t-secondary">Blue</span>
+      </div>
+      <div style="display: flex; gap: 1rem;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #c1ccf0; border: 2px solid var(--action-secondary-base); box-shadow: 0 0 0 2px white inset;"></div>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #fce1d6;"></div>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #fae4be;"></div>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #c4f5c9;"></div>
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #2f343b;"></div>
+      </div>
+    </div>
+
+    <!-- Data plan -->
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+        <h3 class="t-title">3. Data plan</h3>
+        <span class="t-body-sm t-secondary">30-day rolling</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <!-- No plan -->
+        <label class="toggle-item" style="padding: 1.5rem; align-items: center;">
+          <input type="radio" name="ref-data">
+          <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="t-title">No plan</span>
+              <div class="t-body-sm t-secondary">Keep your current SIM and number.</div>
+            </div>
+            <span class="t-title-lg">£0</span>
+          </div>
+        </label>
+        <!-- 5GB -->
+        <label class="toggle-item" style="padding: 1.5rem; align-items: center;">
+          <input type="radio" name="ref-data">
+          <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="t-title">5GB</span>
+              <div class="t-body-sm t-secondary">Light browsing, email and maps.</div>
+            </div>
+            <span class="t-title-lg">£8<span class="t-body-sm t-secondary">/month</span></span>
+          </div>
+        </label>
+        <!-- 25GB (Selected & Recommended) -->
+        <div style="position: relative;">
+          <div style="position: absolute; top: -10px; left: 1.5rem; background: var(--action-secondary-base); color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; z-index: 1;">Recommended</div>
+          <label class="toggle-item" style="padding: 1.5rem; padding-top: 2rem; border-color: var(--action-secondary-base); box-shadow: 0 0 0 1px var(--action-secondary-base); align-items: flex-start;">
+            <input type="radio" name="ref-data" checked>
+            <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <span class="t-title">25GB</span>
+                <div class="t-body t-secondary" style="margin-top: 0.5rem; color: var(--type-secondary);">Streaming, social and everyday browsing.</div>
+                <div class="t-body-sm t-secondary" style="margin-top: 1rem;">
+                  <div style="margin-bottom: 0.25rem;"><span style="color: var(--action-secondary-base); font-weight: bold; margin-right: 0.25rem;">✓</span>UK 5G coverage</div>
+                  <div><span style="color: var(--action-secondary-base); font-weight: bold; margin-right: 0.25rem;">✓</span>EU roaming in 40+ countries</div>
+                </div>
+              </div>
+              <span class="t-title-lg">£12<span class="t-body-sm t-secondary">/month</span></span>
+            </div>
+          </label>
+        </div>
+        <!-- Unlimited -->
+        <label class="toggle-item" style="padding: 1.5rem; align-items: center; background: var(--gray-10);">
+          <input type="radio" name="ref-data">
+          <div class="toggle-item-body" style="flex-direction: row; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="t-title">Unlimited</span>
+              <div class="t-body-sm t-secondary">Stream and tether with no cap.</div>
+            </div>
+            <span class="t-title-lg">£20<span class="t-body-sm t-secondary">/month</span></span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Trade in -->
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+        <h3 class="t-title">4. Trade in</h3>
+        <span class="t-body-sm t-secondary">Optional</span>
+      </div>
+      <label class="toggle-item" style="padding: 1.5rem; align-items: center;">
+        <input type="checkbox" name="ref-tradein">
+        <div class="toggle-item-body">
+          <span class="t-title">Trade in my current phone</span>
+          <div class="t-body-sm t-secondary">Knock the value straight off today's price.</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Right Column -->
+  <div style="flex: 1 1 380px; min-width: 320px; position: sticky; top: 2rem;">
+    <div style="border: 1px solid var(--gray-40); border-radius: var(--radius-md); padding: 2rem; background: white; box-shadow: var(--shadow-md);">
+      <h3 class="t-title-lg" style="margin-bottom: 1.5rem;">Your deal</h3>
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span class="t-body t-secondary">Handset (128GB, Blue)</span>
+        <span class="t-body">£799</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+        <span class="t-body t-secondary">Trade-in credit</span>
+        <span class="t-body" style="color: var(--action-primary-base);">-£0</span>
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="t-title">Pay today</span>
+        <span class="t-title-lg">£799</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <span class="t-body t-secondary">Then each month</span>
+        <span class="t-title">£20.00</span>
+      </div>
+      
+      <button class="btn btn-primary btn-lg btn-full" style="margin-bottom: 1rem; font-size: 1.125rem;">Add to basket</button>
+      
+      <div style="background: var(--ui-success-base); padding: 1.25rem; border-radius: var(--radius-sm); display: flex; gap: 0.75rem; align-items: flex-start;">
+        <svg width="24" height="24" fill="var(--action-primary-base)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <div>
+          <div class="t-title-sm" style="color: var(--brand-primary-dark); margin-bottom: 0.25rem;">Free next-day delivery</div>
+          <div class="t-caption" style="color: var(--brand-primary-dark); font-size: 0.8125rem;">Order before midnight today.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<script>
+function openSheet(e) {
+  if(e) e.preventDefault();
+  document.getElementById('s24-scrim').classList.add('is-open');
+  document.getElementById('s24-sheet').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet() {
+  document.getElementById('s24-scrim').classList.remove('is-open');
+  document.getElementById('s24-sheet').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const btns = document.querySelectorAll('button[data-loading-target="basket.html"], .buybar .btn-primary');
+  btns.forEach(btn => {
+    btn.removeAttribute('data-loading-target');
+    btn.addEventListener('click', openSheet);
+  });
+});
+</script>
+
+</body>
+</html>

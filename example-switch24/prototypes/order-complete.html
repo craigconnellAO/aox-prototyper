@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Complete | AO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://assets.ao.com/design-system/assets/icons/latest/strata-icons.css">
+<style>
+/* ============================================================
+   AO Design System - canonical token + typography + component CSS
+   ============================================================ */
+@font-face { font-family:'SmileyFace-Headline'; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff') format('woff'); }
+@font-face { font-family:'SmileyFace'; font-weight:100; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Light.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Light.woff') format('woff'); }
+@font-face { font-family:'SmileyFace'; font-weight:400; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Regular.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Regular.woff') format('woff'); }
+@font-face { font-family:'SmileyFace'; font-weight:500; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Medium.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Medium.woff') format('woff'); }
+@font-face { font-family:'SmileyFace'; font-weight:700; font-display:swap;
+  src:url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff2') format('woff2'),
+      url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff') format('woff'); }
+
+:root {
+  --gray-10:#f8f9fa; --gray-20:#f0f2f2; --gray-30:#e2e7e8; --gray-40:#d6dddf;
+  --gray-50:#c1c7c9; --gray-60:#abb1b4; --gray-70:#727677; --gray-80:#595d5e;
+  --gray-90:#3f4344; --gray-100:#212121;
+  --brand-primary-base:#12c35a; --brand-primary-light:#befcc8; --brand-primary-dark:#02422b;
+  --type-primary:#011f44; --type-secondary:#212121; --type-tertiary:#595d5e; --shadow-overlay:#011630;
+  --action-primary-base:#00893e; --action-primary-hover:#00560b; --action-primary-focus:#00893e;
+  --action-primary-active:#003d00; --action-primary-contrast:#ffffff; --action-primary-glow:#12c35a;
+  --action-secondary-base:#0564c2; --action-secondary-hover:#00318f; --action-secondary-focus:#0564c2;
+  --action-secondary-active:#001876; --action-secondary-contrast:#ffffff; --action-secondary-glow:#40a1f8;
+  --action-light-base:#ffffff; --action-light-contrast:#011f44; --action-light-glow:#40a1f8;
+  --action-dark-base:#011f44; --action-dark-contrast:#ffffff; --action-dark-glow:#40a1f8;
+  --action-inactive-base:#727677; --action-inactive-contrast:#ffffff;
+  --ui-core-base:#ffffff; --ui-core-contrast:#212121; --ui-core-accent:#d6dddf;
+  --ui-neutral-base:#f0f2f2; --ui-neutral-contrast:#212121; --ui-neutral-accent:#abb1b4;
+  --ui-highlight-base:#edf2ff; --ui-highlight-contrast:#00318f; --ui-highlight-accent:#00318f;
+  --ui-success-base:#f4fce3; --ui-success-contrast:#02422b; --ui-success-accent:#00893e;
+  --ui-warning-base:#fff4e6; --ui-warning-contrast:#ad5a00; --ui-warning-accent:#ff9e36;
+  --ui-error-base:#fff0f6; --ui-error-contrast:#b50016; --ui-error-accent:#b50016;
+  --ui-light-base:#ffffff; --ui-light-contrast:#011f44; --ui-light-accent:#ffffff;
+  --ui-dark-base:#011f44; --ui-dark-contrast:#ffffff; --ui-dark-accent:#011f44;
+  --notice-warning-bg:#ffe3c2; --notice-success-bg:#befcc8; --notice-error-bg:#ffd8d2;
+  --palette-bread:#ffe3c2; --palette-toast:#ffa878; --palette-jam:#422439; --palette-simmer:#ffd8d2;
+  --palette-heat:#f96155; --palette-burn:#60222f; --palette-steam:#c8d1ff; --palette-ice:#4a6dce; --palette-water:#011f44;
+  --radius-xs:4px; --radius-sm:8px; --radius-md:16px; --radius-xl:24px; --radius-2xl:40px;
+  --shadow:0 1px 3px rgba(1,22,48,0.08),0 1px 2px rgba(1,22,48,0.05);
+  --shadow-md:0 4px 8px rgba(1,22,48,0.10),0 2px 4px rgba(1,22,48,0.06);
+  --shadow-lg:0 10px 28px rgba(1,22,48,0.13),0 4px 8px rgba(1,22,48,0.07);
+  --shadow-xl:0 20px 48px rgba(1,22,48,0.18),0 8px 16px rgba(1,22,48,0.10);
+}
+
+*,*::before,*::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; font-family:'Inter',ui-sans-serif,system-ui,sans-serif; color:var(--type-secondary);
+  font-size:1rem; line-height:1.625; background:var(--gray-10); -webkit-font-smoothing:antialiased; }
+
+/* Typography */
+.t-display-headline { font-family:'SmileyFace-Headline',Georgia,serif; font-size:2.5rem; line-height:1.0; color:var(--type-primary); margin:0; }
+.t-display-lg { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:2rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-display { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.5rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-title-lg { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1.25rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-title { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-title-sm { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; line-height:1.25; color:var(--type-primary); margin:0; }
+.t-cta { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1rem; line-height:1.25; }
+.t-body { font-family:'Inter',sans-serif; font-size:1rem; line-height:1.625; margin:0; }
+.t-body-sm { font-family:'Inter',sans-serif; font-size:0.875rem; line-height:1.625; margin:0; }
+.t-caption { font-family:'Inter',sans-serif; font-size:0.75rem; line-height:1.625; color:var(--type-tertiary); margin:0; }
+.t-link { font-family:'Inter',sans-serif; font-weight:700; font-size:1rem; text-decoration:none; color:var(--action-secondary-base); }
+.t-link-sm { font-family:'Inter',sans-serif; font-weight:700; font-size:0.875rem; text-decoration:none; color:var(--action-secondary-base); }
+.t-link:hover,.t-link-sm:hover { text-decoration:underline; }
+.t-secondary { color:var(--type-tertiary); }
+.visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* Button */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.875rem 1.5rem; border-radius:var(--radius-sm);
+  font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:1rem; line-height:1; border:1px solid transparent; cursor:pointer; white-space:nowrap; text-decoration:none;
+  transition:background 150ms,color 150ms,border-color 150ms,box-shadow 150ms,transform 150ms; }
+.btn:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; }
+@media (prefers-reduced-motion:no-preference){ .btn:active:not(:disabled):not(.is-disabled){ transform:translateY(1px); box-shadow:var(--shadow); } }
+.btn-primary { background:var(--action-primary-base); color:var(--action-primary-contrast); border-color:var(--action-primary-base); }
+.btn-primary:hover:not(:disabled):not(.is-disabled){ background:var(--action-primary-hover); border-color:var(--action-primary-hover); }
+.btn-primary:active:not(:disabled):not(.is-disabled){ background:var(--action-primary-active); border-color:var(--action-primary-active); }
+.btn-secondary { background:transparent; color:var(--action-secondary-base); border-color:var(--action-secondary-base); }
+.btn-secondary:hover:not(:disabled):not(.is-disabled){ background:var(--ui-highlight-base); border-color:var(--action-secondary-hover); color:var(--action-secondary-hover); }
+.btn-tertiary { background:transparent; color:var(--type-secondary); border-color:var(--gray-40); }
+.btn-tertiary:hover:not(:disabled):not(.is-disabled){ background:var(--gray-20); border-color:var(--gray-50); }
+.btn-lg { padding:1.125rem 2rem; font-size:1.0625rem; }
+.btn-full { width:100%; }
+
+/* Card */
+.card { background:var(--ui-core-base); border:1px solid var(--gray-40); border-radius:var(--radius-md); padding:1.5rem; }
+.card-raised { box-shadow:var(--shadow-md); }
+.card-success { background:var(--ui-success-base); border-color:var(--ui-success-accent); }
+.card-highlight { background:var(--ui-highlight-base); border-color:var(--ui-highlight-accent); }
+.card-divider { height:1px; background:var(--gray-30); margin:1rem -1.5rem; }
+
+/* Tag */
+.tag { display:inline-flex; align-items:center; gap:0.25rem; padding:0.2rem 0.625rem; border-radius:var(--radius-2xl); font-size:0.75rem; font-weight:500; line-height:1.4; border:1px solid transparent; font-family:'Inter',sans-serif; }
+.tag-success { background:var(--ui-success-base); color:var(--ui-success-contrast); border-color:var(--ui-success-accent); }
+.tag-highlight { background:var(--ui-highlight-base); color:var(--ui-highlight-contrast); border-color:var(--ui-highlight-accent); }
+.tag-neutral { background:var(--ui-neutral-base); color:var(--type-secondary); border-color:var(--gray-40); }
+
+/* Notice */
+.notice { display:flex; gap:0.5rem; align-items:flex-start; padding:0.75rem; border-radius:var(--radius-sm); font-family:'Inter',sans-serif; font-size:0.75rem; line-height:1.625; }
+.notice-icon { flex-shrink:0; width:1.5rem; height:1.5rem; font-size:1.5rem; line-height:1; }
+.notice-content { display:flex; flex-direction:column; align-items:flex-start; flex:1; min-width:0; }
+.notice-title { font-weight:700; color:var(--type-primary); display:block; }
+.notice-body { font-weight:400; color:var(--type-tertiary); display:block; }
+.notice-info { background:var(--ui-highlight-base); } .notice-info .notice-icon { color:var(--action-secondary-base); }
+.notice-success { background:var(--notice-success-bg); } .notice-success .notice-icon { color:var(--action-primary-base); }
+
+/* ---------- Header (all variants) ---------- */
+[data-aods="nav"] { position:sticky; top:0; z-index:20; background:var(--ui-core-base); }
+.nav-mobile { max-width:1200px; margin:0 auto; background:var(--ui-core-base); display:flex; align-items:center; gap:0.75rem; padding:0.75rem 1rem; }
+.nav-mobile-spacer { flex:1; }
+.nav-search--mobile { display:flex; padding:0 1rem 0.75rem; background:#fff; }
+.nav-search--mobile .nav-search-input { flex:1; padding:0 1rem; height:44px; border:1px solid var(--gray-40); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-family:'Inter',sans-serif; font-size:0.875rem; color:var(--type-secondary); outline:none; }
+.nav-search--mobile .nav-search-input::placeholder { color:var(--gray-60); }
+.nav-search--mobile .nav-search-btn { padding:0 1.25rem; height:44px; background:var(--action-primary-base); border:none; border-radius:0 var(--radius-md) var(--radius-md) 0; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.25rem; }
+.nav-desktop { background:#fff; }
+.nav-desktop-top { display:flex; align-items:center; padding:0.75rem 2rem; gap:2rem; }
+.nav-desktop-top .nav-logo .ico { font-size:3.5rem; color:var(--brand-primary-base); }
+.nav-desktop-top .nav-search { flex:1; max-width:520px; margin:0 auto; display:flex; }
+.nav-desktop-top .nav-search-input { flex:1; padding:0 1rem; height:44px; border:1px solid var(--gray-40); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-family:'Inter',sans-serif; font-size:0.875rem; color:var(--type-secondary); outline:none; }
+.nav-desktop-top .nav-search-input::placeholder { color:var(--gray-60); }
+.nav-desktop-top .nav-search-btn { padding:0 1.25rem; height:44px; background:var(--action-primary-base); border:none; border-radius:0 var(--radius-md) var(--radius-md) 0; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.375rem; font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; color:#fff; white-space:nowrap; }
+.nav-desktop-top .nav-search-btn .ico { font-size:1rem; }
+.nav-desktop-icons { display:flex; gap:1.75rem; flex-shrink:0; align-items:flex-start; }
+.nav-icon { position:relative; display:flex; flex-direction:column; align-items:center; text-decoration:none; cursor:pointer; background:none; border:none; gap:0.125rem; }
+.nav-icon:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; border-radius:var(--radius-sm); }
+.nav-icon-img { font-size:1.75rem; color:var(--type-primary); }
+.nav-icon-label { font-family:'Inter',sans-serif; font-size:0.6875rem; font-weight:400; color:var(--type-primary); line-height:1.25; }
+.nav-icon--badge::after { content:attr(data-count); position:absolute; top:-4px; right:-6px; min-width:18px; height:18px; padding:0 4px; border-radius:50%; background:#cf1a30; color:#fff; font-family:'Inter',sans-serif; font-size:0.6875rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+@media (min-width:991px){ .nav-icon-label { font-size:0.8125rem; } }
+.nav-logo { display:flex; align-items:center; text-decoration:none; flex-shrink:0; }
+.nav-logo .ico { font-size:3rem; color:var(--brand-primary-base); }
+.nav-logo:focus-visible { outline:3px solid var(--action-secondary-glow); outline-offset:2px; border-radius:var(--radius-sm); }
+.nav-categories { display:flex; align-items:center; gap:1.75rem; padding:0.625rem 2rem; font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; }
+.nav-categories a { color:var(--type-primary); text-decoration:none; white-space:nowrap; }
+.nav-categories a:hover { text-decoration:underline; }
+.nav-categories a.is-current { color:var(--action-secondary-base); }
+.nav-categories-deals { color:#cf1a30; }
+.nav-categories-help { margin-left:auto; }
+.nav-accent { height:4px; background:var(--brand-primary-base); }
+.nav-proposition { background:var(--gray-10); display:flex; align-items:center; justify-content:space-between; padding:0.75rem 2rem; border-top:1px solid var(--gray-30); }
+.nav-proposition-item { display:inline-flex; align-items:center; gap:0.5rem; font-family:'Inter',sans-serif; font-size:0.875rem; color:var(--type-tertiary); white-space:nowrap; }
+.nav-proposition-item .ico { font-size:1.25rem; color:var(--action-primary-base); }
+@media (max-width:990px){ .nav-desktop { display:none; } .nav-proposition-item:not(:first-child){ display:none; } }
+@media (min-width:991px){ .nav-mobile { display:none; } .nav-search--mobile { display:none; } }
+
+/* ---------- Footer ---------- */
+.footer { width:100%; }
+.footer-links { background:var(--gray-90); display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; padding:1.5rem 1rem; }
+.footer-col { display:flex; flex-direction:column; gap:1.5rem; }
+.footer-links a { font-family:'SmileyFace',Georgia,serif; font-weight:700; font-size:0.875rem; color:#fff; text-decoration:none; }
+.footer-links a:hover { text-decoration:underline; }
+.footer-legal { background:var(--gray-100); padding:1rem; text-align:center; }
+.footer-legal p { font-family:'Inter',sans-serif; font-size:0.75rem; color:var(--gray-50); line-height:1.625; margin:0 0 1rem; }
+.footer-legal p:last-child { margin-bottom:0; }
+@media (min-width:990px){ .footer-links { padding:1rem 8.5rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; } .footer-links .footer-col { flex-direction:row; gap:2rem; } .footer-legal { padding:1rem 9rem 2rem; } }
+
+/* ---------- Page layout ---------- */
+.page { max-width:1200px; margin:0 auto; padding:0.5rem; }
+@media (min-width:544px){ .page { padding:1rem; } }
+@media (min-width:990px){ .page { padding:1.5rem 2rem; } }
+
+/* ---------- Order Complete page-specific ---------- */
+.oc-wrap { max-width:640px; margin:0 auto; padding:0 1rem 4rem; }
+.oc-hero { text-align:center; padding:2.5rem 1rem 1.5rem; }
+.oc-check { width:72px; height:72px; border-radius:50%; background:var(--ui-success-base); border:2px solid var(--ui-success-accent); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-size:2rem; color:var(--action-primary-base); }
+.oc-orderbadge { display:inline-flex; align-items:center; gap:0.5rem; background:var(--gray-10); border:1px solid var(--gray-40); border-radius:var(--radius-2xl); padding:0.375rem 1rem; font-size:0.875rem; color:var(--type-tertiary); margin-top:0.625rem; }
+.oc-step { display:flex; gap:1rem; padding:0.875rem 0; border-bottom:1px solid var(--gray-30); }
+.oc-step:last-child { border-bottom:none; }
+.oc-step-num { width:28px; height:28px; border-radius:50%; flex-shrink:0; background:var(--type-primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; }
+
+/* What happens next section */
+.oc-steps { padding:0 0 2rem; }
+.oc-steps-heading { margin-bottom:1rem; }
+
+/* My Account cards */
+.oc-account { padding:2rem 0; }
+.oc-account-heading { margin-bottom:1.25rem; }
+.oc-account-grid { display:flex; flex-direction:column; gap:1rem; }
+.oc-account-card { display:flex; align-items:flex-start; gap:1rem; }
+.oc-account-icon { width:40px; height:40px; border-radius:var(--radius-sm); background:var(--ui-highlight-base); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1.25rem; color:var(--action-secondary-base); }
+.oc-account-text h3 { margin:0 0 0.25rem; }
+.oc-account-text p { margin:0; color:var(--type-tertiary); }
+
+/* Newsletter signup */
+.oc-newsletter { background:var(--ui-neutral-base); border-radius:var(--radius-md); padding:1.5rem; margin:2rem 0; text-align:center; }
+.oc-newsletter h2 { margin:0 0 0.5rem; }
+.oc-newsletter p { margin:0 0 1rem; color:var(--type-tertiary); }
+.oc-newsletter-form { display:flex; gap:0.5rem; max-width:400px; margin:0 auto; }
+.oc-newsletter-input { flex:1; padding:0.75rem 1rem; border:1px solid var(--gray-40); border-radius:var(--radius-sm); font-family:'Inter',sans-serif; font-size:0.875rem; outline:none; }
+.oc-newsletter-input:focus { border-color:var(--action-secondary-base); }
+
+/* Recommended products */
+.oc-recommended { padding:2rem 0 1rem; }
+.oc-recommended-heading { margin-bottom:1.25rem; }
+.oc-recommended-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.oc-product-card { border:1px solid var(--gray-30); border-radius:var(--radius-md); overflow:hidden; background:#fff; }
+.oc-product-img { width:100%; aspect-ratio:1/1; background:var(--gray-20); display:flex; align-items:center; justify-content:center; color:var(--gray-60); font-size:0.75rem; }
+.oc-product-info { padding:0.75rem; }
+.oc-product-info p { margin:0; }
+.oc-product-name { font-weight:500; font-size:0.8125rem; color:var(--type-primary); }
+.oc-product-price { font-weight:700; font-size:0.875rem; color:var(--type-primary); margin-top:0.25rem; }
+@media (max-width:480px){ .oc-recommended-grid { grid-template-columns:1fr 1fr; } .oc-newsletter-form { flex-direction:column; } }
+
+/* === Page Entrance Animation === */
+@keyframes page-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-content {
+  animation: page-entrance 300ms ease-out both;
+}
+
+.site-header,
+.checkout-header {
+  opacity: 1;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .page-content {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Full AO Site Header ===== -->
+<header data-aods="nav">
+  <nav class="nav-mobile">
+    <a href="product-switch24.html" class="nav-logo" aria-label="AO Home"><i class="ico ico-ao-logo" aria-hidden="true"></i></a>
+    <button class="nav-icon" aria-label="Menu"><i class="ico ico-menu nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Menu</span></button>
+    <div class="nav-mobile-spacer"></div>
+    <a href="#" class="nav-icon"><i class="ico ico-account nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Sign In</span></a>
+    <a href="basket.html" class="nav-icon nav-icon--badge" data-count="1" aria-label="Basket, 1 item"><i class="ico ico-basket nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Basket</span></a>
+  </nav>
+  <div class="nav-search--mobile">
+    <label class="visually-hidden" for="m-search">Search products, brands or advice</label>
+    <input class="nav-search-input" id="m-search" type="search" placeholder="Search phones, brands or advice">
+    <button class="nav-search-btn" aria-label="Search"><i class="ico ico-search" aria-hidden="true"></i></button>
+  </div>
+  <div class="nav-desktop">
+    <div class="nav-desktop-top">
+      <a href="product-switch24.html" class="nav-logo" aria-label="AO Home"><i class="ico ico-ao-logo" aria-hidden="true"></i></a>
+      <div class="nav-search">
+        <label class="visually-hidden" for="d-search">Search products, brands or advice</label>
+        <input class="nav-search-input" id="d-search" type="search" placeholder="Search phones, brands or advice">
+        <button class="nav-search-btn"><i class="ico ico-search" aria-hidden="true"></i> Let's Go!</button>
+      </div>
+      <div class="nav-desktop-icons">
+        <a href="#" class="nav-icon"><i class="ico ico-track-your-order nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Track Order</span></a>
+        <a href="#" class="nav-icon"><i class="ico ico-account nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Sign In</span></a>
+        <a href="basket.html" class="nav-icon nav-icon--badge" data-count="1" aria-label="Basket, 1 item"><i class="ico ico-basket nav-icon-img" aria-hidden="true"></i><span class="nav-icon-label">Basket</span></a>
+      </div>
+    </div>
+    <nav class="nav-categories" aria-label="Main navigation">
+      <a href="#">Appliances</a><a href="#">TV &amp; Audio</a><a href="#">Computing &amp; Gaming</a>
+      <a href="product-switch24.html" class="is-current">Mobile Phones</a><a href="#">Smart Tech</a><a href="#">Floorcare</a>
+      <a href="#" class="nav-categories-deals">Deals</a><a href="#" class="nav-categories-help">Help &amp; Advice</a>
+    </nav>
+  </div>
+  <div class="nav-accent"></div>
+  <div class="nav-proposition">
+    <span class="nav-proposition-item"><i class="ico ico-next-day-delivery" aria-hidden="true"></i> Free next-day delivery, 7 days a week</span>
+    <span class="nav-proposition-item"><i class="ico ico-tag" aria-hidden="true"></i> Big-network SIM plans from &pound;8/month</span>
+    <span class="nav-proposition-item"><i class="ico ico-recycling" aria-hidden="true"></i> Trade in and save up to &pound;400</span>
+    <span class="nav-proposition-item"><i class="ico ico-finance-gbp" aria-hidden="true"></i> Spread the cost with AO Finance</span>
+    <span class="nav-proposition-item"><i class="ico ico-price-match-gbp" aria-hidden="true"></i> Price Match Guarantee</span>
+  </div>
+</header>
+
+<main class="page page-content">
+  <div class="oc-wrap">
+    <!-- 1. Confirmation Banner -->
+    <section class="oc-hero">
+      <div class="oc-check" aria-hidden="true"><i class="ico ico-tick"></i></div>
+      <h1 class="t-display-lg">Order confirmed</h1>
+      <p class="t-body" style="margin-top: 0.5rem; color: var(--type-tertiary);">Thank you for your order, Jane!</p>
+      <div class="oc-orderbadge">Order #AO-2024-8847291</div>
+      <p class="t-body-sm" style="margin-top: 1rem;">Estimated delivery: <strong>Thursday 12 June</strong></p>
+    </section>
+
+    <!-- 2. What happens next -->
+    <section class="oc-steps">
+      <h2 class="t-title-lg oc-steps-heading">What happens next</h2>
+      <div class="oc-step">
+        <span class="oc-step-num">1</span>
+        <p class="t-body-sm">We'll send you an email confirmation with your order details</p>
+      </div>
+      <div class="oc-step">
+        <span class="oc-step-num">2</span>
+        <p class="t-body-sm">Your SIM will arrive with your phone — follow the in-box guide to activate</p>
+      </div>
+      <div class="oc-step">
+        <span class="oc-step-num">3</span>
+        <p class="t-body-sm">Manage your plan, trade-in, and insurance in My Account</p>
+      </div>
+    </section>
+
+    <!-- 3. Available in My Account -->
+    <section class="oc-account">
+      <h2 class="t-title-lg oc-account-heading">Available in My Account</h2>
+      <div class="oc-account-grid">
+        <div class="card oc-account-card">
+          <div class="oc-account-icon"><i class="ico ico-recycling" aria-hidden="true"></i></div>
+          <div class="oc-account-text">
+            <h3 class="t-title-sm">Trade in your old phone</h3>
+            <p class="t-body-sm">Get up to &pound;400 off when you send us your old device</p>
+          </div>
+        </div>
+        <div class="card oc-account-card">
+          <div class="oc-account-icon"><i class="ico ico-mobile-phones" aria-hidden="true"></i></div>
+          <div class="oc-account-text">
+            <h3 class="t-title-sm">Manage your data plan</h3>
+            <p class="t-body-sm">Upgrade, change or cancel your data plan anytime</p>
+          </div>
+        </div>
+        <div class="card oc-account-card">
+          <div class="oc-account-icon"><i class="ico ico-protection" aria-hidden="true"></i></div>
+          <div class="oc-account-text">
+            <h3 class="t-title-sm">Manage your insurance</h3>
+            <p class="t-body-sm">View your cover, make a claim, or update your details</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Newsletter signup -->
+    <section class="oc-newsletter">
+      <h2 class="t-title-lg">Stay in the loop</h2>
+      <p class="t-body-sm">Get the latest deals and offers straight to your inbox</p>
+      <div class="oc-newsletter-form">
+        <label class="visually-hidden" for="newsletter-email">Email address</label>
+        <input class="oc-newsletter-input" id="newsletter-email" type="email" placeholder="Enter your email">
+        <button class="btn btn-primary">Sign up</button>
+      </div>
+    </section>
+
+    <!-- 5. Recommended products -->
+    <section class="oc-recommended">
+      <h2 class="t-title-lg oc-recommended-heading">You might also like</h2>
+      <div class="oc-recommended-grid">
+        <div class="oc-product-card">
+          <div class="oc-product-img">Image</div>
+          <div class="oc-product-info">
+            <p class="oc-product-name">AO Wireless Earbuds</p>
+            <p class="oc-product-price">&pound;49.99</p>
+          </div>
+        </div>
+        <div class="oc-product-card">
+          <div class="oc-product-img">Image</div>
+          <div class="oc-product-info">
+            <p class="oc-product-name">iPhone 16 Clear Case</p>
+            <p class="oc-product-price">&pound;24.99</p>
+          </div>
+        </div>
+        <div class="oc-product-card">
+          <div class="oc-product-img">Image</div>
+          <div class="oc-product-info">
+            <p class="oc-product-name">20W USB-C Fast Charger</p>
+            <p class="oc-product-price">&pound;19.99</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-links">
+    <div class="footer-col">
+      <a href="#">Help &amp; Support</a>
+      <a href="#">Track Your Order</a>
+      <a href="#">Returns &amp; Refunds</a>
+    </div>
+    <div class="footer-col">
+      <a href="#">About AO</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p>AO Retail Limited is registered in England and Wales. Company number 03914998. Registered office: 5A, The Parklands, Lostock, Bolton, BL6 4SD.</p>
+    <p>&copy; AO.com 2024. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

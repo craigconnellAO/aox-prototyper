@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding design.md · AO Design System</title>
+  <link rel="stylesheet" href="https://assets.ao.com/design-system/assets/icons/latest/strata-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    @font-face {
+      font-family: 'SmileyFace-Headline'; font-display: swap;
+      src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff2') format('woff2'),
+           url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff') format('woff');
+    }
+    @font-face { font-family: 'SmileyFace'; font-weight: 700; font-display: swap;
+      src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff2') format('woff2'),
+           url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff') format('woff'); }
+
+    :root {
+      --gray-10: #f8f9fa; --gray-20: #f0f2f2; --gray-30: #e2e7e8;
+      --gray-40: #d6dddf; --gray-50: #c1c7c9; --gray-60: #abb1b4;
+      --gray-70: #727677; --gray-80: #595d5e; --gray-100: #212121;
+      --brand-primary-base: #12c35a; --brand-primary-light: #befcc8; --brand-primary-dark: #02422b;
+      --type-primary: #011f44; --type-secondary: #212121; --type-tertiary: #595d5e;
+      --action-primary-base: #00893e; --action-primary-contrast: #ffffff;
+      --action-secondary-base: #0564c2; --action-secondary-glow: #40a1f8;
+      --ui-core-base: #ffffff;
+      --ui-highlight-base: #edf2ff; --ui-highlight-contrast: #00318f; --ui-highlight-accent: #00318f;
+      --ui-success-base: #f4fce3; --ui-success-contrast: #02422b; --ui-success-accent: #00893e;
+      --ui-warning-base: #fff4e6; --ui-warning-contrast: #ad5a00;
+      --ui-error-base: #fff0f6; --ui-error-contrast: #b50016; --ui-error-accent: #b50016;
+      --notice-success-bg: #befcc8; --notice-error-bg: #ffd8d2;
+      --radius-xs: 4px; --radius-sm: 8px; --radius-md: 16px; --radius-2xl: 40px;
+      --shadow: 0 1px 3px rgba(1,22,48,0.08), 0 1px 2px rgba(1,22,48,0.05);
+      --shadow-md: 0 4px 8px rgba(1,22,48,0.10), 0 2px 4px rgba(1,22,48,0.06);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0; font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      color: var(--type-secondary); font-size: 1rem; line-height: 1.7;
+      -webkit-font-smoothing: antialiased; background: var(--gray-10);
+    }
+
+    .page { max-width: 860px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    @media (min-width: 768px) { .page { padding: 3rem 2rem 5rem; } }
+
+    /* Hero */
+    .hero { background: var(--type-primary); color: #fff; padding: 3.5rem 1rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; right: -3rem; bottom: -4rem; width: 22rem; height: 22rem; border-radius: 50%; background: var(--brand-primary-base); opacity: 0.06; }
+    .hero h1 { font-family: 'SmileyFace-Headline', Georgia, serif; font-size: clamp(1.75rem, 4.5vw, 2.75rem); line-height: 1.1; margin: 0 0 0.75rem; position: relative; }
+    .hero p { color: rgba(255,255,255,0.7); margin: 0; max-width: 54ch; margin-inline: auto; font-size: 1.0625rem; position: relative; }
+    .version-badge { display: inline-block; background: var(--brand-primary-base); color: var(--type-primary); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: var(--radius-2xl); margin-bottom: 1rem; }
+
+    /* TOC */
+    .toc { background: #fff; border: 1px solid var(--gray-40); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2.5rem; }
+    .toc h2 { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1.125rem; color: var(--type-primary); margin: 0 0 0.75rem; }
+    .toc ol { margin: 0; padding-left: 1.25rem; }
+    .toc li { margin-bottom: 0.375rem; }
+    .toc a { color: var(--action-secondary-base); text-decoration: none; font-weight: 600; font-size: 0.9375rem; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Sections */
+    .section { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
+    .section-num { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 0.8125rem; color: var(--brand-primary-base); display: block; margin-bottom: 0.25rem; }
+    .section h2 { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1.5rem; color: var(--type-primary); margin: 0 0 0.5rem; line-height: 1.25; }
+    .section-intro { font-size: 1.0625rem; color: var(--type-tertiary); margin: 0 0 1.25rem; max-width: 65ch; }
+
+    /* Explainer cards */
+    .explainer { background: #fff; border: 1px solid var(--gray-40); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+    .explainer h3 { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1rem; color: var(--type-primary); margin: 0 0 0.5rem; }
+    .explainer p { margin: 0 0 0.5rem; color: var(--type-secondary); font-size: 0.9375rem; }
+    .explainer p:last-child { margin-bottom: 0; }
+    .analogy { background: var(--ui-highlight-base); border-radius: var(--radius-sm); padding: 0.625rem 0.875rem; font-size: 0.875rem; color: var(--ui-highlight-contrast); margin-top: 0.75rem; }
+
+    /* Example boxes */
+    .example-box { background: var(--gray-20); border: 1px solid var(--gray-30); border-radius: var(--radius-sm); padding: 1.25rem; margin-top: 1rem; }
+    .example-box-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--type-tertiary); margin: 0 0 0.75rem; }
+
+    /* Accordion (view source) */
+    .source-accordion { margin-top: 1rem; border: 1px solid var(--gray-40); border-radius: var(--radius-sm); overflow: hidden; }
+    .source-toggle {
+      display: flex; align-items: center; justify-content: space-between; width: 100%;
+      padding: 0.75rem 1rem; background: var(--gray-20); border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; color: var(--type-tertiary);
+      text-align: left; transition: background 150ms;
+    }
+    .source-toggle:hover { background: var(--gray-30); }
+    .source-toggle:focus-visible { outline: 3px solid var(--action-secondary-glow); outline-offset: -3px; }
+    .source-chevron { transition: transform 200ms; font-size: 1rem; }
+    .source-toggle[aria-expanded="true"] .source-chevron { transform: rotate(180deg); }
+    .source-body { padding: 1rem; background: #fff; display: none; }
+    .source-body.is-open { display: block; }
+    .source-body pre { margin: 0; font-size: 0.75rem; line-height: 1.6; overflow-x: auto; white-space: pre-wrap; word-break: break-word; color: var(--type-secondary); }
+
+    /* Inline demo elements */
+    .demo-swatches { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .demo-swatch { width: 3rem; height: 3rem; border-radius: var(--radius-sm); border: 1px solid var(--gray-30); }
+    .demo-swatch span { display: block; font-size: 0.625rem; text-align: center; margin-top: 0.25rem; color: var(--type-tertiary); }
+    .demo-type-row { margin-bottom: 0.5rem; }
+    .demo-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.5rem; border-radius: var(--radius-sm); font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1rem; line-height: 1; border: 1px solid transparent; cursor: pointer; white-space: nowrap; text-decoration: none; }
+    .demo-btn-primary { background: var(--action-primary-base); color: var(--action-primary-contrast); }
+    .demo-btn-secondary { background: transparent; color: var(--action-secondary-base); border-color: var(--action-secondary-base); }
+
+    .divider { height: 1px; background: var(--gray-30); margin: 2.5rem 0; }
+    .guide-footer { text-align: center; color: var(--type-tertiary); font-size: 0.8125rem; padding-top: 2rem; border-top: 1px solid var(--gray-30); }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <span class="version-badge">v3.0</span>
+    <h1>Understanding design.md</h1>
+    <p>A plain-language guide to what's inside the AO design system reference file, what each section does, and why it matters.</p>
+  </div>
+
+  <div class="page">
+
+    <nav class="toc">
+      <h2>What's in this guide</h2>
+      <ol>
+        <li><a href="#what-is-it">What is design.md?</a></li>
+        <li><a href="#about">The intro &amp; rules section</a></li>
+        <li><a href="#tokens">Tokens — colours &amp; spacing</a></li>
+        <li><a href="#typography">Typography — fonts &amp; text sizes</a></li>
+        <li><a href="#icons">Icons — pictograms &amp; symbols</a></li>
+        <li><a href="#components">Components — building blocks</a></li>
+        <li><a href="#patterns">Patterns — full page recipes</a></li>
+        <li><a href="#anti-patterns">Anti-patterns — the guardrails</a></li>
+      </ol>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: WHAT IS IT -->
+    <!-- ============================================================ -->
+    <section class="section" id="what-is-it">
+      <span class="section-num">01</span>
+      <h2>What is design.md?</h2>
+      <p class="section-intro">A single text file (~3,400 lines) that contains every rule, colour, font, icon, and component definition from the AO design system — written so AI tools can read it and produce on-brand prototypes automatically.</p>
+      <div class="explainer">
+        <h3>Think of it as a recipe book</h3>
+        <p>Just like a recipe book tells a chef which ingredients to use and how to combine them, design.md tells an AI tool exactly what colours, fonts, spacing, and components make something "look like AO."</p>
+        <p>Without it, the AI guesses — and guesses wrong. With it, every output is consistent and on-brand from the first prompt.</p>
+      </div>
+      <div class="explainer">
+        <h3>What it isn't</h3>
+        <p>It's not a component library you install. It's not code that runs on ao.com. It's not a replacement for Strata. It's a reference document — a cheat sheet that removes guesswork from AI-generated prototypes.</p>
+      </div>
+      <div class="explainer">
+        <h3>How you use it</h3>
+        <p>Attach the file to your AI session (Claude, ChatGPT, Figma Make, Cursor, Kiro). Then prompt normally. The AI cross-references the file for every decision — colours, fonts, spacing, components — and runs a quality checklist before showing you the result.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: ABOUT / RULES -->
+    <!-- ============================================================ -->
+    <section class="section" id="about">
+      <span class="section-num">02</span>
+      <h2>The intro &amp; rules section</h2>
+      <p class="section-intro">The opening of design.md sets the ground rules for what every AI output should look like. Three parts: format rules, a starter template, and a quality checklist.</p>
+      <div class="explainer">
+        <h3>Output Format Rules</h3>
+        <p>These tell the AI: "every prototype must be a single HTML file, must work on mobile first, must load our icon font, and must not call external services." Keeps outputs simple, self-contained, and safe to share.</p>
+      </div>
+      <div class="explainer">
+        <h3>Quick-Start Boilerplate</h3>
+        <p>A template skeleton the AI copies as its starting point — like a blank form with the right letterhead already printed.</p>
+      </div>
+      <div class="explainer">
+        <h3>Pre-flight Checklist</h3>
+        <p>A final quality check the AI runs before showing you the result. Verifies things like "are all colours using tokens?" and "are icons done properly?"</p>
+        <div class="analogy">Like a pilot's pre-flight checklist — the AI checks every critical item before takeoff.</div>
+      </div>
+
+      <div class="example-box">
+        <p class="example-box-label">Example: Pre-flight checklist items</p>
+        <ul style="font-size:0.875rem;margin:0;padding-left:1.25rem;color:var(--type-secondary);">
+          <li>Does the &lt;head&gt; include the Strata icons stylesheet?</li>
+          <li>Are all colours using var(--token-name), never raw #hex?</li>
+          <li>Do all icons use &lt;i class="ico ico-{name}"&gt;, not emoji?</li>
+          <li>Does every component carry its data-aods attribute?</li>
+          <li>Is the layout mobile-first?</li>
+        </ul>
+      </div>
+
+      <div class="source-accordion">
+        <button class="source-toggle" aria-expanded="false" onclick="toggleSource(this)">
+          <span>View the actual markdown for this section</span>
+          <i class="ico ico-chevron-down source-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="source-body">
+<pre>### Output Format Rules
+
+Every generated prototype must follow these rules:
+
+- **Single self-contained HTML file** with an inline &lt;style&gt; block
+- **Mobile-first layout** with breakpoints: sm: 544px, md: 768px, lg: 990px, xl: 1200px
+- **Strata icons stylesheet** must be included in &lt;head&gt;
+- **&lt;script&gt; is permitted** for lightweight prototype interactions only
+
+---
+
+### Pre-flight Checklist
+
+Before returning output, verify every point:
+
+- [ ] &lt;head&gt; includes the Strata icons stylesheet link
+- [ ] &lt;style&gt; contains the SmileyFace @font-face declarations
+- [ ] &lt;style&gt; contains the full :root token block — no raw hex values
+- [ ] All colours reference a CSS custom property — var(--token-name)
+- [ ] All icons use &lt;i class="ico ico-{name}" aria-hidden="true"&gt;
+- [ ] Every component root carries its data-aods="{name}" attribute
+- [ ] Layout is mobile-first</pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: TOKENS -->
+    <!-- ============================================================ -->
+    <section class="section" id="tokens">
+      <span class="section-num">03</span>
+      <h2>Tokens — colours &amp; spacing</h2>
+      <p class="section-intro">"Tokens" are named values. Instead of saying "use #00893e", we say "use action-primary-base." Change it in one place and it updates everywhere. This is the largest section of the file.</p>
+
+      <div class="explainer">
+        <h3>Primitives (the raw palette)</h3>
+        <p>The base colour swatches: 10 shades of grey, the brand greens, and the decorative "food palette" (named things like toast, steam, jam). These are the paint pots on the shelf.</p>
+      </div>
+      <div class="explainer">
+        <h3>Action tokens (things you tap)</h3>
+        <p>Colours for interactive elements. Green for the main call-to-action, blue for secondary actions, grey for disabled. Each has hover, active, and focus states built in.</p>
+      </div>
+      <div class="explainer">
+        <h3>UI Surface tokens (meaning through colour)</h3>
+        <p>Backgrounds that communicate: blue-tinted for "info/selected," green for "success," amber for "warning," red for "error." Each surface has pre-tested readable text colours.</p>
+        <div class="analogy">Like traffic lights — green means success, amber means caution, red means error. These tokens work the same way for screen backgrounds.</div>
+      </div>
+      <div class="explainer">
+        <h3>Spacing &amp; radius</h3>
+        <p>A fixed set of gap sizes (multiples of 4px) and corner roundness values. No in-between values allowed — this keeps visual rhythm consistent.</p>
+      </div>
+
+      <div class="example-box">
+        <p class="example-box-label">Example: What tokens look like in practice</p>
+        <div class="demo-swatches">
+          <div><div class="demo-swatch" style="background:#f8f9fa;"></div><span>gray-10</span></div>
+          <div><div class="demo-swatch" style="background:#d6dddf;"></div><span>gray-40</span></div>
+          <div><div class="demo-swatch" style="background:#00893e;"></div><span>action-primary</span></div>
+          <div><div class="demo-swatch" style="background:#0564c2;"></div><span>action-secondary</span></div>
+          <div><div class="demo-swatch" style="background:#12c35a;"></div><span>brand-green</span></div>
+          <div><div class="demo-swatch" style="background:#edf2ff;"></div><span>ui-highlight</span></div>
+          <div><div class="demo-swatch" style="background:#f4fce3;"></div><span>ui-success</span></div>
+          <div><div class="demo-swatch" style="background:#fff0f6;"></div><span>ui-error</span></div>
+        </div>
+        <p style="font-size:0.8125rem;color:var(--type-tertiary);margin:0.75rem 0 0;">The AI uses these named tokens in code — never the raw colour values. This means if "AO green" ever changes, it only needs updating in one place.</p>
+      </div>
+
+      <div class="source-accordion">
+        <button class="source-toggle" aria-expanded="false" onclick="toggleSource(this)">
+          <span>View the actual markdown for this section</span>
+          <i class="ico ico-chevron-down source-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="source-body">
+<pre>#### 1 · Primitives
+
+##### Neutrals — borders, backgrounds, secondary text
+
+| Token       | Hex     | Use                                    |
+|-------------|---------|----------------------------------------|
+| gray-10     | #f8f9fa | Page background, subtle dividers       |
+| gray-20     | #f0f2f2 | Neutral surface backgrounds            |
+| gray-40     | #d6dddf | Default borders, dividers              |
+| gray-100    | #212121 | Primary body text on light backgrounds |
+
+##### Brand green — primary CTAs and brand moments only
+
+| Token              | Hex     | Use                          |
+|--------------------|---------|------------------------------|
+| brand-primary-base | #12c35a | Brand accent, glow states    |
+
+#### 4 · UI surface tokens
+
+| Group        | Base    | Contrast | Accent  | Use                          |
+|--------------|---------|----------|---------|------------------------------|
+| ui-highlight | #edf2ff | #00318f  | #00318f | Selected, promoted, info     |
+| ui-success   | #f4fce3 | #02422b  | #00893e | Confirmation, completion     |
+| ui-warning   | #fff4e6 | #ad5a00  | #ff9e36 | Caution only — never decoration |
+| ui-error     | #fff0f6 | #b50016  | #b50016 | Validation errors, destructive |</pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: TYPOGRAPHY -->
+    <!-- ============================================================ -->
+    <section class="section" id="typography">
+      <span class="section-num">04</span>
+      <h2>Typography — fonts &amp; text sizes</h2>
+      <p class="section-intro">AO uses two fonts with strict job assignments. Getting this wrong is one of the most visible brand inconsistencies.</p>
+
+      <div class="explainer">
+        <h3>SmileyFace — the brand font</h3>
+        <p>Used for all headings, display text, and every button label. It's what makes AO look like AO. Key rule: never goes below 14px.</p>
+      </div>
+      <div class="explainer">
+        <h3>Inter — the workhorse font</h3>
+        <p>Clean and highly readable. Used for body paragraphs, form labels, helper text, captions — everything that isn't a heading or a button.</p>
+      </div>
+      <div class="explainer">
+        <h3>The type scale</h3>
+        <p>A fixed ladder of text sizes. The AI picks from this ladder — it never invents a new size.</p>
+        <div class="analogy">Like shirt sizes (XS, S, M, L, XL) — you pick the one that fits, you don't ask for "medium-and-a-half."</div>
+      </div>
+
+      <div class="example-box">
+        <p class="example-box-label">Example: The type scale in action</p>
+        <div class="demo-type-row" style="font-family:'SmileyFace-Headline',Georgia,serif;font-size:2rem;color:var(--type-primary);line-height:1.1;">Display Headline</div>
+        <div class="demo-type-row" style="font-family:'SmileyFace',Georgia,serif;font-weight:700;font-size:1.5rem;color:var(--type-primary);">Page Heading</div>
+        <div class="demo-type-row" style="font-family:'SmileyFace',Georgia,serif;font-weight:700;font-size:1rem;color:var(--type-primary);">Section Title</div>
+        <div class="demo-type-row" style="font-family:'Inter',sans-serif;font-size:1rem;color:var(--type-secondary);">Body text — readable, clean, consistent.</div>
+        <div class="demo-type-row" style="font-family:'Inter',sans-serif;font-size:0.875rem;color:var(--type-tertiary);">Caption / helper text</div>
+      </div>
+
+      <div class="source-accordion">
+        <button class="source-toggle" aria-expanded="false" onclick="toggleSource(this)">
+          <span>View the actual markdown for this section</span>
+          <i class="ico ico-chevron-down source-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="source-body">
+<pre>### AO Typography
+
+Two typefaces, strict role separation. Never swap them.
+
+| Family      | Role                                                    |
+|-------------|---------------------------------------------------------|
+| SmileyFace  | Headings, display text, and all button labels (CTAs).   |
+| Inter       | All body text, UI labels, helper copy, form fields.     |
+
+#### Type scale
+
+| Class                | Font             | Size         | Use                      |
+|----------------------|------------------|--------------|--------------------------|
+| text-display-headline| SmileyFace-Headline | 2.5rem (40px) | Hero headlines         |
+| text-display-lg      | SmileyFace 700   | 2rem (32px)  | Large section headings   |
+| text-display         | SmileyFace 700   | 1.5rem (24px)| Standard page headings   |
+| text-title           | SmileyFace 700   | 1rem (16px)  | Subsection headings      |
+| text-cta             | SmileyFace 700   | 1rem (16px)  | All button labels        |
+| text-body            | Inter 400        | 1rem (16px)  | Default body copy        |
+| text-body-sm         | Inter 400        | 0.875rem     | Supporting copy          |
+| text-caption         | Inter 400        | 0.75rem      | Captions, metadata       |
+
+#### Typography rules
+
+- SmileyFace minimum size: 14px (0.875rem). Below that, use Inter.
+- Body line-length: max 65–75 characters.
+- Links: always Inter Bold, never underlined by default.</pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: ICONS -->
+    <!-- ============================================================ -->
+    <section class="section" id="icons">
+      <span class="section-num">05</span>
+      <h2>Icons — pictograms &amp; symbols</h2>
+      <p class="section-intro">AO uses a custom icon font called Strata, loaded from AO's CDN. The file catalogues every available icon and explicitly forbids emoji or Unicode symbols.</p>
+
+      <div class="explainer">
+        <h3>How they work</h3>
+        <p>To show an icon, you reference its name (like "ico-basket" or "ico-delivery"). No image files needed — they scale with text and inherit colour from their parent.</p>
+      </div>
+      <div class="explainer">
+        <h3>Why no emoji?</h3>
+        <p>Emoji look different on every device. A tick on iPhone looks nothing like one on Windows. Strata icons look identical everywhere.</p>
+      </div>
+      <div class="explainer">
+        <h3>Accessibility</h3>
+        <p>Decorative icons (next to text) are hidden from screen readers. Icon-only buttons must have a text label for assistive technology.</p>
+      </div>
+
+      <div class="example-box">
+        <p class="example-box-label">Example: Common AO icons</p>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;font-size:1.75rem;color:var(--type-primary);">
+          <div style="text-align:center;"><i class="ico ico-basket" aria-hidden="true"></i><div style="font-size:0.625rem;color:var(--type-tertiary);margin-top:0.25rem;">basket</div></div>
+          <div style="text-align:center;"><i class="ico ico-search" aria-hidden="true"></i><div style="font-size:0.625rem;color:var(--type-tertiary);margin-top:0.25rem;">search</div></div>
+          <div style="text-align:center;"><i class="ico ico-heart" aria-hidden="true"></i><div style="font-size:0.625rem;color:var(--type-tertiary);margin-top:0.25rem;">heart</div></div>
+          <div style="text-align:center;"><i class="ico ico-delivery" aria-hidden="true"></i><div style="font-size:0.625rem;color:var(--type-tertiary);margin-top:0.25rem;">delivery</div></div>
+          <div style="text-align:center;"><i class="ico ico-tick-circle" aria-hidden="true"></i><div style="font-size:0.625rem;color:var(--type-tertiary);margin-top:0.25rem;">tick-circle</div></div>
+          <div style="text-align:center;"><i class="ico ico-info" aria-hidden="true"></i><div style="font-size:0.625rem;color:var(--type-tertiary);margin-top:0.25rem;">info</div></div>
+          <div style="text-align:center;"><i class="ico ico-warning" aria-hidden="true"></i><div style="font-size:0.625rem;color:var(--type-tertiary);margin-top:0.25rem;">warning</div></div>
+          <div style="text-align:center;"><i class="ico ico-account" aria-hidden="true"></i><div style="font-size:0.625rem;color:var(--type-tertiary);margin-top:0.25rem;">account</div></div>
+        </div>
+      </div>
+
+      <div class="source-accordion">
+        <button class="source-toggle" aria-expanded="false" onclick="toggleSource(this)">
+          <span>View the actual markdown for this section</span>
+          <i class="ico ico-chevron-down source-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="source-body">
+<pre>### AO Icon System — Strata Icons
+
+#### Usage
+
+Icons use an &lt;i&gt; element with two classes: the base `ico` class plus the icon name.
+
+```html
+&lt;i class="ico ico-basket" aria-hidden="true"&gt;&lt;/i&gt;
+```
+
+##### Accessibility
+
+- Decorative icons (paired with visible text): add aria-hidden="true"
+- Meaningful icons (icon-only buttons): add aria-label on the parent button
+
+#### Sizes
+
+| Class  | Scale   | Use                    |
+|--------|---------|------------------------|
+| ico-sm | 0.875em | Inline with body text  |
+| ico-md | 1em     | Standard UI icons      |
+| ico-lg | 1.25em  | Nav icons, card icons  |
+| ico-2x | 2em     | Hero features          |
+| ico-3x | 3em     | Empty states           |
+
+#### Rules
+
+- Never use emoji (✓ ✕ 🛒) — always Strata icon classes
+- Icons inherit colour from their parent element
+- Icon-only buttons require an aria-label</pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: COMPONENTS -->
+    <!-- ============================================================ -->
+    <section class="section" id="components">
+      <span class="section-num">06</span>
+      <h2>Components — the building blocks</h2>
+      <p class="section-intro">The longest section (~1,600 lines). It defines 16 reusable UI elements — each with its exact structure, styling, allowed variants, and usage rules. Think of them as LEGO bricks you snap together to build pages.</p>
+
+      <div class="explainer">
+        <h3>What each blueprint contains</h3>
+        <p>Every component has: a description of what it is, its allowed variants, the HTML markup, the CSS styling, and rules for when/how to use it. The AI copies these blueprints exactly — it doesn't improvise.</p>
+      </div>
+      <div class="explainer">
+        <h3>The 16 components</h3>
+        <ol style="font-size:0.9375rem;color:var(--type-secondary);padding-left:1.25rem;margin:0.5rem 0 0;">
+          <li><strong>Button</strong> — primary, secondary, tertiary, dark, white, inactive</li>
+          <li><strong>Field / Input</strong> — text inputs with labels &amp; validation</li>
+          <li><strong>Select</strong> — styled dropdown menus</li>
+          <li><strong>Textarea</strong> — multi-line text inputs</li>
+          <li><strong>Checkbox / Radio</strong> — card-style selection controls</li>
+          <li><strong>Tag</strong> — coloured pill badges (In stock, New, etc.)</li>
+          <li><strong>Notice</strong> — feedback banners (info, warning, success, error)</li>
+          <li><strong>Card</strong> — content surface with state variants</li>
+          <li><strong>Breadcrumb</strong> — "you are here" navigation</li>
+          <li><strong>Tabs</strong> — content switcher</li>
+          <li><strong>Accordion</strong> — collapsible sections</li>
+          <li><strong>Quantity stepper</strong> — +/- amount control</li>
+          <li><strong>Loading spinner</strong> — CSS ring + branded AO loader</li>
+          <li><strong>Nav (Header)</strong> — site header in 4 variants</li>
+          <li><strong>Footer</strong> — site-wide footer</li>
+          <li><strong>Switch24</strong> — payment option selectors</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <p class="example-box-label">Example: Button component (what the AI produces)</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;">
+          <button class="demo-btn demo-btn-primary">Add to basket</button>
+          <button class="demo-btn demo-btn-secondary">View details</button>
+          <button class="demo-btn" style="background:transparent;color:var(--type-secondary);border-color:var(--gray-40);">Compare</button>
+        </div>
+        <p style="font-size:0.8125rem;color:var(--type-tertiary);margin:0.75rem 0 0;">SmileyFace Bold label · 8px radius · 1px border · green = main CTA, blue = secondary, grey = tertiary. Only one green button per section.</p>
+      </div>
+
+      <div class="source-accordion">
+        <button class="source-toggle" aria-expanded="false" onclick="toggleSource(this)">
+          <span>View the actual markdown (Button example)</span>
+          <i class="ico ico-chevron-down source-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="source-body">
+<pre>#### 1 · Button
+
+8px radius, SmileyFace Bold label, 1px border.
+The `primary` variant is reserved for the one main CTA per visual section.
+
+Variants: primary (green) · secondary (blue, outlined) · tertiary (neutral)
+          · white (on dark) · dark (alt primary) · inactive (disabled)
+
+Sizes: default · btn-lg · btn-sm · btn-icon (square) · btn-full (100% width)
+
+##### HTML
+
+```html
+&lt;button class="btn btn-primary" data-aods="button"&gt;Add to basket&lt;/button&gt;
+&lt;button class="btn btn-secondary" data-aods="button"&gt;View details&lt;/button&gt;
+&lt;button class="btn btn-tertiary" data-aods="button"&gt;Compare&lt;/button&gt;
+```
+
+##### CSS
+
+```css
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.875rem 1.5rem; border-radius: var(--radius-sm);
+  font-family: 'SmileyFace', Georgia, serif; font-weight: 700;
+  font-size: 1rem; line-height: 1; border: 1px solid transparent;
+  cursor: pointer; transition: background 150ms;
+}
+.btn-primary {
+  background: var(--action-primary-base);
+  color: var(--action-primary-contrast);
+}
+```</pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 7: PATTERNS -->
+    <!-- ============================================================ -->
+    <section class="section" id="patterns">
+      <span class="section-num">07</span>
+      <h2>Patterns — full page recipes</h2>
+      <p class="section-intro">While components are individual bricks, patterns show how to assemble them into complete pages. This section contains 10 page-level recipes.</p>
+
+      <div class="explainer">
+        <h3>What's covered</h3>
+        <p>Sign in, form validation, product detail pages, basket summaries, modals, empty states, order confirmations, category listings, account dashboards, and the full multi-step checkout flow.</p>
+      </div>
+      <div class="explainer">
+        <h3>Header selection guide</h3>
+        <p>A decision tree: which header variant goes with which page type. Stops the AI from putting a search bar on a payment screen or a full nav on a checkout page.</p>
+      </div>
+      <div class="explainer">
+        <h3>What each pattern defines</h3>
+        <p>The overall page grid, which components go where, spacing between sections, and how layout adapts from mobile to desktop. It's the floor plan for each room type.</p>
+        <div class="analogy">If components are ingredients, patterns are complete recipes — "to make a checkout page, combine these components in this order with this layout."</div>
+      </div>
+
+      <div class="example-box">
+        <p class="example-box-label">Example: Header selection guide</p>
+        <table style="width:100%;font-size:0.8125rem;border-collapse:collapse;">
+          <thead>
+            <tr style="text-align:left;border-bottom:1px solid var(--gray-40);">
+              <th style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">Page type</th>
+              <th style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">Header to use</th>
+            </tr>
+          </thead>
+          <tbody style="color:var(--type-secondary);">
+            <tr><td style="padding:0.375rem 0.5rem 0.375rem 0;">Homepage, PDP, category pages</td><td>Core Site Header (full)</td></tr>
+            <tr><td style="padding:0.375rem 0.5rem 0.375rem 0;">Checkout (delivery, contact, payment)</td><td>Checkout Header (simplified)</td></tr>
+            <tr><td style="padding:0.375rem 0.5rem 0.375rem 0;">Basket page</td><td>Basket Header (+ Account icon)</td></tr>
+            <tr><td style="padding:0.375rem 0.5rem 0.375rem 0;">Order confirmation</td><td>Checkout Header</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="source-accordion">
+        <button class="source-toggle" aria-expanded="false" onclick="toggleSource(this)">
+          <span>View the actual markdown for this section</span>
+          <i class="ico ico-chevron-down source-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="source-body">
+<pre>### AO Page Patterns
+
+Multi-component recipes for the screens designers build most often.
+Use these as the structural starting point — adapt content, keep structure.
+
+Patterns covered:
+1. Sign in
+2. Validated form
+3. Product detail page (PDP)
+4. Basket / order summary
+5. Modal confirmation
+6. Empty state
+7. Order confirmation
+8. Category / product listing
+9. Account dashboard
+10. Checkout flow
+
+#### Header Selection Guide
+
+| Page type                       | Header variant     |
+|---------------------------------|--------------------|
+| Homepage, PDP, category listing | Core Site Header   |
+| Checkout (delivery, payment)    | Checkout Header    |
+| Basket page                     | Basket Header      |
+| Order confirmation              | Checkout Header    |
+
+Key rules:
+- Checkout header reduces distractions — don't add search back
+- Always include the green accent bar (.nav-accent)
+- Sticky positioning on all variants</pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 8: ANTI-PATTERNS -->
+    <!-- ============================================================ -->
+    <section class="section" id="anti-patterns">
+      <span class="section-num">08</span>
+      <h2>Anti-patterns — the guardrails</h2>
+      <p class="section-intro">The final section is a list of common mistakes AI tools make, with explicit "refuse and replace" instructions. It's the most important section for preventing brand drift.</p>
+
+      <div class="explainer">
+        <h3>How it works</h3>
+        <p>Each rule follows a pattern: <strong>Match</strong> (spot the mistake) → <strong>Refuse</strong> (don't produce it) → <strong>Replace</strong> (use the correct alternative). The AI checks its own output against these rules before showing you anything.</p>
+      </div>
+      <div class="explainer">
+        <h3>Categories covered</h3>
+        <p>Colour &amp; tokens, component variants, typography, layout &amp; hierarchy, CTA copy, accessibility, surfaces &amp; shadows, spacing, and imagery. Every common drift point is explicitly addressed.</p>
+      </div>
+
+      <div class="example-box">
+        <p class="example-box-label">Example: Anti-pattern rules in action</p>
+        <table style="width:100%;font-size:0.8125rem;border-collapse:collapse;">
+          <thead>
+            <tr style="text-align:left;border-bottom:1px solid var(--gray-40);">
+              <th style="padding:0.5rem 0.5rem 0.5rem 0;color:#b50016;">Don't</th>
+              <th style="padding:0.5rem 0.5rem 0.5rem 0;color:var(--ui-success-accent);">Do</th>
+            </tr>
+          </thead>
+          <tbody style="color:var(--type-secondary);">
+            <tr style="border-bottom:1px solid var(--gray-30);"><td style="padding:0.5rem 0.5rem 0.5rem 0;">background: #00893e;</td><td style="padding:0.5rem 0;">background: var(--action-primary-base);</td></tr>
+            <tr style="border-bottom:1px solid var(--gray-30);"><td style="padding:0.5rem 0.5rem 0.5rem 0;">Inter on a button label</td><td style="padding:0.5rem 0;">Always SmileyFace Bold on buttons</td></tr>
+            <tr style="border-bottom:1px solid var(--gray-30);"><td style="padding:0.5rem 0.5rem 0.5rem 0;">palette-heat for an error state</td><td style="padding:0.5rem 0;">Use ui-error tokens</td></tr>
+            <tr><td style="padding:0.5rem 0.5rem 0.5rem 0;">ALL CAPS on buttons</td><td style="padding:0.5rem 0;">Sentence case verbs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="source-accordion">
+        <button class="source-toggle" aria-expanded="false" onclick="toggleSource(this)">
+          <span>View the actual markdown for this section</span>
+          <i class="ico ico-chevron-down source-chevron" aria-hidden="true"></i>
+        </button>
+        <div class="source-body">
+<pre>### AO Anti-patterns — Refuse and Replace
+
+If a request or generated output would force any of the below,
+stop and use the listed AO-correct alternative.
+
+The pattern: Match → Refuse → Replace.
+
+#### Colour &amp; tokens
+
+| ❌ Don't                        | ✅ Do                                    |
+|---------------------------------|------------------------------------------|
+| background: #00893e;            | background: var(--action-primary-base);  |
+| color: #011f44;                 | color: var(--type-primary);              |
+| Use palette-heat for an error   | Use ui-error tokens                      |
+| Use brand-primary as button fill| Button colour is action-primary-base     |
+
+#### Typography
+
+| ❌ Don't                        | ✅ Do                                    |
+|---------------------------------|------------------------------------------|
+| Inter on a button label         | Always SmileyFace Bold on buttons        |
+| SmileyFace at 12px              | Minimum is 14px; below that use Inter    |
+| ALL CAPS on buttons or tags     | Sentence case                            |
+
+#### Component variants
+
+| ❌ Don't                        | ✅ Do                                    |
+|---------------------------------|------------------------------------------|
+| Button variant="success"        | Only: primary, secondary, tertiary, etc. |
+| Tag color="purple"              | Tags only use ui-* groups                |</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="guide-footer">
+      <p>AO Design System Reference · v3.0 · 2026-06-26<br>
+      This guide explains the structure of design.md for non-technical stakeholders.<br>
+      The actual file lives alongside this page as <code style="font-size:0.8em;background:var(--gray-20);padding:0.125rem 0.375rem;border-radius:3px;">design.md</code></p>
+    </footer>
+
+  </div>
+
+  <script>
+    function toggleSource(btn) {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      var body = btn.nextElementSibling;
+      if (body) body.classList.toggle('is-open', !expanded);
+    }
+  </script>
+</body>
+</html>

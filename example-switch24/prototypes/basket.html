@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your basket — Switch24 | AO</title>
+  <link rel="stylesheet" href="https://assets.ao.com/design-system/assets/icons/latest/strata-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+  <style>
+    /* === SmileyFace === */
+    @font-face {
+      font-family: 'SmileyFace-Headline'; font-display: swap;
+      src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff2') format('woff2'),
+           url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff') format('woff');
+    }
+    @font-face {
+      font-family: 'SmileyFace'; font-weight: 400; font-display: swap;
+      src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Regular.woff2') format('woff2'),
+           url('https://media.ao.com/fonts/smiley-face/SmileyFace-Regular.woff') format('woff');
+    }
+    @font-face {
+      font-family: 'SmileyFace'; font-weight: 700; font-display: swap;
+      src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff2') format('woff2'),
+           url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff') format('woff');
+    }
+
+    /* === TOKENS === */
+    :root {
+      --gray-10: #f8f9fa;  --gray-20: #f0f2f2;  --gray-30: #e2e7e8;
+      --gray-40: #d6dddf;  --gray-50: #c1c7c9;  --gray-60: #abb1b4;
+      --gray-70: #727677;  --gray-80: #595d5e;  --gray-90: #3f4344;  --gray-100: #212121;
+      --brand-primary-base: #12c35a;  --brand-primary-light: #befcc8;  --brand-primary-dark: #02422b;
+      --type-primary: #011f44;  --type-secondary: #212121;  --type-tertiary: #595d5e;
+      --shadow-overlay: #011630;
+      --action-primary-base: #00893e;   --action-primary-hover: #00560b;
+      --action-primary-active: #003d00; --action-primary-contrast: #ffffff;
+      --action-primary-glow: #12c35a;
+      --action-secondary-base: #0564c2;   --action-secondary-hover: #00318f;
+      --action-secondary-active: #001876; --action-secondary-contrast: #ffffff;
+      --action-secondary-glow: #40a1f8;
+      --action-light-base: #ffffff;  --action-light-contrast: #011f44;
+      --action-dark-base: #011f44;   --action-dark-contrast: #ffffff;
+      --action-inactive-base: #727677;  --action-inactive-contrast: #ffffff;
+      --ui-core-base: #ffffff;       --ui-core-contrast: #212121;       --ui-core-accent: #d6dddf;
+      --ui-neutral-base: #f0f2f2;    --ui-neutral-contrast: #212121;    --ui-neutral-accent: #abb1b4;
+      --ui-highlight-base: #edf2ff;  --ui-highlight-contrast: #00318f;  --ui-highlight-accent: #00318f;
+      --ui-success-base: #f4fce3;    --ui-success-contrast: #02422b;    --ui-success-accent: #00893e;
+      --ui-warning-base: #fff4e6;    --ui-warning-contrast: #ad5a00;    --ui-warning-accent: #ff9e36;
+      --ui-error-base: #fff0f6;      --ui-error-contrast: #b50016;      --ui-error-accent: #b50016;
+      --notice-warning-bg: #ffe3c2;  --notice-success-bg: #befcc8;  --notice-error-bg: #ffd8d2;
+      --switch-purple: #8023bd;  --switch-purple-bg: #f6ecfc;  --switch-purple-border: #e3cdf2;
+      --palette-ice: #4a6dce;
+      --radius-xs: 4px;  --radius-sm: 8px;  --radius-md: 16px;
+      --radius-xl: 24px; --radius-2xl: 40px;
+      --shadow:    0 1px 3px rgba(1,22,48,0.08), 0 1px 2px rgba(1,22,48,0.05);
+      --shadow-md: 0 4px 8px rgba(1,22,48,0.10), 0 2px 4px rgba(1,22,48,0.06);
+      --shadow-lg: 0 10px 28px rgba(1,22,48,0.13), 0 4px 8px rgba(1,22,48,0.07);
+    }
+
+    /* === BASE === */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--gray-10);
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      color: var(--type-secondary); font-size: 1rem; line-height: 1.625;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    p { margin: 0; }
+    a { color: var(--action-secondary-base); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button { cursor: pointer; }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* === TYPE SCALE === */
+    .text-display-sm { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1.25rem; line-height: 1.25; color: var(--type-primary); }
+    .text-title-lg   { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1.25rem; line-height: 1.25; color: var(--type-primary); }
+    .text-title      { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1rem;    line-height: 1.25; color: var(--type-primary); }
+    .text-title-sm   { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 0.875rem; line-height: 1.25; color: var(--type-primary); }
+    .text-body    { font-size: 1rem;    line-height: 1.625; }
+    .text-body-sm { font-size: 0.875rem; line-height: 1.625; }
+    .text-body-xs { font-size: 0.75rem;  line-height: 1.625; }
+    .text-link-sm { font-weight: 700; font-size: 0.875rem; color: var(--action-secondary-base); }
+    .text-secondary { color: var(--type-tertiary); }
+
+    /* === BUTTON === */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.875rem 1.5rem; border-radius: var(--radius-sm);
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1rem; line-height: 1;
+      border: 1px solid transparent; white-space: nowrap; text-decoration: none;
+      transition: background 150ms, border-color 150ms, color 150ms;
+    }
+    .btn:focus-visible { outline: 3px solid var(--action-secondary-glow); outline-offset: 2px; }
+    .btn-primary { background: var(--action-primary-base); color: var(--action-primary-contrast); border-color: var(--action-primary-base); }
+    .btn-primary:hover { background: var(--action-primary-hover); border-color: var(--action-primary-hover); }
+    .btn-tertiary { background: transparent; color: var(--type-secondary); border-color: var(--gray-40); padding: 0.4375rem; }
+    .btn-tertiary:hover { background: var(--gray-20); }
+    .btn-lg { padding: 1.125rem 2rem; font-size: 1.0625rem; }
+    .btn-full { width: 100%; }
+
+    /* === PAGE SHELL === */
+    .page-wrap { max-width: 420px; margin: 0 auto; background: var(--gray-10); }
+
+    /* === NAV — Basket Header (design.md §14) === */
+    [data-aods="nav"] { position: sticky; top: 0; z-index: 20; background: var(--ui-core-base); }
+    .nav-mobile {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem; background: var(--ui-core-base);
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .nav-logo .ico { font-size: 3rem; color: var(--brand-primary-base); }
+    .nav-checkout-icons { display: flex; align-items: center; gap: 0.75rem; margin-left: auto; }
+    .nav-icon {
+      position: relative; display: flex; flex-direction: column; align-items: center;
+      text-decoration: none; background: none; border: none; gap: 0.125rem;
+    }
+    .nav-icon:focus-visible { outline: 3px solid var(--action-secondary-glow); outline-offset: 2px; border-radius: var(--radius-xs); }
+    .nav-icon-img { font-size: 1.75rem; color: var(--type-primary); }
+    .nav-icon-label { font-size: 0.6875rem; color: var(--type-primary); line-height: 1.25; }
+    .nav-accent { height: 4px; background: var(--brand-primary-base); }
+
+    /* === BASKET CONTENT === */
+    .basket-content {
+      display: flex; flex-direction: column; gap: 1rem;
+      padding: 1rem 0.5rem 3rem;
+    }
+    .basket-title {
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 700;
+      font-size: 1.25rem; color: var(--type-primary);
+      text-align: center;
+    }
+
+    /* === SWITCH24 BASKET CARDS === */
+    .s24-card {
+      background: var(--ui-core-base);
+      border: 1px solid var(--gray-40);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      overflow: hidden;
+      position: relative;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+
+    /* Switch24 logo — absolute top-right of each payment card */
+    .s24-card-logo { position: absolute; top: 1rem; right: 1rem; }
+    .s24-logo { height: 22px; width: 88px; display: block; }
+
+    /* Section label
+       FLAG: Figma uses SmileyFace Regular (400) at 18px in --gray-70.
+       No match in design.md type scale — all named SmileyFace classes are Bold 700.
+       18px is between text-display-sm (20px) and text-title-lg (20px); no 18px slot exists.
+       Using --gray-70 for a structural label deviates from semantic intent
+       (gray-70 = inactive labels / secondary icons). Implemented as-is from Figma. */
+    .s24-section-label {
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 400;
+      font-size: 1.125rem; line-height: 1.333; color: var(--gray-70);
+    }
+
+    /* Bleed banner — purple full-width, overflows card padding via negative margin.
+       Card must have overflow:hidden. Technique not documented in design.md but
+       uses correct --switch-purple token. */
+    .s24-bleed-banner {
+      background: var(--switch-purple);
+      margin: 0 -1rem -1rem;
+      padding: 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 62px;
+    }
+    .s24-banner-label {
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 0.75rem; color: var(--ui-core-base);
+    }
+    /* FLAG (Pay Monthly banner only): Figma uses SmileyFace Bold 12px for "Pay Monthly" label
+       (node 5034:19702). This violates design.md 14px SmileyFace minimum.
+       Other banners ("Pay today", "Final payment") correctly use Inter Bold 12px.
+       Conforming to design.md here: all banner labels use Inter Bold 12px. */
+    .s24-banner-amount {
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 700;
+      font-size: 1rem; line-height: 1.25; color: var(--ui-core-base);
+    }
+
+    /* Line item: phone/membership/plans row */
+    .s24-item-row { display: flex; gap: 1rem; align-items: flex-start; }
+    .s24-thumb {
+      width: 54px; height: 54px; flex-shrink: 0;
+      border: 0.5px solid var(--gray-40); border-radius: var(--radius-sm);
+      overflow: hidden; background: var(--ui-core-base);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .s24-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .s24-thumb--icon { background: var(--gray-10); }
+    .s24-thumb--icon img { width: 36px; height: 36px; object-fit: contain; }
+    .s24-thumb--sim img { width: 30px; height: 38px; object-fit: contain; }
+    .s24-item-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.25rem; }
+    .s24-item-name { font-weight: 700; font-size: 0.75rem; color: var(--type-secondary); line-height: 1.4; }
+    .s24-item-sub  { font-weight: 400; font-size: 0.75rem; color: var(--type-secondary); line-height: 1.4; }
+    .s24-item-sign-in { font-size: 0.75rem; color: var(--type-secondary); }
+    .s24-item-sign-in a { font-weight: 700; }
+    .s24-price-col { display: flex; flex-direction: column; align-items: flex-end; gap: 0.375rem; flex-shrink: 0; }
+    .s24-price {
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 700;
+      font-size: 1rem; line-height: 1.25; color: var(--type-secondary);
+      text-align: right; white-space: nowrap;
+    }
+    .s24-price-unit {
+      display: block; font-family: 'Inter', sans-serif; font-weight: 400;
+      font-size: 0.75rem; color: var(--type-secondary);
+    }
+
+    /* Divider within option card — bleeds to card edges */
+    .s24-rule { border: none; border-top: 1px solid var(--gray-40); margin: 0 -1rem; }
+
+    /* Upfront: single line item (product + price) */
+    .s24-line-item {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 1rem;
+    }
+    .s24-line-item-name { font-weight: 700; font-size: 0.75rem; color: var(--type-secondary); flex: 1; }
+    .s24-line-item-price { font-weight: 700; font-size: 0.75rem; color: var(--type-secondary); white-space: nowrap; }
+
+    /* Final payment: copy + amount side by side */
+    .s24-final-row { display: flex; gap: 2rem; align-items: flex-start; }
+    .s24-final-body { flex: 1; }
+    .s24-final-title { font-weight: 700; font-size: 0.75rem; line-height: 1.625; color: var(--type-secondary); }
+    .s24-final-desc  { font-weight: 400; font-size: 0.75rem; line-height: 1.625; color: var(--type-secondary); margin-top: 0.25rem; }
+    .s24-final-amount { font-weight: 700; font-size: 0.75rem; color: var(--type-secondary); white-space: nowrap; text-align: right; flex-shrink: 0; }
+
+    /* === LINKS (discount / referral) === */
+    .s24-links { display: flex; flex-direction: column; gap: 0; }
+    .s24-link-wrap { background: var(--gray-10); border-radius: var(--radius-xs); padding: 0.125rem 0; }
+    .s24-link-wrap + .s24-link-wrap { margin-top: 0.25rem; }
+    .s24-link-btn {
+      display: flex; align-items: center; gap: 0.375rem;
+      padding: 0.375rem 0;
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 700;
+      font-size: 1rem; color: var(--action-secondary-base);
+      background: transparent; border: none; text-align: left;
+      transition: color 150ms;
+    }
+    .s24-link-btn:hover { color: var(--action-secondary-hover); }
+    .s24-link-btn:focus-visible { outline: 3px solid var(--action-secondary-glow); outline-offset: 2px; border-radius: var(--radius-xs); }
+    .s24-link-btn img { width: 24px; height: 24px; flex-shrink: 0; }
+
+    /* === TERMS CARD === */
+    .s24-terms-card {
+      background: var(--gray-10); border-radius: var(--radius-sm); padding: 0 0 1rem;
+    }
+    .s24-terms-inner {
+      background: var(--ui-core-base); border-radius: var(--radius-sm);
+      padding: 1rem; display: flex; gap: 0.75rem; align-items: flex-start;
+    }
+    .s24-terms-icon { width: 24px; height: 24px; flex-shrink: 0; }
+    .s24-terms-body { flex: 1; display: flex; flex-direction: column; gap: 0.25rem; }
+    .s24-terms-title { font-weight: 700; font-size: 0.75rem; color: var(--type-primary); line-height: 1.625; }
+    .s24-terms-copy { font-weight: 400; font-size: 0.75rem; color: var(--type-secondary); line-height: 1.625; }
+    .s24-terms-copy a { font-weight: 700; }
+
+    /* === PROGRESS TRACKER ===
+       Custom component — not documented in the AO design system.
+       Step indicator colours:
+         Done:    tick icon in --ui-success-accent (#00893e)
+         Active:  --action-secondary-active (#001876) circle (Figma: "var(--action-active, #001876)")
+         Pending: --gray-40 circle with --type-tertiary text */
+    .s24-progress-card {
+      background: var(--ui-core-base);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.875rem;
+    }
+    .s24-progress-title {
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 700;
+      font-size: 1rem; color: var(--type-primary);
+    }
+    .s24-prog-bar { display: flex; gap: 6px; }
+    .s24-prog-seg { height: 8px; border-radius: 4px; flex: 1; }
+    .s24-prog-seg--done    { background: var(--brand-primary-base); }
+    .s24-prog-seg--active  {
+      background: linear-gradient(
+        90deg,
+        var(--brand-primary-base) 0%,
+        var(--brand-primary-base) 60%,
+        rgba(255,255,255,0.55) 75%,
+        var(--brand-primary-base) 90%
+      );
+    }
+    .s24-prog-seg--pending { background: var(--gray-40); }
+    .s24-steps { list-style: none; padding: 0 0.5rem; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .s24-step { display: flex; align-items: center; gap: 0.75rem; }
+    .s24-step-icon {
+      width: 24px; height: 24px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; font-size: 0.75rem; font-weight: 700;
+    }
+    .s24-step-icon--done    { color: var(--ui-success-accent); font-size: 1.5rem; }
+    .s24-step-icon--active  { background: var(--action-secondary-active); color: var(--ui-core-base); }
+    .s24-step-icon--pending { background: var(--gray-40); color: var(--type-tertiary); font-weight: 400; }
+    .s24-step-label-wrap { flex: 1; }
+    .s24-step-label { font-size: 0.75rem; font-weight: 700; display: inline; }
+    .s24-step-label--done    { color: var(--ui-success-accent); text-decoration: line-through; }
+    .s24-step-label--active  { color: var(--action-secondary-active); }
+    .s24-step-label--pending { color: var(--type-tertiary); font-weight: 400; }
+    .s24-step-status { font-size: 0.75rem; white-space: nowrap; text-align: right; flex-shrink: 0; }
+    .s24-step-status--done    { color: var(--type-tertiary); font-weight: 400; }
+    .s24-step-status--active  { color: var(--action-secondary-active); font-weight: 700; }
+    .s24-step-status--pending { color: var(--type-tertiary); font-weight: 400; }
+
+    /* === REP EXAMPLE === */
+    .s24-rep {
+      border: 0.5px solid var(--gray-50); border-radius: var(--radius-sm);
+      background: var(--ui-core-base); padding: 1rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .s24-rep-header {
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 700;
+      font-size: 0.875rem; color: var(--type-primary); line-height: 1.25;
+    }
+    .s24-rep-apr { font-size: 0.625rem; color: var(--type-tertiary); line-height: 1.5; }
+    .s24-rep-num { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1rem; color: var(--type-primary); }
+    .s24-rep-legal { font-size: 0.625rem; color: var(--type-tertiary); line-height: 1.5; }
+    .s24-rep-legal a { color: var(--action-secondary-base); font-weight: 700; }
+    .s24-rep-calc { font-size: 0.625rem; color: var(--type-tertiary); line-height: 1.5; }
+
+    /* === PROPOSITION STRIP === */
+    .prop-strip {
+      background: var(--gray-10); border-top: 1px solid var(--gray-30);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .prop-item {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 1.5rem 0.25rem 0.5rem; gap: 0.25rem; text-align: center;
+    }
+    .prop-item .ico { font-size: 1.75rem; color: var(--gray-70); }
+    .prop-item-label { font-size: 0.6875rem; color: var(--type-secondary); line-height: 1.3; text-align: center; }
+
+    /* === FOOTER LINKS === */
+    .footer-links-section {
+      background: var(--gray-10); border-top: 1px solid var(--gray-30);
+    }
+    .footer-acc-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 2rem; width: 100%; background: transparent; border: none;
+      font-family: 'SmileyFace', Georgia, serif; font-weight: 700;
+      font-size: 1rem; color: var(--action-secondary-base); text-align: left;
+      border-bottom: 1px solid var(--gray-30);
+    }
+    .footer-acc-btn .ico { font-size: 1.5rem; color: var(--type-secondary); flex-shrink: 0; }
+    .footer-acc-btn:last-child { border-bottom: none; }
+
+    /* === RECENTLY VIEWED === */
+    .recently-viewed {
+      background: var(--ui-core-base); padding: 0 1rem 1rem;
+      border-top: 3px solid var(--gray-30);
+    }
+    .rv-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 0 0.5rem; border-bottom: 1px solid var(--gray-30); margin-bottom: 1rem;
+    }
+    .rv-title { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1.5rem; color: var(--type-primary); display: flex; align-items: center; gap: 0.5rem; }
+    .rv-clear { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 0.875rem; color: var(--gray-90); background: none; border: none; cursor: pointer; }
+    .rv-grid { display: flex; gap: 1rem; overflow-x: auto; }
+    .rv-grid::-webkit-scrollbar { display: none; }
+    .rv-item { flex: 0 0 200px; }
+    .rv-img {
+      position: relative; aspect-ratio: 1; background: var(--ui-core-base);
+      border: 1px solid var(--gray-40); border-radius: var(--radius-sm);
+      overflow: hidden; margin-bottom: 0.5rem;
+    }
+    .rv-img img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; }
+    .rv-badge {
+      position: absolute; top: 0; left: 0;
+      background: var(--ui-core-base); border-right: 1px solid var(--gray-40); border-bottom: 1px solid var(--gray-40);
+      border-radius: 0 0 var(--radius-sm) 0; padding: 0.25rem 0.75rem;
+      font-size: 0.75rem; color: var(--type-secondary); white-space: nowrap;
+    }
+    .rv-price { font-family: 'SmileyFace', Georgia, serif; font-weight: 700; font-size: 1.25rem; color: var(--type-primary); }
+    .rv-name { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.875rem; color: var(--palette-ice); line-height: 1.4; margin-top: 0.25rem; }
+
+    /* === DARK FOOTER === */
+    .footer-dark { background: var(--gray-100); }
+    .footer-social { padding: 1.5rem 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+    .footer-social a { color: var(--gray-60); font-size: 1.25rem; text-decoration: none; }
+    .footer-legal { padding: 1rem; text-align: center; }
+    .footer-legal p { font-size: 0.75rem; color: var(--gray-50); line-height: 1.625; margin-bottom: 0.75rem; }
+    .footer-legal p:last-child { margin-bottom: 0; }
+    .footer-legal a { color: var(--gray-40); }
+
+    /* Separator rule */
+    .footer-rule { border: none; border-top: 1px solid var(--gray-80); margin: 0 1.5rem; }
+
+    /* === Loading Overlay === */
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 150ms ease-out;
+    }
+
+    .loading-overlay.is-active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .loading-overlay[hidden] {
+      display: none;
+    }
+
+    .loading-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    /* === AO Spinner === */
+    .ao-spinner {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      animation: spinner-entrance 200ms ease-out both;
+    }
+
+    .ao-spinner-ring {
+      position: absolute;
+      inset: 0;
+      border: 4px solid transparent;
+      border-top-color: var(--brand-primary-base);
+      border-radius: 50%;
+      animation: spinner-rotate 1.2s linear infinite;
+    }
+
+    .ao-spinner-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ao-spinner-logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes spinner-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes spinner-entrance {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* === Page Entrance Animation === */
+    @keyframes page-entrance {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-content {
+      animation: page-entrance 300ms ease-out both;
+    }
+
+    .site-header,
+    .checkout-header {
+      opacity: 1;
+    }
+
+    /* === Reduced Motion === */
+    @media (prefers-reduced-motion: reduce) {
+      .ao-spinner {
+        animation: none;
+      }
+      .ao-spinner-ring {
+        animation: none;
+        border-color: var(--brand-primary-base);
+        border-top-color: transparent;
+      }
+      .page-content {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Progress card — simplified "Nearly there" variant */
+    .s24-progress-card { background:#fff; border-radius:var(--radius-sm); padding:24px; display:flex; flex-direction:column; gap:16px; font-family:'Inter',sans-serif; }
+    .s24-progress-header { display:flex; align-items:baseline; justify-content:space-between; }
+    .s24-progress-title { font-size:0.875rem; font-weight:700; color:var(--type-primary); margin:0; }
+    .s24-progress-hint { font-size:0.75rem; color:var(--type-tertiary); margin:0; }
+    .s24-prog-bar { display:flex; gap:4px; height:6px; border-radius:3px; overflow:hidden; background:var(--gray-20); }
+    .s24-prog-fill { width:66%; background:var(--brand-primary-base); border-radius:3px; transition:width 0.6s ease-out; }
+    .s24-next-step { display:flex; align-items:center; gap:12px; padding:12px 14px; background:var(--gray-10); border-radius:var(--radius-xs); }
+    .s24-next-icon { width:32px; height:32px; border-radius:50%; background:var(--type-primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; flex-shrink:0; }
+    .s24-next-text { display:flex; flex-direction:column; gap:1px; }
+    .s24-next-label { font-size:0.8125rem; font-weight:600; color:var(--type-primary); }
+    .s24-next-sub { font-size:0.75rem; color:var(--type-tertiary); }
+  </style>
+</head>
+<body>
+
+<!-- SVG Sprite -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ic-switch24" viewBox="0 0 132 34">
+    <text x="0" y="26" font-size="25" font-weight="700" fill="#8023bd" style="font-family:'SmileyFace','Trebuchet MS',Verdana,sans-serif">Switch</text>
+    <rect x="86" y="5" width="42" height="24" rx="8" fill="#8023bd"/>
+    <text x="107" y="23" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" style="font-family:'SmileyFace','Trebuchet MS',Verdana,sans-serif">24</text>
+  </symbol>
+</svg>
+
+<div class="page-wrap">
+
+  <!-- ==================== HEADER ==================== -->
+  <!-- Basket Header — design.md §14: logo + Account + Help + Basket -->
+  <header data-aods="nav">
+    <nav class="nav-mobile nav-checkout" aria-label="Basket navigation">
+      <a href="/" class="nav-logo" aria-label="AO Home">
+        <i class="ico ico-ao-logo" aria-hidden="true"></i>
+      </a>
+      <div class="nav-checkout-icons">
+        <a href="/account" class="nav-icon">
+          <i class="ico ico-account nav-icon-img" aria-hidden="true"></i>
+          <span class="nav-icon-label">Account</span>
+        </a>
+        <a href="/help" class="nav-icon">
+          <i class="ico ico-call nav-icon-img" aria-hidden="true"></i>
+          <span class="nav-icon-label">Help</span>
+        </a>
+        <a href="/basket" class="nav-icon">
+          <i class="ico ico-basket nav-icon-img" aria-hidden="true"></i>
+          <span class="nav-icon-label">Basket</span>
+        </a>
+      </div>
+    </nav>
+    <div class="nav-accent"></div>
+  </header>
+
+  <!-- ==================== BASKET CONTENT ==================== -->
+  <main class="page-content">
+    <div class="basket-content">
+
+      <!-- Title -->
+      <h1 class="basket-title">Your basket</h1>
+
+      <!-- ── Upfront payment ── -->
+      <div class="s24-card" data-aods="s24-basket-section">
+        <!-- Switch24 logo: top-right of card -->
+        <div class="s24-card-logo" aria-hidden="true">
+          <svg class="s24-logo" viewBox="0 0 132 34" role="img" aria-label="Switch24">
+            <use href="#ic-switch24"/>
+          </svg>
+        </div>
+
+        <!-- FLAG: SmileyFace Regular (400) 18px in --gray-70. Off-scale; see stylesheet comment. -->
+        <p class="s24-section-label">Upfront payment</p>
+
+        <div class="s24-line-item">
+          <span class="s24-line-item-name">Apple iPhone 17 256GB in Black</span>
+          <span class="s24-line-item-price">£39.95</span>
+        </div>
+
+        <!-- Bleed banner: "Pay today" -->
+        <div class="s24-bleed-banner" role="presentation">
+          <span class="s24-banner-label">Pay today</span>
+          <span class="s24-banner-amount">£39.95</span>
+        </div>
+      </div>
+
+      <!-- ── Phone / Membership / Plans (combined option card) ──
+           FLAG: Figma node 5034:19639 has no border. Upfront and Final payment cards both have
+           border: 1px solid --gray-40. Added here for visual consistency with the other cards. -->
+      <div class="s24-card" data-aods="s24-basket-section">
+        <!-- Switch24 logo: top-right -->
+        <div class="s24-card-logo" aria-hidden="true">
+          <svg class="s24-logo" viewBox="0 0 132 34" role="img" aria-label="Switch24">
+            <use href="#ic-switch24"/>
+          </svg>
+        </div>
+
+        <!-- Phone -->
+        <p class="s24-section-label">Phone</p>
+        <div class="s24-item-row">
+          <div class="s24-thumb">
+            <!-- Figma asset: iPhone 17 thumbnail (expires 7 days) -->
+            <img src="https://www.figma.com/api/mcp/asset/57c4fcc5-ded9-4e20-a34c-caf6fea0e4a5" alt="Apple iPhone 17 256GB in Black">
+          </div>
+          <div class="s24-item-body">
+            <p class="s24-item-name">Apple iPhone 17 256GB in Black</p>
+            <p class="s24-item-sub">0% interest for 24 months</p>
+          </div>
+          <div class="s24-price-col">
+            <p class="s24-price">
+              £17.00
+              <span class="s24-price-unit">per month</span>
+            </p>
+            <button class="btn btn-tertiary" aria-label="Remove iPhone 17 from basket">
+              <i class="ico ico-trashcan" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <hr class="s24-rule">
+
+        <!-- Membership -->
+        <p class="s24-section-label">Membership</p>
+        <div class="s24-item-row">
+          <div class="s24-thumb s24-thumb--icon">
+            <!-- Figma asset: AO Five Star membership icon (expires 7 days) -->
+            <img src="https://www.figma.com/api/mcp/asset/7b20ccc4-c557-4970-bc99-a15ceb3adee1" alt="">
+          </div>
+          <div class="s24-item-body">
+            <p class="s24-item-name">AO Membership</p>
+            <p class="s24-item-sub">Never pay full price on products across AO.com</p>
+            <p class="s24-item-sign-in">
+              Already a member? <a href="#" class="text-link-sm">Sign in now</a>
+            </p>
+          </div>
+          <div class="s24-price-col">
+            <p class="s24-price">
+              £3.33
+              <span class="s24-price-unit">per month</span>
+            </p>
+          </div>
+        </div>
+
+        <hr class="s24-rule">
+
+        <!-- Plans -->
+        <p class="s24-section-label">Plans</p>
+        <div class="s24-item-row">
+          <div class="s24-thumb s24-thumb--sim">
+            <!-- Figma asset: SIM card illustration (expires 7 days) -->
+            <img src="https://www.figma.com/api/mcp/asset/b74b9066-64a2-47ef-8096-315bd3a0812a" alt="">
+          </div>
+          <div class="s24-item-body">
+            <p class="s24-item-name">Ultimate 500GB</p>
+            <p class="s24-item-sub">30-day rolling plan, SIM-only</p>
+            <p class="s24-item-sub">Unlimited UK minutes &amp; texts</p>
+          </div>
+          <div class="s24-price-col">
+            <p class="s24-price">
+              £12.00
+              <span class="s24-price-unit">per month</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Bleed banner: "Pay Monthly"
+             FLAG: Figma "Pay Monthly" label uses SmileyFace Bold 12px (node 5034:19702),
+             violating the 14px SmileyFace minimum in design.md.
+             Conforming here: using Inter Bold 12px instead. -->
+        <div class="s24-bleed-banner" role="presentation">
+          <span class="s24-banner-label">Pay Monthly</span>
+          <span class="s24-banner-amount">£32.33</span>
+        </div>
+      </div>
+
+      <!-- ── Final payment ── -->
+      <div class="s24-card" data-aods="s24-basket-section">
+        <div class="s24-card-logo" aria-hidden="true">
+          <svg class="s24-logo" viewBox="0 0 132 34" role="img" aria-label="Switch24">
+            <use href="#ic-switch24"/>
+          </svg>
+        </div>
+
+        <p class="s24-section-label">Final payment</p>
+
+        <div class="s24-final-row">
+          <div class="s24-final-body">
+            <p class="s24-final-title">Upgrade or return and pay nothing more</p>
+            <p class="s24-final-desc">
+              To keep your phone, pay off the remaining which is held on a 24 month Buy Now, Pay Later plan.
+            </p>
+          </div>
+          <span class="s24-final-amount">£351.05</span>
+        </div>
+
+        <!-- Bleed banner: "Final payment" -->
+        <div class="s24-bleed-banner" role="presentation">
+          <span class="s24-banner-label">Final payment</span>
+          <span class="s24-banner-amount">£351.05</span>
+        </div>
+      </div>
+
+      <!-- ── Discount / Referral links ── -->
+      <div class="s24-links">
+        <div class="s24-link-wrap">
+          <button class="s24-link-btn">
+            <!-- Figma asset: discount icon (expires 7 days) -->
+            <img src="https://www.figma.com/api/mcp/asset/9e9adc68-4b1e-4782-b240-6427359e1d41" alt="" aria-hidden="true">
+            I have a discount code
+          </button>
+        </div>
+        <div class="s24-link-wrap">
+          <button class="s24-link-btn">
+            <!-- Figma asset: referral icon (expires 7 days) -->
+            <img src="https://www.figma.com/api/mcp/asset/506330ef-993c-464b-9995-9577a3d1b443" alt="" aria-hidden="true">
+            Been referred by a friend?
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Terms & Privacy ── -->
+      <div class="s24-terms-card">
+        <div class="s24-terms-inner">
+          <!-- Figma uses a custom 24px_Secure payment icon; using ico-lock as Strata equivalent -->
+          <img class="s24-terms-icon" src="https://www.figma.com/api/mcp/asset/c79048ba-db03-4c34-a3be-f829bd170b77" alt="" aria-hidden="true">
+          <div class="s24-terms-body">
+            <p class="s24-terms-title">Terms and Privacy</p>
+            <p class="s24-terms-copy">
+              By continuing with this order, you agree to our <a href="#">T&amp;C's</a>, our
+              <a href="#">Switch24 terms</a> and <a href="#">membership terms</a>.
+              See how your data is used in our <a href="#">privacy policy</a>.
+              Switch24 requires an AO Finance account.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Progress tracker ("Pick up where you left off")
+           Custom component: not in the AO design system.
+           Step 1 completed (AO Finance), Step 2 active (AO Mobile data), Step 3 pending (Device insurance).
+           Active step uses --action-secondary-active (#001876) per Figma. ── -->
+      <div class="s24-progress-card">
+        <div class="s24-progress-header">
+          <p class="s24-progress-title">Nearly there</p>
+          <p class="s24-progress-hint">2 of 3 done</p>
+        </div>
+        <div class="s24-prog-bar" role="progressbar" aria-label="Setup progress: step 2 of 3">
+          <div class="s24-prog-fill"></div>
+        </div>
+        <div class="s24-next-step">
+          <span class="s24-next-icon">2</span>
+          <div class="s24-next-text">
+            <span class="s24-next-label">AO Mobile data</span>
+            <span class="s24-next-sub">Takes about 2 minutes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CTA ── -->
+      <a href="checkout-flow.html" class="btn btn-primary btn-lg btn-full" data-aods="button" data-loading-target="checkout-flow.html">
+        <i class="ico ico-basket" aria-hidden="true"></i>
+        Continue to checkout
+      </a>
+
+      <!-- ── REP Example (legal) ── -->
+      <div class="s24-rep" data-aods="card">
+        <p class="s24-rep-header">
+          *Switch24 is 0% interest for 24 months. 39.1% APR applies to the AO Finance representative example.
+        </p>
+        <p class="s24-rep-apr">
+          Representative <span class="s24-rep-num">39.1% APR</span> (variable),
+          <span class="s24-rep-num">29.9% PA</span> purchase rate (variable),
+          <span class="s24-rep-num">£1,200</span> assumed credit limit.
+        </p>
+        <p class="s24-rep-legal">
+          18+, Credit and Offers are subject to status. Terms apply. NewDay Ltd, UK Only.
+          <strong>AO Retail Limited acts as a credit broker exclusively for NewDay Ltd and is not a lender.</strong>
+          AO membership annual fee of £39.99 payable to access exclusive promotional offers.
+          <a href="https://ao.com/help-and-advice/finance-and-savings/ao-five-star/t-and-cs" target="_blank" rel="noopener">Membership terms</a>
+          and
+          <a href="https://ao.com/mobile-phones/switch24/tandcs" target="_blank" rel="noopener">Switch24 terms</a>
+          apply.
+        </p>
+        <p class="s24-rep-calc">
+          The upfront cost where applicable is calculated using the member price.
+        </p>
+      </div>
+
+    </div><!-- /basket-content -->
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer data-aods="footer">
+
+      <!-- Proposition strip -->
+      <div class="prop-strip">
+        <div class="prop-item">
+          <i class="ico ico-price-match-gbp" aria-hidden="true"></i>
+          <span class="prop-item-label">Price Match Promise</span>
+        </div>
+        <div class="prop-item">
+          <i class="ico ico-installation" aria-hidden="true"></i>
+          <span class="prop-item-label">Hassle-free installation</span>
+        </div>
+        <div class="prop-item">
+          <i class="ico ico-finance-gbp" aria-hidden="true"></i>
+          <span class="prop-item-label">Pay with AO Finance</span>
+        </div>
+        <div class="prop-item">
+          <i class="ico ico-five-star-membership" aria-hidden="true"></i>
+          <span class="prop-item-label">Join AO Five Star</span>
+        </div>
+      </div>
+
+      <!-- Footer accordion links -->
+      <div class="footer-links-section">
+        <button class="footer-acc-btn" aria-expanded="false" aria-controls="footer-about">
+          <i class="ico ico-info" aria-hidden="true"></i>
+          About ao.com
+        </button>
+        <button class="footer-acc-btn" aria-expanded="false" aria-controls="footer-save">
+          <i class="ico ico-mail" aria-hidden="true"></i>
+          Save basket to your email
+        </button>
+      </div>
+
+      <!-- Recently Viewed -->
+      <div class="recently-viewed">
+        <div class="rv-header">
+          <span class="rv-title">
+            Recently Viewed
+          </span>
+          <button class="rv-clear">Clear All</button>
+        </div>
+        <div class="rv-grid" role="list">
+          <!-- Product 1: iPhone 16 Pro Max -->
+          <div class="rv-item" role="listitem">
+            <div class="rv-img">
+              <img src="https://www.figma.com/api/mcp/asset/79d2708e-c58f-44f5-9e8f-4de199f240cf"
+                   alt="Apple iPhone 16 Pro Max 256GB in Black Titanium">
+              <span class="rv-badge">Added to basket</span>
+            </div>
+            <div style="display:flex; gap:0.25rem; margin-bottom:0.25rem;" aria-label="Rating: 5 out of 5, 1 review">
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <span style="font-size:0.75rem; color:var(--type-tertiary); margin-left:0.25rem;">5.0 / 5 (1)</span>
+            </div>
+            <p class="rv-price">£1,199</p>
+            <p class="rv-name">Apple iPhone 16 Pro Max 256GB in Black Titanium</p>
+          </div>
+          <!-- Product 2: Samsung A15 -->
+          <div class="rv-item" role="listitem">
+            <div class="rv-img">
+              <img src="https://www.figma.com/api/mcp/asset/8ede5ad6-2282-4a40-b3c8-0c19e69d60a1"
+                   alt="Samsung Galaxy A15 128GB in Blue/Black">
+            </div>
+            <div style="display:flex; gap:0.25rem; margin-bottom:0.25rem;" aria-label="Rating: 5 out of 5, 16 reviews">
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <i class="ico ico-star" style="color: var(--ui-warning-accent); font-size:0.75rem;" aria-hidden="true"></i>
+              <span style="font-size:0.75rem; color:var(--type-tertiary); margin-left:0.25rem;">5.0 / 5 (16)</span>
+            </div>
+            <p class="rv-price" style="color: #cf1a30;">£139</p>
+            <p style="font-size:0.75rem; color:var(--type-tertiary); text-decoration:line-through; margin-bottom:0.125rem;">was £146</p>
+            <p style="font-size:0.875rem; color:#cf1a30; font-family:'SmileyFace',Georgia,serif; font-weight:700;">£122</p>
+            <p style="font-size:0.75rem; font-weight:700; color:var(--type-primary); margin-bottom:0.25rem;">AO Member price</p>
+            <p class="rv-name">Samsung Galaxy A15 128GB Smartphone in Blue/Black</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark footer -->
+      <div class="footer-dark">
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="ico ico-share" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ico ico-share" aria-hidden="true"></i></a>
+          <a href="#" aria-label="TikTok"><i class="ico ico-share" aria-hidden="true"></i></a>
+          <a href="#" aria-label="YouTube"><i class="ico ico-play" aria-hidden="true"></i></a>
+          <a href="#" aria-label="X / Twitter"><i class="ico ico-share" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="ico ico-share" aria-hidden="true"></i></a>
+        </div>
+        <hr class="footer-rule">
+        <div class="footer-legal">
+          <p>
+            <a href="https://ao.com" target="_blank">ao.com</a>
+            is operated by AO Retail Limited, registered in England with company number 03914998
+            whose registered office is at 5a, The Parklands, Lostock, Bolton, BL6 4SD.
+          </p>
+          <p>The goods you buy from this site will be purchased from AO Retail Limited.</p>
+          <p>
+            Credit is provided by NewDay Ltd, 7 Handyside Street, London, N1C 4DA.
+            <strong>AO Retail Limited acts as a credit broker for NewDay Ltd on an exclusive basis and is not a lender.</strong>
+            NewDay Ltd and AO Retail Limited are each authorised and regulated by the Financial Conduct Authority.
+            Credit is available only to UK residents aged 18 and over. Subject to status. Terms apply.
+          </p>
+          <p>
+            For more information on how we use your data read our
+            <a href="#">Privacy Policy</a>.
+          </p>
+          <p>Unique Cookies Reference: 3JD-HYW-FH8</p>
+        </div>
+      </div>
+
+    </footer>
+  </main>
+
+</div><!-- /page-wrap -->
+
+<script>
+  // Accordion expand/collapse for footer links
+  document.querySelectorAll('.footer-acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
+  });
+</script>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay"
+     role="status"
+     aria-live="polite"
+     aria-label="Loading, please wait"
+     tabindex="-1"
+     hidden>
+  <header data-aods="nav">
+    <nav class="nav-mobile nav-checkout" aria-label="Basket navigation">
+      <a href="/" class="nav-logo" aria-label="AO Home">
+        <i class="ico ico-ao-logo" aria-hidden="true"></i>
+      </a>
+      <div class="nav-checkout-icons">
+        <a href="/account" class="nav-icon">
+          <i class="ico ico-account nav-icon-img" aria-hidden="true"></i>
+          <span class="nav-icon-label">Account</span>
+        </a>
+        <a href="/help" class="nav-icon">
+          <i class="ico ico-call nav-icon-img" aria-hidden="true"></i>
+          <span class="nav-icon-label">Help</span>
+        </a>
+        <a href="/basket" class="nav-icon">
+          <i class="ico ico-basket nav-icon-img" aria-hidden="true"></i>
+          <span class="nav-icon-label">Basket</span>
+        </a>
+      </div>
+    </nav>
+    <div class="nav-accent"></div>
+  </header>
+  <div class="loading-content">
+    <div class="ao-spinner" aria-hidden="true">
+      <div class="ao-spinner-ring"></div>
+      <div class="ao-spinner-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <circle cx="16" cy="16" r="15" stroke="#12c35a" stroke-width="2"/>
+          <circle cx="11" cy="13" r="2" fill="#12c35a"/>
+          <circle cx="21" cy="13" r="2" fill="#12c35a"/>
+          <path d="M10 20c1.5 3 3.5 4 6 4s4.5-1 6-4" stroke="#12c35a" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* === Loading Transition Controller === */
+(function() {
+  'use strict';
+
+  var DISPLAY_DURATION = 1000;
+  var FADE_DURATION = 150;
+  var state = 'idle';
+
+  var overlay = document.getElementById('loadingOverlay');
+  var triggers = document.querySelectorAll('[data-loading-target]');
+
+  function startTransition(destinationUrl) {
+    if (state !== 'idle') return;
+    state = 'loading';
+
+    overlay.removeAttribute('hidden');
+    void overlay.offsetHeight;
+    overlay.classList.add('is-active');
+    overlay.focus();
+
+    triggers.forEach(function(el) {
+      el.style.pointerEvents = 'none';
+    });
+
+    setTimeout(function() {
+      state = 'fading';
+      overlay.classList.remove('is-active');
+
+      setTimeout(function() {
+        state = 'navigating';
+        window.location = destinationUrl;
+      }, FADE_DURATION);
+    }, DISPLAY_DURATION);
+  }
+
+  triggers.forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = el.getAttribute('data-loading-target');
+      if (target) startTransition(target);
+    });
+  });
+
+  overlay.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+    }
+  });
+})();
+</script>
+
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>
