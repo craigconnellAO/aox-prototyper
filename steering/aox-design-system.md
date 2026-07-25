@@ -2,11 +2,11 @@
 inclusion: always
 ---
 
-# AO designMD — Workspace Rules
+# AOX-Prototyper — Workspace Rules
 
 ## Project Purpose
 
-This workspace produces AO (ao.com) design-system-strict HTML prototypes and Figma builds. Output is intended to be handed directly to developers — class names, token names, and `data-aods` selectors map 1:1 to the production `@ao/components` React library.
+**AOX-Prototyper** is a Kiro Power distribution within the larger **AOX-DesignSystem** initiative. This workspace produces AOX-compliant HTML prototypes and Figma builds, suitable for handing directly to developers — class names, token names, and `data-aods` selectors map 1:1 to the production `@ao/components` React library.
 
 Source of truth, in order of authority:
 

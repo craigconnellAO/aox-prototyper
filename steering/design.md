@@ -1,8 +1,8 @@
-# AO Design System Reference
+# AOX Design System Reference
 
 ## About This Document
 
-This is a single-file design system reference for generating AO-compliant HTML prototypes. It consolidates all authoritative AO design tokens, typography rules, icon guidance, component blueprints, page patterns, and anti-pattern rules into one agent-consumable document.
+This is a single-file design system reference for generating AOX-compliant HTML prototypes. It consolidates all authoritative AOX design tokens, typography rules, icon guidance, component blueprints, page patterns, and anti-pattern rules into one agent-consumable document.
 
 ### Output Format Rules
 
