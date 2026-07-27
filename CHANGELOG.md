@@ -54,6 +54,18 @@ It also documents a filename collision that was previously undocumented: `/impec
 
 `docs/how-to-use.md` §4 previously described impeccable as reading `PRODUCT.md` and `DESIGN.md`. It writes them too; corrected.
 
+### Tool boundaries and the promotion route
+
+Two new sections in `steering/aox-design-system.md`, both always-active.
+
+**Tool Boundaries** splits the world into a system tier (`design.md`, `brand.md`, `aox-design-system.md` — org-wide) and a project tier (the spec files, `IDEATION.md`, `STATUS.md`, prototypes). Companion tools, impeccable especially, operate on the project tier only.
+
+In normal use that's structural rather than disciplinary: an installed Power's `steering/` sits outside the workspace, so a project-level tool cannot reach it. The rule exists for the one case where it can — **when the workspace is the power repo itself**, where `steering/` is an ordinary editable file. There, system-tier files are read-only unless the user has explicitly asked to change the design system.
+
+**Promoting a Project Decision into the System** formalises something that had happened once but was never written down. `--switch-purple` went from prototype use → flagged as a conflict → adopted into `design.md` §7a with an explicit scope. That path is now a documented six-step route: keep it local until proven, state the case, check it isn't already solvable with an existing blueprint, get a human decision, write it into the right home *with scope*, record it.
+
+Step 4 is the load-bearing one — promotion happens because a person asked, never because a tool suggested it or an audit flagged it. And an exception that can't name the surfaces it applies to isn't ready: that's the difference between a sanctioned exception and the palette quietly getting wider.
+
 ### Docs
 
 `POWER.md` gains the onboarding and progress-tracking sections, an accurate file-structure diagram, and an install section that states plainly what the installer does and does not copy. `docs/how-to-use.md` §1 documents the three-item install so it's checkable, §3 marks the guard hook optional, and §6 covers both the guided and by-hand setup paths. `README.md` quickstart and layout updated to match. The stale "AO designMD" title in `how-to-use.md` is now "AOX-Prototyper".

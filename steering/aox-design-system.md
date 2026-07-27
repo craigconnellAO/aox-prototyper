@@ -72,6 +72,43 @@ A project's `DISCOVERY.md`, `PRODUCT.md`, and `DESIGN.md` are what make generate
 
 ---
 
+## Tool Boundaries — what may write where
+
+Two tiers, and the line between them is not negotiable:
+
+- **System tier** — `steering/design.md`, `steering/brand.md`, this file. Org-wide, shared across every project. Changes here affect work you cannot see.
+- **Project tier** — `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, `IDEATION.md`, `STATUS.md`, prototypes. Local to one project.
+
+**Companion tools — impeccable above all — operate on the project tier only.** Never let a craft, polish, audit, or critique pass edit a system-tier file, and never fold its output into `design.md` as though it were a system decision.
+
+In normal use this is structural rather than a matter of discipline: an installed Power's `steering/` lives outside the workspace, so a project-level tool physically cannot reach it. The rule matters in one case — **when the workspace *is* the power repo**, where `steering/` is an ordinary editable file. In that situation, treat every system-tier file as read-only unless the user has explicitly asked to change the design system itself. Editing `design.md` because a polish pass suggested a nicer value is exactly the failure this rule exists to prevent.
+
+A project-tier decision that genuinely deserves to be system-wide has a route. See *Promoting a Project Decision* below. Take that route; don't shortcut it.
+
+---
+
 ## Ideate vs. Locked
 
 Default mode is **locked**: build strictly from `design.md`, the project's `DESIGN.md`, and approved variants. Deliberately entering exploratory/creative territory (new motion, new layout structure, a genuinely new screen concept) requires invoking `/ideate-mode` first — see `skills/ideate-mode/SKILL.md`. Don't let exploratory decisions leak into a project's locked `DESIGN.md` without going through that skill; that's the exact failure `/ideate-mode` exists to prevent.
+
+---
+
+## Promoting a Project Decision into the System
+
+Sometimes a project-tier decision turns out to be right for everyone — a colour the system lacks, a component pattern that keeps getting rebuilt, a rule that stops a recurring mistake. It gets promoted **deliberately and in writing**, never by quietly editing `design.md` mid-build.
+
+There's a worked precedent. `--switch-purple` was used in a Switch24 prototype, flagged in that project's `FIGMA-BRIDGE.md` as a conflict against the project's own "introduces no new colours" rule, and only then adopted into `design.md` §7a with an explicit scope — account hub only, not the signup funnel. It was a real exception, argued for and bounded, not a value that drifted in.
+
+Follow that shape:
+
+1. **Keep it local first.** It lives in the project's `DESIGN.md` (locked) or `IDEATION.md` (still open). A decision that has only been used once has not yet earned generalisation.
+2. **State the case.** What is it, what problem does it solve, and where has it actually been used? Two or more projects reaching for the same thing is the strongest signal there is; one project wanting it is a local decision.
+3. **Check it isn't already solvable.** Most "we need a new component" turns out to be an existing blueprint with different content. Resolve against `design.md` and `assets/strata-component-sheet/index.html` before proposing anything new.
+4. **Get a human decision.** Promotion changes shared, org-wide files. Never do it because a tool suggested it, an audit flagged it, or it seemed tidy — only because the user explicitly asked for it.
+5. **Write it in the right home**, with scope:
+   - A colour or sub-brand accent → `design.md` §7a, following that section's pattern exactly: token + hex + bg/border pair + the precise surfaces it applies to.
+   - A component or pattern → the relevant `design.md` section, with a blueprint, its variant API, and the anti-pattern it replaces.
+   - A recurring process failure → a protocol in this file, stated as *problem this fixes* then *rule*, like the four above.
+6. **Record it in the changelog**, and update the originating project's `DESIGN.md` to reference the now-sanctioned version rather than continuing to describe it as a local override.
+
+An exception that isn't scoped isn't an exception — it's the palette quietly getting wider. If step 5 can't name the surfaces it applies to, it isn't ready.

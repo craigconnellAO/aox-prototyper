@@ -78,6 +78,16 @@ That's not a reason to avoid them. It's a reason to invoke `/ideate-mode` first,
 
 ---
 
+## Impeccable stays at project level
+
+Everything impeccable does belongs to **this project** — your `PRODUCT.md`, `DESIGN.md`, prototypes, components. It never edits the AOX design system itself (`design.md`, `brand.md`), and in normal use it can't: an installed Power's steering lives outside your workspace.
+
+So if an impeccable pass produces something genuinely good that the whole design system should adopt — a colour the palette lacks, a pattern you keep rebuilding — that's a **promotion**, and it goes through the route in `aox-design-system.md` → *Promoting a Project Decision into the System*. Briefly: keep it local until it's proven, state the case, check it isn't already solvable with an existing blueprint, get a human decision, then write it into `design.md` with an explicit scope.
+
+What it never is: a tool suggested it, so it went in. `--switch-purple` is the worked example of doing this properly — used in a prototype, flagged as a conflict, then adopted into `design.md` §7a bounded to specific surfaces.
+
+---
+
 ## A sensible sequence
 
 1. Build the screen with AOX-Prototyper as normal
