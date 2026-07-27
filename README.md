@@ -11,10 +11,10 @@ A Kiro Power for building AOX-compliant design-system prototypes and Figma build
 
 See [`POWER.md`](POWER.md) for the full onboarding steps, and [`docs/how-to-use.md`](docs/how-to-use.md) for a walkthrough. The short version:
 
-1. Install this Power in Kiro (or point Claude Code at this folder — the `steering/`, `skills/`, and `templates/` files work the same way there).
+1. Install this Power in Kiro (or point Claude Code at this folder — the `steering/`, `skills/`, and `templates/` files work the same way there). The installer brings in `POWER.md`, `steering/`, and `mcp.json`; skills and the hook are a one-time manual copy (see [`POWER.md`](POWER.md)).
 2. Set `FIGMA_ACCESS_TOKEN` in your environment if you'll use the Figma bridge.
-3. Start a new project: copy `templates/DISCOVERY.md`, `templates/PRODUCT.md`, `templates/DESIGN.md` into your project folder and fill them in.
-4. Build. The AI reads `steering/design.md` for tokens/components, your filled templates for project context, and asks before leaving locked mode (`/ideate-mode`).
+3. Start a session in your new project folder. Kiro sees the spec files aren't there yet and offers a two-minute onboarding questionnaire that writes `DISCOVERY.md`, `PRODUCT.md`, and `DESIGN.md` for you — or copy them from `templates/` and fill them in by hand.
+4. Build. The AI reads `steering/design.md` for tokens/components, your filled spec files for project context, and asks before leaving locked mode (`/ideate-mode`).
 
 ---
 
@@ -30,6 +30,7 @@ steering/                   LOCKED — always active once installed
   aox-design-system.md        Workspace rules + the four insights-derived protocols
   design.md                   AOX design system: tokens, typography, components, patterns, anti-patterns
   brand.md                    AOX brand guidelines: voice, colour, logo, graphic language
+  onboarding-flow.md          Guided project setup — dormant once the spec files are filled
 
 skills/                     Reusable workflows — install into .kiro/skills/
   figma-bridge/SKILL.md       Push an HTML prototype into Figma
@@ -39,10 +40,12 @@ skills/                     Reusable workflows — install into .kiro/skills/
 hooks/                      Install into .kiro/hooks/
   design-system-guard.kiro.hook   Flags hand-drawn SVGs / raw hex on save
 
-templates/                  TO COMPLETE per project — copy into a new project folder
+templates/                  TO COMPLETE per project — onboarding writes these, or copy them yourself
   DISCOVERY.md                 Research, evidence, hypotheses
-  PRODUCT.md                   Users, purpose, commercial goals, anti-references
+  PRODUCT.md                   Users, flows, screens, purpose, commercial goals, anti-references
   DESIGN.md                    Locked project-specific design decisions
+  STATUS.md                    Live progress checklist, maintained by Kiro
+  QUICKSTART.md                Command and design-system reference card
 
 assets/
   strata-component-sheet/     The real, rendered Strata component markup — authoritative
@@ -80,4 +83,4 @@ Every prototype built under this Power will:
 
 ---
 
-**v1.0** · 2026-07-25 · AOX-DesignSystem
+**v1.1** · 2026-07-27 · AOX-DesignSystem

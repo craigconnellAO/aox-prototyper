@@ -1,5 +1,55 @@
 # Changelog
 
+## v1.1.0 — 2026-07-27
+
+Guided onboarding, live progress tracking, and a quick-start reference — folded in from a clean-room test of the Power (`PrototyperTest_1`), where a new-user run built an AO Solar lead-gen landing page from scratch and surfaced where the setup path was too manual.
+
+### Guided onboarding
+
+New `steering/onboarding-flow.md`: a five-batch conversational questionnaire (discovery → product → design → tools → references) that populates a project's spec files instead of leaving the user to copy templates and fill them from an example. Roughly two minutes, skippable at any point including mid-flow.
+
+It lives in `steering/` rather than behind a `SessionStart` hook, and it's **self-gating** — the file opens with a condition check and stays dormant once `DISCOVERY.md`, `PRODUCT.md`, and `DESIGN.md` exist without the unfilled marker. See "Why no scripts" below.
+
+### Live progress tracking
+
+New `templates/STATUS.md` — a setup/first-prototype/exploration/ongoing checklist that Kiro keeps current as milestones land. Agent-maintained by an instruction table in `onboarding-flow.md`; it re-reads before writing, so a box you tick by hand stays ticked.
+
+### Quick-start reference
+
+New `templates/QUICKSTART.md` — build commands, the three skills, a design-system-at-a-glance table, and what each project file is for. Written after onboarding as the user's first reference point.
+
+Its design-system values were verified against `steering/design.md` rather than restated from memory: the spacing scale runs to 56 and 64 (an earlier draft stopped at 48), 14px is the SmileyFace floor (`text-title-sm`), and the radius set is xs:4 / sm:8 / md:16 / xl:24 / 2xl:40.
+
+### Templates — quick-fill on top, thinking underneath
+
+`DISCOVERY.md`, `PRODUCT.md`, and `DESIGN.md` each gain an **At a Glance** section: the minimum context needed to generate a correct screen, in a form onboarding can populate directly. Everything already in these templates is retained beneath it — research themes, falsifiable hypotheses, brand personality, *What [Product] Is Not*, the §7a exception protocol, colour strategy, motion, tone.
+
+The test run had replaced these wholesale with short tabular stubs. That reads as an improvement for auto-fill and a real loss as a thinking tool, and it desynchronised the templates from `example-switch24/`. Merged rather than swapped, so both properties hold.
+
+`PRODUCT.md` also gains genuinely new sections that had no equivalent: **User Stories**, **Flows**, **Screens**, **Edge Cases & Error States**, **Out of Scope**, **Dependencies**. `DESIGN.md` gains a **Locked Decisions** register (decision / reason / date — so the *why* survives the six-week-later question) and an **Open Questions** table that deliberately holds pointers only, resolved in `IDEATION.md` rather than answered inline. Answering them inline is the exact failure `/ideate-mode` exists to prevent.
+
+### Why no scripts
+
+The test run also produced three JSON hooks and three shell scripts. None shipped. The reason is worth recording, because it constrains anything similar in future:
+
+**Kiro's Power installer copies `POWER.md`, `steering/`, and `mcp.json`, and nothing else.** Verified across all five powers installed locally — `hooks/`, `skills/`, `templates/`, and `scripts/` never reach `~/.kiro/powers/installed/`. There is no install-lifecycle hook. A `scaffold.sh` shipped in the repo is therefore unreachable from where the Power actually runs.
+
+That makes `steering/` the only surface a Power can rely on, which is why onboarding is prose in `steering/` and `STATUS.md` is agent-maintained. The features survived; their delivery mechanism didn't.
+
+The scripts were also individually unsound, and none had ever executed — the test workspace's `.kiro/` contained only `settings/mcp.json`. `grep -P` doesn't exist on stock macOS (`/usr/bin/grep` exits 2), so `update-status.sh`'s `! grep -qP` guard-check inverted to *true* and would have falsely reported design-system compliance. `sed -i ''` is BSD-only. All three hooks hardcoded a `${WORKSPACE_FOLDER}/power/scripts/` path that only existed in the test project's layout.
+
+### design-system-guard — kept as-is
+
+`hooks/design-system-guard.kiro.hook` is unchanged. The test run's replacement (`design-system-guard.json`) was not adopted: it greps for raw hex and exits 2, but every compliant prototype embeds the `:root` token block, where hex values are *defined* — 74 matches in `example-switch24/prototypes/basket.html`, 35 in the test's own output. It would have blocked on the Power's own worked example. Its emoji character class also contained a literal `+`, matching any plus sign in the file.
+
+More to the point, the regex version dropped hand-drawn-`<svg>` detection — Protocol 1, and the largest single friction category in the v1.0.0 `/insights` review. The `askAgent` hook catches it; a regex can't.
+
+### Docs
+
+`POWER.md` gains the onboarding and progress-tracking sections, an accurate file-structure diagram, and an install section that states plainly what the installer does and does not copy. `docs/how-to-use.md` §1 documents the three-item install so it's checkable, §3 marks the guard hook optional, and §6 covers both the guided and by-hand setup paths. `README.md` quickstart and layout updated to match. The stale "AO designMD" title in `how-to-use.md` is now "AOX-Prototyper".
+
+---
+
 ## v1.0.0 — 2026-07-25
 
 First release as **AO designMD**, a standalone shareable Kiro Power. This is a new package assembled from roughly three months of internal experimentation (originally "AO Figma Make Kit") — not a continuation of that repo's version numbers. See **Lineage** below for how it got here.

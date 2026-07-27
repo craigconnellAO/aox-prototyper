@@ -1,10 +1,37 @@
 # Discovery
 
+<!-- AOX-PROTOTYPER: This template is unfilled. Start a Kiro session and the
+     onboarding flow will populate it conversationally, or fill it in by hand.
+     Delete this comment once the file has real content in it. -->
+
 Living record of research, evidence, assumptions, and learnings for **[project name]**.
 
 *[One or two sentences: what is this product/feature, and what problem does it exist to solve? See `example-switch24/DISCOVERY.md` for a worked reference.]*
 
 This document captures why we're building it, what we've learned so far, and what evidence should drive future design decisions.
+
+---
+
+## At a Glance
+
+*[The fast facts. Onboarding fills this first; everything below is the deeper thinking that follows. If you only ever fill in one section, make it this one — it's the minimum the AI needs to build accurately.]*
+
+| | |
+|---|---|
+| **Project** | *[name]* |
+| **Owner** | *[team or individual]* |
+| **Started** | *[date]* |
+| **Problem, in one line** | *[...]* |
+| **Primary users** | *[...]* |
+| **Hard constraints** | *[tech stack, timeline, accessibility level, brand sub-rules — or "none known"]* |
+
+### Target Users
+
+*[One row per segment. Keep it to the segments that actually change a design decision.]*
+
+| User segment | Core need | Current pain |
+|---|---|---|
+| | | |
 
 ---
 

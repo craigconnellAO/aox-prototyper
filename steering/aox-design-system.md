@@ -64,6 +64,14 @@ These four rules exist because they were the concrete, repeated failure modes su
 
 ---
 
+## Project Setup
+
+A project's `DISCOVERY.md`, `PRODUCT.md`, and `DESIGN.md` are what make generated output specific to *this* project rather than generically AOX-correct. If they're missing or still carry the `AOX-PROTOTYPER: This template is unfilled` marker, `steering/onboarding-flow.md` governs what to do — it's self-gating, so it stays dormant once they're filled.
+
+`STATUS.md`, if present, is agent-maintained. Keep it current as milestones land; there's no hook or script behind it.
+
+---
+
 ## Ideate vs. Locked
 
 Default mode is **locked**: build strictly from `design.md`, the project's `DESIGN.md`, and approved variants. Deliberately entering exploratory/creative territory (new motion, new layout structure, a genuinely new screen concept) requires invoking `/ideate-mode` first — see `skills/ideate-mode/SKILL.md`. Don't let exploratory decisions leak into a project's locked `DESIGN.md` without going through that skill; that's the exact failure `/ideate-mode` exists to prevent.
