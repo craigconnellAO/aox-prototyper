@@ -75,6 +75,7 @@ disagree, `assets/strata-component-sheet/index.html` wins.
 | `DESIGN.md` | Layout, components, locked decisions |
 | `IDEATION.md` | Created when you first need it — open questions being explored |
 | `STATUS.md` | Live progress checklist |
+| `IMPECCABLE.md` | What impeccable can do, if you installed it |
 | This file | Command reference (safe to close) |
 
 ---

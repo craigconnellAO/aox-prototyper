@@ -74,9 +74,20 @@ Populates: **At a Glance**, **Layout**, **Components in Use**, **Locked Decision
 ### Batch 4 — Tools
 
 - "Do you have a Figma access token set up? Only needed if you want to push prototypes into Figma."
-- "Want me to install **impeccable**? It's a companion skill for production-quality polish — `npx impeccable`, nothing heavy."
 
-Act on the answers: run `npx impeccable` if they say yes, and check the matching `STATUS.md` boxes. If they decline impeccable, leave it unchecked and mention it's available whenever.
+**Before asking about impeccable, check whether it's already there** — look for `~/.kiro/skills/impeccable/` or an `impeccable` entry in the workspace's skills. Don't offer to install something the user already has.
+
+- **Already installed** → don't offer an install. Say so, and offer the reference card instead: *"You've already got impeccable — want me to drop in a reference card for what it can do alongside the design system?"*
+- **Not installed** → "Want me to install **impeccable**? It's a companion skill for production-quality polish — `npx impeccable`, nothing heavy."
+
+Act on the answers:
+
+- If they want it installed, run `npx impeccable`. If the install fails, say so plainly and carry on — onboarding does not depend on it.
+- **If impeccable ends up present either way, write `IMPECCABLE.md` to the project root.** Copy `templates/IMPECCABLE.md` if it's available; otherwise generate it by reading the installed skill's `scripts/command-metadata.json` for the real command list — do not recall the commands from memory, they change between versions.
+- Check the matching `STATUS.md` boxes.
+- If they decline, leave it unchecked, write no `IMPECCABLE.md`, and mention it's available whenever.
+
+One thing worth telling them when `IMPECCABLE.md` gets written: `/impeccable init` and `/impeccable document` write `PRODUCT.md` and `DESIGN.md`, the same filenames this power uses. Impeccable always asks before overwriting, but its `DESIGN.md` follows a different schema — the card explains which prompts to decline.
 
 ### Batch 5 — References (only if not already covered)
 
@@ -91,14 +102,17 @@ Goes into `DESIGN.md` → **Reference & Inspiration**.
 1. **`DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`** — populated, marker removed. Preserve every section heading from the template even where empty; the empty ones are prompts for later, and deleting them quietly removes the thinking they were there to provoke.
 2. **`STATUS.md`** — create it, check off "Project templates filled in" plus anything confirmed in Batch 4, and set the *Last updated* line to today.
 3. **`QUICKSTART.md`** — create it as the user's command reference. If `templates/QUICKSTART.md` is available, copy it. If not, generate it: build commands, the three skills and how to invoke them, a design-system-at-a-glance table (pull the real values from `design.md` — do not recall them from memory), and what each project file is for.
-4. Open `QUICKSTART.md` in the editor if you can.
-5. Close out:
+4. **`IMPECCABLE.md`** — only if impeccable is installed. See Batch 4 above for how to source the command list.
+5. Open `QUICKSTART.md` in the editor if you can.
+6. Close out:
 
 > "You're set up. Here's what I captured: *[brief recap]*.
 >
 > I've written your **QUICKSTART.md** — commands and design-system rules at a glance. **STATUS.md** tracks progress as you go.
 >
 > Ready when you are — ask me to build any screen from your flows, or run an ideation round first if you'd rather explore."
+
+If you wrote `IMPECCABLE.md`, add a line to that recap: *"and **IMPECCABLE.md**, which covers what impeccable can do alongside the design system — including the two commands that'll try to overwrite your spec files."*
 
 ---
 
@@ -112,7 +126,7 @@ You maintain this file — there's no script and no hook behind it. Update it as
 | User confirms their Figma token | Figma access token set |
 | Skills copied into `.kiro/skills/` | Skills copied |
 | Guard hook copied into `.kiro/hooks/` | Design-system-guard hook copied |
-| `npx impeccable` succeeds | Impeccable installed |
+| impeccable installed, or found already present | Impeccable installed |
 | User confirms the Bridge plugin is running | Figma Desktop Bridge plugin running |
 | First `.html` prototype written | Built first screen prototype |
 | A prototype passes a compliance pass | Prototype uses tokens, Strata icons, `data-aods` |

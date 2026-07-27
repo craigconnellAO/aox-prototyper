@@ -29,7 +29,11 @@ The guard hook is optional — the design-system rules are enforced by steering 
 
 ## 4. Install impeccable
 
-`impeccable` is the frontend-craft skill this Power's templates and `ideate-mode` are built to work alongside — it reads a project's `PRODUCT.md` and `DESIGN.md` automatically. Install it via its own current instructions (`npx impeccable` or your workspace's existing `.claude/skills/impeccable/` if already present). This Power doesn't vendor a copy, so you always get the current version.
+`impeccable` is the frontend-craft skill this Power's templates and `ideate-mode` are built to work alongside — it reads a project's `PRODUCT.md` and `DESIGN.md` before doing any work. Install it via its own current instructions (`npx impeccable`, or your workspace's existing `.kiro/skills/impeccable/` or `.claude/skills/impeccable/` if already present). This Power doesn't vendor a copy, so you always get the current version.
+
+Onboarding checks whether you already have it before offering to install, and writes an `IMPECCABLE.md` reference card into your project when it's present — what each command does, and which ones belong behind `/ideate-mode` because they deliberately push away from the locked system.
+
+**One thing to know up front:** impeccable doesn't only read `PRODUCT.md` and `DESIGN.md` — `/impeccable init` and `/impeccable document` *write* them. It always asks before overwriting, so nothing is lost silently, but its `DESIGN.md` follows the Google Stitch spec (YAML token frontmatter, six fixed sections) rather than the AOX shape. Decline that one. Its `PRODUCT.md` is near-identical to the AOX section list and is safe to let it extend.
 
 ## 5. Set your Figma token
 

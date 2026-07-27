@@ -46,6 +46,7 @@ templates/                  TO COMPLETE per project — onboarding writes these,
   DESIGN.md                    Locked project-specific design decisions
   STATUS.md                    Live progress checklist, maintained by Kiro
   QUICKSTART.md                Command and design-system reference card
+  IMPECCABLE.md                Impeccable command reference — written only if impeccable is installed
 
 assets/
   strata-component-sheet/     The real, rendered Strata component markup — authoritative

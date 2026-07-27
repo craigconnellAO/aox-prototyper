@@ -116,6 +116,7 @@ hooks/                         ← manual copy → .kiro/hooks/
 templates/                     ← reference copies; onboarding can write these for you
   DISCOVERY.md  PRODUCT.md  DESIGN.md
   STATUS.md     QUICKSTART.md
+  IMPECCABLE.md                  written only when impeccable is installed
 
 assets/
   strata-component-sheet/        authoritative rendered Strata markup

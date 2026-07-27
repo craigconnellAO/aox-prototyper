@@ -44,6 +44,16 @@ The scripts were also individually unsound, and none had ever executed — the t
 
 More to the point, the regex version dropped hand-drawn-`<svg>` detection — Protocol 1, and the largest single friction category in the v1.0.0 `/insights` review. The `askAgent` hook catches it; a regex can't.
 
+### Impeccable — reference card and a collision warning
+
+New `templates/IMPECCABLE.md`, written into a project only when impeccable is actually installed. Onboarding now checks for an existing install (`~/.kiro/skills/impeccable/`) before offering to run `npx impeccable`, rather than offering to install something the user already has.
+
+The card groups all 23 commands by intent, generated from the installed skill's `scripts/command-metadata.json` rather than recalled. The grouping that matters is **Expression** — `bolder`, `colorize`, `delight`, `animate`, `overdrive` deliberately push away from a locked design system, so they belong behind `/ideate-mode` or their output leaks into a locked `DESIGN.md`. (`quieter` is the exception; it usually moves toward compliance.)
+
+It also documents a filename collision that was previously undocumented: `/impeccable init` and `/impeccable document` write `PRODUCT.md` and `DESIGN.md` — the same names this Power uses. Impeccable never overwrites silently and always asks first, so nothing is lost by accident, but its `DESIGN.md` follows the Google Stitch spec (YAML token frontmatter, six fixed non-renameable sections) and is not compatible with the AOX one. Its `PRODUCT.md` is near-identical to the AOX section list — target users, purpose, brand personality, anti-references, design principles — and is safe to let it extend with `## Register` / `## Platform`.
+
+`docs/how-to-use.md` §4 previously described impeccable as reading `PRODUCT.md` and `DESIGN.md`. It writes them too; corrected.
+
 ### Docs
 
 `POWER.md` gains the onboarding and progress-tracking sections, an accurate file-structure diagram, and an install section that states plainly what the installer does and does not copy. `docs/how-to-use.md` §1 documents the three-item install so it's checkable, §3 marks the guard hook optional, and §6 covers both the guided and by-hand setup paths. `README.md` quickstart and layout updated to match. The stale "AO designMD" title in `how-to-use.md` is now "AOX-Prototyper".
