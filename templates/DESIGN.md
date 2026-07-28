@@ -1,10 +1,28 @@
 # Design
 
+<!-- AOX-PROTOTYPER: This template is unfilled. Start a Kiro session and the
+     onboarding flow will populate it conversationally, or fill it in by hand.
+     Delete this comment once the file has real content in it. -->
+
 > This file extends the AO Design System (`steering/design.md`) with **[project name]**-specific decisions.
 > `steering/design.md` is authoritative for all tokens, component blueprints, and anti-patterns.
 > This file answers what those tokens *mean* in the context of this project.
 >
 > Everything in this file is a **locked** decision — settled, and something other work should be built against. If a decision is still being explored, it belongs in this project's `IDEATION.md` instead, via `/ideate-mode`. See `example-switch24/DESIGN.md` for a worked reference, including how a deliberate departure from a locked rule gets cross-referenced to `IDEATION.md` rather than silently overriding it.
+
+---
+
+## At a Glance
+
+*[Fill this first — it's the smallest amount of design context that lets the AI build a correct screen. Everything below it is where each line gets its reasoning.]*
+
+| | |
+|---|---|
+| **Design direction** | *[the feel, in one line]* |
+| **Layout — mobile** | *[...]* |
+| **Layout — desktop** | *[...]* |
+| **Accessibility target** | WCAG 2.1 AA *[raise it here if this project needs more]* |
+| **New colours introduced** | *[none / see §7a exception below]* |
 
 ---
 
@@ -85,3 +103,31 @@ Do not introduce components not in the AO system without first checking `design.
 ## Tone (copy constraints)
 
 *[CTA label pattern, error message pattern, any words/punctuation this project avoids or reserves for specific moments.]*
+
+---
+
+## Locked Decisions
+
+*[An index of the decisions above that are genuinely settled, with the reason and the date they were locked. Everything in this file is locked by definition — this table exists so the reason survives, because "why did we do it this way?" is the question that gets asked six weeks later when someone wants to change it.]*
+
+| Decision | Reason | Date |
+|---|---|---|
+| | | |
+
+---
+
+## Open Questions
+
+*[Pointers only. A question listed here must **not** be answered inline in this file — that's the exact failure `/ideate-mode` exists to prevent. Name the question, then resolve it in `IDEATION.md` and bring the settled answer back up into the relevant section above.]*
+
+| Question | Status | Where it's being worked |
+|---|---|---|
+| | *[open / in ideation / resolved]* | *[`IDEATION.md` §... ]* |
+
+---
+
+## Reference & Inspiration
+
+*[Figma file links, competitor screenshots, moodboards, the prototype that started the conversation.]*
+
+- *[...]*

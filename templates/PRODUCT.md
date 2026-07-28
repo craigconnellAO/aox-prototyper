@@ -1,8 +1,78 @@
 # Product
 
+<!-- AOX-PROTOTYPER: This template is unfilled. Start a Kiro session and the
+     onboarding flow will populate it conversationally, or fill it in by hand.
+     Delete this comment once the file has real content in it. -->
+
 ## Product
 
 *[Product/feature name]*
+
+---
+
+## At a Glance
+
+*[The buildable shape of this product. Onboarding fills this section and the four below it first — they're what the AI reads to generate a screen. The conceptual sections further down (purpose, vision, brand personality, anti-references) are what stop it generating the *wrong* screen; fill those in as they settle.]*
+
+| | |
+|---|---|
+| **One-liner** | *[what this does, in one sentence]* |
+| **Primary flow** | *[the happy path, named]* |
+| **Screen count** | *[roughly how many distinct views]* |
+
+---
+
+## User Stories
+
+*[The core stories this delivers. 3-7 for an MVP scope — if you have more, you're probably describing more than one product.]*
+
+1. As a **[user]**, I want to **[action]** so that **[outcome]**.
+2. *[...]*
+
+---
+
+## Flows
+
+*[Name each flow, then list its steps. One `###` per flow. These become the build order.]*
+
+### [Flow name]
+
+1. *[...]*
+2. *[...]*
+
+---
+
+## Screens
+
+*[One line each — the detail belongs in `DESIGN.md`. "Entry point" matters more than it looks: it's what tells the AI whether a screen needs a back affordance, a nav, or neither.]*
+
+| Screen | Purpose | Entry point |
+|---|---|---|
+| | | |
+
+---
+
+## Edge Cases & Error States
+
+*[Empty states, validation failures, timeouts, partial data. The AO design system has approved patterns for most of these — see `steering/design.md`. Listing them here is what stops them being invented ad hoc at build time.]*
+
+- *[...]*
+
+---
+
+## Out of Scope (for now)
+
+*[What you're deliberately not doing this iteration. This section does real work — it's what stops scope creep arriving disguised as a helpful suggestion.]*
+
+- *[...]*
+
+---
+
+## Dependencies
+
+*[APIs, services, content from other teams, design assets, sign-offs.]*
+
+- *[...]*
 
 ---
 
