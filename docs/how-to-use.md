@@ -63,7 +63,12 @@ Ask for a screen or flow as normal. The AI should:
 
 ## 8. Push to Figma (optional)
 
-Confirm the Figma Desktop Bridge plugin is running and connected in your target file, then invoke the `figma-bridge` skill. It'll read your project's `FIGMA-BRIDGE.md` if one exists (create it from `example-switch24/FIGMA-BRIDGE.md`'s structure on first push) and update it with whatever the push discovers.
+Confirm the Figma Desktop Bridge plugin is running and connected in your target file, then:
+
+1. Copy `templates/FIGMA-BRIDGE.md` into your project folder
+2. Fill in your target Figma file name and key (leave the library row as-is, it points to AOX's Design System 2025)
+3. Consult `steering/figma-library.md` for the AOX component keys, icon mappings, and font gotchas
+4. Invoke the `figma-bridge` skill — it'll read your project's `FIGMA-BRIDGE.md` and update it with whatever the push discovers
 
 ## 9. Explore multiple directions (optional)
 
