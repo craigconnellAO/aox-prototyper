@@ -1,5 +1,27 @@
 # Changelog
 
+## v1.2.0 — 2026-07-28
+
+**Figma bridge resolution fix:** AOX component library facts moved from unreachable example files into shareable steering.
+
+### What changed
+
+- **New `steering/figma-library.md`** — component keys (Design System 2025 `vKoPePlSP1xhVxOuFXTJdB`), icon mappings, exact font `fontName` objects (space in `Smiley Face` et al.), colour map, and a "no DS component exists for" list (card, breadcrumb, notice, progress bar, tags, demo bar). This is now the single source of truth for AOX Figma facts, survives Power install, and all projects reference it.
+- **New `templates/FIGMA-BRIDGE.md`** — scaffold for new projects to copy and fill once at project start. Pre-populated with AOX defaults, includes placeholder rows for project-specific overrides.
+- **Updated `skills/figma-bridge/SKILL.md`** — removed all AOX-specific component keys, font maps, and icon lists (moved to `steering/figma-library.md`). Added explicit guidance for component search: `figma_search_components`, `figma_get_library_components`, `search_design_system` MCP tool. Fixed stale path `ao-design-system.md` → `aox-design-system.md`. Skill now carries **method only**; projects reference `steering/figma-library.md` for the AOX baseline.
+- **Updated `docs/how-to-use.md` § 8** — step-by-step for Figma push: copy template, fill target file, consult `steering/figma-library.md`, run skill.
+
+### Why this matters
+
+The test run (PrototyperTest_3_Marked) produced good HTML but Figma push degraded to hand-drawn primitives — component keys were in an unreachable example file (`example-switch24/FIGMA-BRIDGE.md`), so the bridge had no library knowledge. Kiro's installer copies only `POWER.md`, `steering/`, and `mcp.json`; it doesn't copy `example-switch24/` or `skills/`. Moving the durable facts into `steering/` closes the gap. Projects still get a `FIGMA-BRIDGE.md` template, but it's now a **working record** (target file, any project tweaks, push log) rather than the memory store (component keys, fonts) — that stays global in steering.
+
+### Files not changed
+
+- `example-switch24/FIGMA-BRIDGE.md` is kept as a **worked example** (what a completed push log looks like), not as the template for new projects.
+- `POWER.md` and `README.md` clarified to reference the new structure.
+
+---
+
 ## v1.0.0 — 2026-07-25
 
 First release as **AO designMD**, a standalone shareable Kiro Power. This is a new package assembled from roughly three months of internal experimentation (originally "AO Figma Make Kit") — not a continuation of that repo's version numbers. See **Lineage** below for how it got here.

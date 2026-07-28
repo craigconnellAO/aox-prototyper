@@ -17,6 +17,7 @@ A shareable Kiro Power that packages the AOX design-system prototyping kit — t
 - **A worked example** (`example-switch24/`) — the Switch24 MVNO signup flow, fully filled: real `DISCOVERY.md`/`PRODUCT.md`/`DESIGN.md`, a real `IDEATION.md` ideation history, a real `FIGMA-BRIDGE.md` push log, and the polished final-flow prototypes. Read this to see what a completed project looks like end to end.
 - **Skills** (`skills/`) — `figma-bridge` (push an HTML prototype into Figma), `ideation` (structured divergent/convergent design exploration), and `ideate-mode` (the gate between locked and exploratory work — invoke `/ideate-mode` to deliberately leave the locked design system and explore).
 - **A hook** (`hooks/`) — flags hand-drawn SVG icons and raw hex colours on save, instead of Strata icon-font classes and `design.md` tokens.
+- **Figma steering** (`steering/figma-library.md`) — component keys, icon mappings, font gotchas, and known gaps for DS 2025, shared by all projects using this Power.
 - **Figma MCP** (`mcp.json`) — the `figma-console` server, for the Figma bridge skill and direct Figma builds.
 
 ## Who it's for
@@ -45,7 +46,7 @@ Full walkthrough: `docs/how-to-use.md`.
 
 - Always: `steering/aox-design-system.md`, `steering/design.md`, `steering/brand.md` — these are `inclusion: always`.
 - Building or editing any prototype screen → `steering/aox-design-system.md` §Protocols (resolve-before-build, verify-or-flag)
-- Pushing a prototype to Figma → `skills/figma-bridge/SKILL.md` and the project's own `FIGMA-BRIDGE.md`
+- Pushing a prototype to Figma → `steering/figma-library.md` (component keys, icon mappings, fonts, known gaps), then `skills/figma-bridge/SKILL.md` (method), then the project's own `FIGMA-BRIDGE.md` (working record)
 - Exploring multiple directions for a screen/flow → `skills/ideation/SKILL.md`, gated by `skills/ideate-mode/SKILL.md`
 
 ## Confirming the Power is active
