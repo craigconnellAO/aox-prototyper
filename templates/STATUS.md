@@ -16,7 +16,7 @@
 
 - [ ] Built first screen prototype
 - [ ] Prototype uses tokens, Strata icons, and `data-aods` throughout
-- [ ] `FIGMA-BRIDGE.md` copied in from `templates/` and target file filled in
+- [ ] `FIGMA-BRIDGE.md` target Figma file filled in (the file itself was written during onboarding)
 - [ ] Pushed a prototype to Figma (figma-bridge skill)
 
 ## Design Exploration

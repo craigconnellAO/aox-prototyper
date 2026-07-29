@@ -14,7 +14,7 @@ A shareable Kiro Power that packages the AOX design-system prototyping kit — t
 
 - **Locked steering** (`steering/`) — the AOX design system (`design.md`: tokens, typography, components, patterns, anti-patterns) and brand guidelines (`brand.md`). Always active once installed; this is what makes generated output token-accurate and brand-accurate instead of guessed.
 - **Guided onboarding** (`steering/onboarding-flow.md`) — when your project's spec files are missing or unfilled, Kiro offers a five-batch conversational questionnaire and writes them for you. Self-gating: once they're filled, it never fires again.
-- **Fillable project templates** (`templates/`) — `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, each with a quick-fill *At a Glance* section on top and the deeper thinking sections below. Plus `STATUS.md` (live progress) and `QUICKSTART.md` (command reference).
+- **Fillable project templates** (`templates/`) — `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, each with a quick-fill *At a Glance* section on top and the deeper thinking sections below. Plus `STATUS.md` (live progress), `QUICKSTART.md` (command reference), and `FIGMA-BRIDGE.md` (per-project Figma push record). Onboarding writes all of these for you.
 - **A worked example** (`example-switch24/`) — the Switch24 MVNO signup flow, fully filled: real `DISCOVERY.md`/`PRODUCT.md`/`DESIGN.md`, a real `IDEATION.md` ideation history, a real `FIGMA-BRIDGE.md` push log, and the polished final-flow prototypes. Read this to see what a completed project looks like end to end.
 - **Skills** (`skills/`) — `figma-bridge` (push an HTML prototype into Figma), `ideation` (structured divergent/convergent design exploration), and `ideate-mode` (the gate between locked and exploratory work — invoke `/ideate-mode` to deliberately leave the locked design system and explore).
 - **A hook** (`hooks/`) — flags hand-drawn SVG icons and raw hex colours on save, instead of Strata icon-font classes and `design.md` tokens.
@@ -41,7 +41,7 @@ cp -r skills/figma-bridge skills/ideation skills/ideate-mode <your-workspace>/.k
 cp hooks/design-system-guard.kiro.hook <your-workspace>/.kiro/hooks/
 ```
 
-You don't need to copy `templates/` for the spec files — if `DISCOVERY.md` / `PRODUCT.md` / `DESIGN.md` are missing, onboarding writes them from scratch. The one exception is `templates/FIGMA-BRIDGE.md`: copy that into your project before your first Figma push, so the bridge has somewhere to record your target file and push log.
+You don't need to copy `templates/` — if `DISCOVERY.md` / `PRODUCT.md` / `DESIGN.md` / `FIGMA-BRIDGE.md` are missing, onboarding writes them all from scratch, in the same pass. `FIGMA-BRIDGE.md` gets written with a placeholder target file even if you don't have a Figma token yet; fill in the real file once you're ready to push.
 
 Full walkthrough: `docs/how-to-use.md`.
 
@@ -58,12 +58,12 @@ Say yes and it walks you through five batches:
 | 1. Discovery | Project name, owner, problem, users, constraints | `DISCOVERY.md` |
 | 2. Product | User stories, flows, screens, out of scope | `PRODUCT.md` |
 | 3. Design | Layout, components, locked decisions, a11y target | `DESIGN.md` |
-| 4. Tools | Figma token, impeccable install | `STATUS.md` |
+| 4. Tools | Figma token, impeccable install | `STATUS.md`, `FIGMA-BRIDGE.md` |
 | 5. References | Figma links, competitor and inspiration refs | `DESIGN.md` |
 
 About two minutes. Say "skip onboarding" at any point — including mid-flow — and it writes what's been gathered so far and leaves the rest to you.
 
-Once complete: the templates lose their markers (so onboarding won't trigger again), `STATUS.md` is created with setup items checked off, and `QUICKSTART.md` opens as your command reference.
+Once complete: the templates lose their markers (so onboarding won't trigger again), `STATUS.md` is created with setup items checked off, `FIGMA-BRIDGE.md` is written with a placeholder target file ready for your first push, and `QUICKSTART.md` opens as your command reference.
 
 ## Live progress tracking
 
@@ -75,6 +75,7 @@ Once complete: the templates lose their markers (so onboarding won't trigger aga
 | Copy the skills / guard hook in | Skills copied / hook copied |
 | Save an HTML prototype | Built first screen prototype |
 | Prototype passes a compliance pass | Uses tokens, Strata icons, `data-aods` |
+| Fill in your real target file in `FIGMA-BRIDGE.md` | `FIGMA-BRIDGE.md` target file filled in |
 | Use figma-bridge | Pushed a prototype to Figma |
 | Use ideation | Ran ideation session |
 | Invoke `/ideate-mode` | Entered ideate-mode |
@@ -115,10 +116,10 @@ skills/                        ← manual copy → .kiro/skills/
 hooks/                         ← manual copy → .kiro/hooks/
   design-system-guard.kiro.hook
 
-templates/                     ← reference copies; onboarding can write these for you
+templates/                     ← reference copies; onboarding writes all of these for you
   DISCOVERY.md  PRODUCT.md  DESIGN.md
   STATUS.md     QUICKSTART.md
-  FIGMA-BRIDGE.md                copy into your project before the first Figma push
+  FIGMA-BRIDGE.md                written with a placeholder target file, filled in before your first push
   IMPECCABLE.md                  written only when impeccable is installed
 
 assets/

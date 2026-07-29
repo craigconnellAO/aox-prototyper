@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.2.1 — 2026-07-29
+
+**Onboarding now writes `FIGMA-BRIDGE.md`, removing the last manual-copy step for spec files.**
+
+### What changed
+
+- **`steering/onboarding-flow.md`** — Batch 4 now writes `FIGMA-BRIDGE.md` in the same final pass as `DISCOVERY.md` / `PRODUCT.md` / `DESIGN.md` / `STATUS.md` / `QUICKSTART.md`, regardless of whether the user has a Figma token yet. The working-file row is left as its placeholder (`[Project File Name]` / `[file_key]`) until they have a real file to push to; the Design System 2025 library row is a fixed AOX default and gets written in immediately. The closing recap message now mentions it.
+- **`POWER.md`** — removed the "copy `FIGMA-BRIDGE.md` before your first push" instruction. Updated the onboarding batch table, file-structure diagram, and `STATUS.md` progress table to reflect that onboarding writes the file; the remaining manual step is filling in the *target file*, not copying the template.
+- **`README.md`** — Quickstart steps 4 and 6 updated: step 4 now lists `FIGMA-BRIDGE.md` among the files onboarding writes; step 6 no longer says "copy the template in."
+- **`templates/STATUS.md`** — checklist item changed from *"`FIGMA-BRIDGE.md` copied in from `templates/` and target file filled in"* to *"`FIGMA-BRIDGE.md` target Figma file filled in (the file itself was written during onboarding)"*.
+- **`docs/how-to-use.md`** §8 — rewritten to match: `FIGMA-BRIDGE.md` is already present from onboarding, so the walkthrough starts at filling in the target file. A one-line fallback covers the by-hand setup path (§6), where the template still needs a manual copy since there's no onboarding pass to write it.
+
+### Why this matters
+
+There was never a technical reason `FIGMA-BRIDGE.md` needed manual copying while the other four spec files didn't. The installer-copy limitation that makes `skills/` and `hooks/` manual (Kiro's Power installer only copies `POWER.md`, `steering/`, and `mcp.json`) doesn't apply to files onboarding writes itself — it was already generating `DISCOVERY.md` through `QUICKSTART.md` from templates or from scratch, in the same pass, for a workspace with no `templates/` folder at all. `FIGMA-BRIDGE.md` was the one exception, for no reason tied to how it's installed or delivered. It's now consistent with the rest.
+
 ## v1.2.0 — 2026-07-28
 
 **Figma bridge resolution fix:** AOX component library facts moved from unreachable example files into shareable steering.
