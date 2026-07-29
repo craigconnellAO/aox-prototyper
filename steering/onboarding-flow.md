@@ -75,6 +75,8 @@ Populates: **At a Glance**, **Layout**, **Components in Use**, **Locked Decision
 
 - "Do you have a Figma access token set up? Only needed if you want to push prototypes into Figma."
 
+**Regardless of the answer, write `FIGMA-BRIDGE.md` in the final writing pass** (see below) — same mechanism as `DISCOVERY.md`/`PRODUCT.md`/`DESIGN.md`. The target Figma file row starts as a placeholder (`[Project File Name]` / `[file_key]`); that's expected, not a gap, and gets filled in once the user has a working file to push to. This removes the old "copy the template in yourself before your first push" step — there's no technical reason `FIGMA-BRIDGE.md` should need manual copying when the other spec files don't; onboarding writes files itself, it doesn't rely on the installer.
+
 **Before asking about impeccable, check whether it's already there** — look for `~/.kiro/skills/impeccable/` or an `impeccable` entry in the workspace's skills. Don't offer to install something the user already has.
 
 - **Already installed** → don't offer an install. Say so, and offer the reference card instead: *"You've already got impeccable — want me to drop in a reference card for what it can do alongside the design system?"*
@@ -101,14 +103,15 @@ Goes into `DESIGN.md` → **Reference & Inspiration**.
 
 1. **`DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`** — populated, marker removed. Preserve every section heading from the template even where empty; the empty ones are prompts for later, and deleting them quietly removes the thinking they were there to provoke.
 2. **`STATUS.md`** — create it, check off "Project templates filled in" plus anything confirmed in Batch 4, and set the *Last updated* line to today.
-3. **`QUICKSTART.md`** — create it as the user's command reference. If `templates/QUICKSTART.md` is available, copy it. If not, generate it: build commands, the three skills and how to invoke them, a design-system-at-a-glance table (pull the real values from `design.md` — do not recall them from memory), and what each project file is for.
-4. **`IMPECCABLE.md`** — only if impeccable is installed. See Batch 4 above for how to source the command list.
-5. Open `QUICKSTART.md` in the editor if you can.
-6. Close out:
+3. **`FIGMA-BRIDGE.md`** — create it, always, regardless of whether the user has a Figma token yet. Copy `templates/FIGMA-BRIDGE.md` if it's available in the workspace; otherwise generate it from the outline in that template (Target Files, Component/Icon/Font/Colour Maps, Conventions, Known Issues, Push Log). Leave the working-file row as its placeholder — don't invent a file name or key. The Design System 2025 library row is a fixed AOX default; write it in regardless.
+4. **`QUICKSTART.md`** — create it as the user's command reference. If `templates/QUICKSTART.md` is available, copy it. If not, generate it: build commands, the three skills and how to invoke them, a design-system-at-a-glance table (pull the real values from `design.md` — do not recall them from memory), and what each project file is for.
+5. **`IMPECCABLE.md`** — only if impeccable is installed. See Batch 4 above for how to source the command list.
+6. Open `QUICKSTART.md` in the editor if you can.
+7. Close out:
 
 > "You're set up. Here's what I captured: *[brief recap]*.
 >
-> I've written your **QUICKSTART.md** — commands and design-system rules at a glance. **STATUS.md** tracks progress as you go.
+> I've written your **QUICKSTART.md** — commands and design-system rules at a glance. **STATUS.md** tracks progress as you go. I've also written **FIGMA-BRIDGE.md** with a placeholder target file — fill that in whenever you're ready to push to Figma.
 >
 > Ready when you are — ask me to build any screen from your flows, or run an ideation round first if you'd rather explore."
 
@@ -130,7 +133,7 @@ You maintain this file — there's no script and no hook behind it. Update it as
 | User confirms the Bridge plugin is running | Figma Desktop Bridge plugin running |
 | First `.html` prototype written | Built first screen prototype |
 | A prototype passes a compliance pass | Prototype uses tokens, Strata icons, `data-aods` |
-| `FIGMA-BRIDGE.md` copied in and target file filled | `FIGMA-BRIDGE.md` copied in and target file filled in |
+| User fills in their real Figma target file in `FIGMA-BRIDGE.md` | `FIGMA-BRIDGE.md` target file filled in |
 | figma-bridge push succeeds | Pushed a prototype to Figma |
 | ideation skill used | Ran ideation session |
 | `/ideate-mode` invoked | Entered ideate-mode |

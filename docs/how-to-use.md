@@ -47,7 +47,7 @@ Generate one from Figma → Settings → Security → Personal access tokens. Wi
 
 Two ways, and they end in the same place.
 
-**Guided (recommended).** Open your new project folder and start a session. Kiro sees the spec files aren't there and offers a five-batch onboarding questionnaire — project and problem, user stories and flows, layout and locked decisions, tools, references. About two minutes. It writes `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, `STATUS.md`, and `QUICKSTART.md` for you, then you're building.
+**Guided (recommended).** Open your new project folder and start a session. Kiro sees the spec files aren't there and offers a five-batch onboarding questionnaire — project and problem, user stories and flows, layout and locked decisions, tools, references. About two minutes. It writes `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, `STATUS.md`, `QUICKSTART.md`, and `FIGMA-BRIDGE.md` for you, then you're building.
 
 You can say "skip onboarding" at any point, including mid-flow — whatever's been gathered gets written, and the rest is yours to fill in.
 
@@ -79,12 +79,13 @@ Ask for a screen or flow as normal. The AI should:
 
 ## 8. Push to Figma (optional)
 
-Confirm the Figma Desktop Bridge plugin is running and connected in your target file, then:
+`FIGMA-BRIDGE.md` is already in your project — onboarding writes it with a placeholder target file, whether or not you had a Figma token at the time. Confirm the Figma Desktop Bridge plugin is running and connected in your target file, then:
 
-1. Copy `templates/FIGMA-BRIDGE.md` into your project folder
-2. Fill in your target Figma file name and key (leave the library row as-is, it points to AOX's Design System 2025)
-3. Consult `steering/figma-library.md` for the AOX component keys, icon mappings, and font gotchas
-4. Invoke the `figma-bridge` skill — it'll read your project's `FIGMA-BRIDGE.md` and update it with whatever the push discovers
+1. Fill in your real target Figma file name and key in `FIGMA-BRIDGE.md` (leave the library row as-is, it points to AOX's Design System 2025)
+2. Consult `steering/figma-library.md` for the AOX component keys, icon mappings, and font gotchas
+3. Invoke the `figma-bridge` skill — it'll read your project's `FIGMA-BRIDGE.md` and update it with whatever the push discovers
+
+If you built your project by hand instead of through onboarding, copy `templates/FIGMA-BRIDGE.md` in first.
 
 ## 9. Explore multiple directions (optional)
 
