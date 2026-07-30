@@ -27,7 +27,7 @@ cp hooks/design-system-guard.kiro.hook <your-workspace>/.kiro/hooks/
 
 The guard hook is optional — the design-system rules are enforced by steering regardless. It's a second line of defence on save, aimed at the one failure mode that steering alone has historically not caught: a hand-drawn `<svg>` standing in for a real Strata icon.
 
-## 4. Install impeccable
+## 4. Install impeccable (optional)
 
 `impeccable` is the frontend-craft skill this Power's templates and `ideate-mode` are built to work alongside — it reads a project's `PRODUCT.md` and `DESIGN.md` before doing any work. Install it via its own current instructions (`npx impeccable`, or your workspace's existing `.kiro/skills/impeccable/` or `.claude/skills/impeccable/` if already present). This Power doesn't vendor a copy, so you always get the current version.
 
