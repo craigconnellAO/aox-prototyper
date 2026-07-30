@@ -18,7 +18,7 @@ Ask: *"What colour token would I use for a primary CTA?"*
 
 A correctly-loaded Power answers `--action-primary-base` (or similar, from `steering/design.md`) — not a guessed hex value. If you get a guess, the steering isn't loading; check that `steering/` is where Kiro expects it relative to `POWER.md`.
 
-## 3. Install the Ideate-Mode skills and Design System Guard hook (optional)
+## 3. Install Ideate-Mode and Strata DS Guard (optional)
 
 Powers don't yet auto-install skills or hooks (this is a current Kiro limitation, not a choice made here). Copy and paste the code snippet into Kiro and tell it to install these skills:
 
