@@ -6,9 +6,9 @@ A walkthrough for a designer installing this Power for the first time and starti
 
 <img width="1570" height="898" alt="image" src="https://github.com/user-attachments/assets/256f33df-511d-43a2-af64-51fdaf130630" />
 
-The installer copies exactly three things into your environment:
+### The installer copies three things into your environment (Not your project folder, yet):
 - `POWER.md`
-- `steering/`
+- `steering`
 - `mcp.json`
 
 <sub>In Kiro: Powers panel → Add Custom Power → Import power from a folder (local testing) or from GitHub (once this repo is pushed/shared). Kiro reads `POWER.md` for the manifest and loads `steering/*.md` automatically.</sub>
