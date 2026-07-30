@@ -4,6 +4,8 @@ A walkthrough for a designer installing this Power for the first time and starti
 
 ## 1. Install the Power
 
+<img width="1570" height="898" alt="image" src="https://github.com/user-attachments/assets/256f33df-511d-43a2-af64-51fdaf130630" />
+
 In Kiro: Powers panel → Add Custom Power → Import power from a folder (local testing) or from GitHub (once this repo is pushed/shared). Kiro reads `POWER.md` for the manifest and loads `steering/*.md` automatically.
 
 The installer copies exactly three things into your environment: `POWER.md`, `steering/`, and `mcp.json`. You can confirm this yourself — look in `~/.kiro/powers/installed/aox-prototyper/`. The full repo stays at `~/.kiro/powers/repos/aox-prototyper/`, but nothing else is copied out of it. That's why steps 3 and 6 below exist.
