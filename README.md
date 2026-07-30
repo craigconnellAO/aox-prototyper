@@ -12,7 +12,7 @@ A Kiro Power for AOX-compliant prototypes and Figma builds — Kiro reads your a
 See [`POWER.md`](POWER.md) for the full onboarding steps, and [`docs/how-to-use.md`](docs/how-to-use.md) for a walkthrough. The short version:
 
 1. **Install this Power in Kiro.** The installer copies `POWER.md`, `steering/`, and `mcp.json` — and nothing else. Skills and the guard hook are a one-time manual copy (see [`POWER.md`](POWER.md)). Using Claude Code instead? No install step; just open this folder.
-2. **Copy the skills in.** `cp -r skills/* <your-workspace>/.kiro/skills/` — this is the step people miss, and without it `/ideate-mode` and the Figma bridge aren't available. (optional for now)
+2. **Copy the skills in.** `cp -r skills/* <your-workspace>/.kiro/skills/` — this is the step people miss, and without it `/ideate-mode` and the Figma bridge aren't available. (all optional for now)
 3. **Set `FIGMA_ACCESS_TOKEN`** in your environment if you'll push to Figma.
 4. **Start a session in your project folder.** Kiro sees the spec files aren't there and offers a two-minute onboarding questionnaire that writes `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, and `FIGMA-BRIDGE.md` for you — or copy them from `templates/` and fill them in by hand.
 5. **Build.** Ask for a screen; Kiro pulls tokens and components from the design system automatically.
