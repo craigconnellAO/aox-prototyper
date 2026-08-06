@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Design System Review",
+  "description": "Run this by hand from the Agent Hooks panel when a screen or flow is finished and ready to be checked — not after every edit. It reads the scan report written on save, judges each mechanical finding, and adds the semantic checks a grep can't do: header variant, icon substitution, typography, spacing scale, data-aods coverage. Reports; does not silently fix.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Run a design-system compliance review of the prototype work in this workspace.\n\n**Step 1 — refresh the mechanical scan.** Run `bash .kiro/scripts/ds-scan.sh --quiet`, then read `.kiro/ds-guard-report.md`. If the report shows zero findings, say so in one line and go straight to step 3 — do not re-derive the scan by reading files yourself.\n\n**Step 2 — judge the findings.** The script is deliberately dumb; it flags candidates, not violations. For each one decide which it is:\n- **raw hex** — a violation unless it's inside the `:root` token block (the script already exempts that) or genuinely has no token. Name the correct `steering/design.md` token in the fix.\n- **inline `<svg>`** — a violation only when it stands in for a glyph that exists in the Strata icon font. Check `assets/strata-component-sheet/index.html` before deciding. Brand logos, sprite sheets, spinners and illustrations are legitimate; say so and suggest marking them `data-ds-allow=\"...\"` so they stop being flagged.\n\n**Step 3 — the checks a grep can't make.** Only on the prototype files that changed, and only where you can point at a specific line:\n- Header/nav/footer/logo markup matching `assets/strata-component-sheet/index.html` — the wrong header variant is the single most common failure (Protocol 1, `steering/aox-design-system.md`).\n- SmileyFace Bold on every heading and button label; never below 14px. Inter everywhere else.\n- Spacing on the scale (4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64) and radius on the named scale.\n- `data-aods` on every component root.\n- Approved component variants only — no invented states.\n\n**Step 4 — report.** Lead with a one-line verdict, then group findings by file with line numbers, each as *what's there → what it should be*. Do not edit any file: this hook reports, the user decides. Offer to apply the fixes as a follow-up. If the work is clean, say that in a sentence and stop — no summary of everything you checked.\n\nStay inside the prototype files. Never edit `steering/`, and never treat a project's `DESIGN.md` as license to contradict `steering/design.md`."
+  }
+}

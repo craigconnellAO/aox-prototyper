@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Design System Scan",
+  "description": "Runs on every HTML save. A ~50ms shell script, no agent turn and no model credits: it greps for raw hex outside the :root token block and for inline <svg> that may be standing in for a Strata icon, and writes .kiro/ds-guard-report.md. Nothing here judges or fixes — that's the 'Design System Review' hook, which you run once when a piece of work is ready. Findings are candidates, not verdicts; mark a settled one with ds-allow on the element and it stops being reported.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.html"
+    ]
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "bash .kiro/scripts/ds-scan.sh --quiet || true"
+  }
+}

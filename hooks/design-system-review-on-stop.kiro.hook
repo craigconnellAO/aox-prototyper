@@ -1,0 +1,13 @@
+{
+  "enabled": false,
+  "name": "Design System Review (automatic)",
+  "description": "OFF by default. The middle setting between the free save-time scan and clicking Design System Review yourself: fires once when the agent finishes responding, and exits immediately without spending anything if the scan report is clean. Worth enabling if you'd rather not remember to run the review; leave it off if you want tight control over credits. Never enable this and the manual review hook expecting different results — they run the same review, this one just picks its own moment.",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Gate first, and take the gate seriously — this fires after every response, so the cheap exit is the common case.\n\n**Gate.** Run `bash .kiro/scripts/ds-scan.sh --quiet`. If it reports zero findings, or if no HTML prototype was written or edited in the turn that just ended, produce no output at all and stop. Do not narrate the check, do not summarise, do not greet.\n\n**If there are findings**, and only then, review them: read `.kiro/ds-guard-report.md`, decide which are real (raw hex outside `:root` is a violation; an inline `<svg>` is only a violation when it replaces a glyph that exists in the Strata icon font — check `assets/strata-component-sheet/index.html`), and report them grouped by file with line numbers, each as *what's there → what it should be*. Name the `steering/design.md` token for every hex.\n\nKeep it to the findings themselves — no preamble, no restatement of the rules, no list of what passed. Do not edit any file; report and offer to fix. For the deeper semantic pass (header variant, typography, spacing scale, `data-aods` coverage) leave it to the manual **Design System Review** hook — this one stays cheap on purpose."
+  }
+}

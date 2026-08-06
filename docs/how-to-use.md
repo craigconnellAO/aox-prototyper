@@ -23,16 +23,63 @@ Ask: *"What colour token would I use for a primary CTA?"*
 
 A correctly-loaded Power answers `--action-primary-base` (or similar, from `steering/design.md`) — not a guessed hex value. If you get a guess, the steering isn't loading; check that `steering/` is where Kiro expects it relative to `POWER.md`.
 
-## 3. Install Ideate-Mode and Strata DS Guard (optional)
+## 3. Install the skills, hooks and component sheet
 
-Powers don't yet auto-install skills or hooks (this is a current Kiro limitation, not a choice made here). Copy and paste the code snippet into Kiro and tell it to install these skills:
+Powers don't auto-install skills, hooks or assets (a current Kiro limitation, not a choice made here) — and a Power can't run an install script of its own either. So this repo ships one you run yourself. From your workspace root:
 
 ```bash
-cp -r skills/figma-bridge skills/ideation skills/ideate-mode <your-workspace>/.kiro/skills/
-cp hooks/design-system-guard.kiro.hook <your-workspace>/.kiro/hooks/
+bash ~/.kiro/powers/repos/aox-prototyper/scripts/install-aox-power.sh
 ```
 
-The guard hook is optional — the design-system rules are enforced by steering regardless. It's a second line of defence on save, aimed at the one failure mode that steering alone has historically not caught: a hand-drawn `<svg>` standing in for a real Strata icon.
+Or, easier: ask Kiro *"install the AOX skills and hooks"*. It knows where to look, and it'll show you the command and the output. **Onboarding offers this in Batch 4**, so on a new project you can just say yes there and skip this step entirely.
+
+Preview it first with `--dry-run` if you'd rather see what it touches. It's idempotent, so re-running it after a Power update is the normal way to pick up new hooks, and it backs up anything it would overwrite. `--uninstall` reverses it. Other flags: `--only skills,hooks`, `--target <dir>`, `--agent claude`.
+
+On Windows without Git Bash or WSL, ask Kiro to make the copies with its file tools instead — the source→destination table is in `steering/onboarding-flow.md`.
+
+### What lands where, and why
+
+| | |
+|---|---|
+| `.kiro/skills/` | `figma-bridge`, `ideation`, `ideate-mode` — without these, `/ideate-mode` and the Figma push simply aren't available |
+| `.kiro/hooks/` | the design-system scan and review (next section) |
+| `.kiro/scripts/ds-scan.sh` | what the save-time hook runs |
+| `assets/strata-component-sheet/` | **the one most people miss.** Protocol 1 tells Kiro to resolve headers, icons and the logo from `assets/strata-component-sheet/index.html` before writing any screen. Until that file is in your workspace, the instruction points at nothing — and hand-drawn icons are exactly what you get. |
+
+### The two hooks, and why there are two
+
+The old single guard hook fired a full agent review on every HTML save — including every save Kiro made itself, mid-build. On a normal session that's dozens of reviews of half-finished work. It's now split:
+
+- **Design System Scan** — on save. A shell script. No agent turn, no credits, ~50ms. It greps for raw hex outside the `:root` block and for inline `<svg>`, and writes `.kiro/ds-guard-report.md`.
+- **Design System Review** — on demand, from the Agent Hooks panel. Reads that report, decides which findings are real, and adds what a grep can't check: header variant, typography, spacing scale, `data-aods` coverage. **This is the one that costs you something**, which is why it's yours to trigger — when a screen or flow is done, not while it's being written. Kiro will offer it at those moments.
+
+Legitimate SVGs — a brand logo, a sprite sheet, an illustration — stop being flagged once marked:
+
+```html
+<svg data-ds-allow="brand logo" viewBox="0 0 132 34">…</svg>
+```
+
+A third hook, **Design System Review (automatic)**, ships disabled. It runs the review once per agent turn instead of on demand and exits free when the scan is clean — enable it in `.kiro/hooks/design-system-review-on-stop.kiro.hook` if you'd rather not remember to click.
+
+**Upgrading?** If you already have `design-system-guard.kiro.hook` from v1.2 or earlier, the installer retires it for you. If you copied it in by hand, delete it — leaving it there means still paying for the old behaviour.
+
+### If your Kiro uses the newer hook format
+
+Newer Kiro builds moved hooks to PascalCase trigger names (`PostFileSave`, `Stop`, …) with `trigger`/`action` fields instead of `when`/`then`. The hooks here use the `when`/`then` form. If yours don't load, the save-time scan translates directly:
+
+```json
+{
+  "version": "v1",
+  "hooks": [{
+    "name": "Design System Scan",
+    "trigger": "PostFileSave",
+    "matcher": "\\.html$",
+    "action": { "type": "command", "command": "bash .kiro/scripts/ds-scan.sh --quiet || true" }
+  }]
+}
+```
+
+The newer format has no manual trigger, so **use the `/design-review` skill** for the review pass rather than a hook — same review, invoked by name. That's the reason it ships as a skill as well as a hook, and it's also how this works in Claude Code, where `.kiro.hook` files don't apply at all.
 
 ## 4. Install impeccable (optional)
 
@@ -100,6 +147,8 @@ For a genuinely open design question — several plausible structural approaches
 
 ## Troubleshooting
 
-- **AI is guessing colours/hand-drawing icons** → steering isn't loaded, or it's not being told to check `assets/strata-component-sheet/index.html` first. Point it there explicitly once; if it keeps happening, check the `design-system-guard` hook installed correctly.
+- **AI is guessing colours/hand-drawing icons** → first check the component sheet is actually in your workspace (`ls assets/strata-component-sheet/`). Protocol 1 points at that path, and if it isn't there the instruction resolves to nothing — this is the most common cause by a distance. Run the installer (§3) if it's missing. If it *is* there, point Kiro at it explicitly once, then run the Design System Review over the file.
+- **The design-system hook keeps firing and burning credits** → you're on the pre-v1.3 `design-system-guard.kiro.hook`, which ran an agent review on every save. Delete it from `.kiro/hooks/` and run the installer to get the scan + review pair. Re-running the installer retires the old hook for you.
+- **The scan reports things that are fine** → it's meant to flag candidates, not verdicts. Mark the settled ones `data-ds-allow="reason"` and they stop appearing. Hex inside `:root` and `@font-face`, and hex in comments, are already exempt.
 - **Figma push keeps failing or losing progress** → check `FIGMA_ACCESS_TOKEN` is set and the Desktop Bridge plugin shows connected *before* starting a multi-frame build, not after. See the resilient-push protocol in `skills/figma-bridge/SKILL.md`.
 - **AI wrote an exploratory idea straight into `DESIGN.md`** → that's the exact failure `ideate-mode` exists to prevent. Ask it to move the content to `IDEATION.md` and mark it `Status: open`.

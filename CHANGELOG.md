@@ -1,5 +1,61 @@
 # Changelog
 
+## v1.3.0 — 2026-08-06
+
+**The design-system guard stops charging for every keystroke, and the manual install step becomes a script.**
+
+Two problems, found in testing, with one thing in common: the Power's install boundary (`POWER.md` + `steering/` + `mcp.json`, and nothing else) was being worked around by hand instead of by code.
+
+### The guard hook fired constantly
+
+`hooks/design-system-guard.kiro.hook` was `fileEdited` on `**/*.html` → `askAgent`. Every HTML save spent an agent turn. Since Kiro *itself* saves the file repeatedly while building a screen, a single "build the checkout page" produced a review after each intermediate write — reviewing half-written markup, at full price, over and over. It also matched `assets/strata-component-sheet/index.html` and `example-switch24/`, so editing the reference material triggered a review of the reference material.
+
+It's replaced by a pair split along the line between what a grep can decide and what needs judgement:
+
+- **New `hooks/design-system-scan.kiro.hook`** — `fileEdited` → `runCommand`. Runs `.kiro/scripts/ds-scan.sh`. No agent turn, no credits, ~50ms. Writes `.kiro/ds-guard-report.md`.
+- **New `hooks/design-system-review.kiro.hook`** — `userTriggered` → `askAgent`. The paid pass, run from the Agent Hooks panel when a screen or flow is *finished*. It reads the scan report rather than re-deriving it, so it starts with the mechanical work done, then adds what a grep can't check: header variant, typography, spacing scale, `data-aods` coverage, invented variants.
+- **New `hooks/design-system-review-on-stop.kiro.hook`** — `agentStop` → `askAgent`, **shipped disabled**. The middle setting for anyone who'd rather not remember to click: one review per turn instead of per save, gated on the scan so a clean turn costs nothing.
+- **Removed `hooks/design-system-guard.kiro.hook`.** The installer retires an existing copy automatically (renames it `.replaced.<timestamp>`); a hand-copied one should be deleted.
+
+**New `skills/design-review/SKILL.md`** carries the same review as a user-invocable skill (`/design-review`). Hook formats vary — newer Kiro builds use PascalCase `trigger`/`action` names and have no manual trigger at all, and Claude Code doesn't read `.kiro.hook` files — so the review shouldn't only exist as a hook. `docs/how-to-use.md` §3 gives the new-format translation for the save-time scan.
+
+**New `scripts/ds-scan.sh`** is the free half: pure awk/bash, no dependencies. It flags raw hex outside the `:root` and `@font-face` blocks, and inline `<svg>`. It exempts hex inside comments (a comment documenting `--ui-success-accent (#00893e)` is not a violation), ignores `href="#anchor"` and `url(#gradient)`, and skips `node_modules/`, `.kiro/`, `example-switch24/` and the component sheet. Mark a legitimate case with `ds-allow` on the element or the line above it and it stops being reported. Exits 0 clean / 1 with findings.
+
+`steering/onboarding-flow.md` now also carries the rule that matters most for cost: **offer the review when a piece of work is finished, never trigger it mid-build.**
+
+### Skills and hooks now install by script
+
+Kiro Powers can't run an install script, so `skills/`, `hooks/` and `assets/` were a documented `cp` the user had to notice and perform. **New `scripts/install-aox-power.sh`** does it instead:
+
+```bash
+bash ~/.kiro/powers/repos/aox-prototyper/scripts/install-aox-power.sh
+```
+
+It finds the Power's repo itself (`~/.kiro/powers/repos/`, then any `*aox-prototyper*` checkout, then the workspace, then a shallow clone as a last resort), is idempotent, backs up anything it would overwrite rather than clobbering it, and takes `--dry-run`, `--only`, `--target`, `--source`, `--agent claude`, `--force` and `--uninstall`.
+
+**Onboarding now offers it.** `steering/onboarding-flow.md` Batch 4 asks whether to install, checking first whether the pieces are already there so it doesn't offer what the user has. The install instructions live in a new section that is **deliberately not gated by the onboarding condition** — someone asking six months later why `/ideate-mode` isn't available gets the same answer. The file's opening gate was reworded so "questionnaire is dormant" no longer means "stop reading."
+
+### The component sheet was never installed at all
+
+Found while writing the installer. `steering/aox-design-system.md` Protocol 1 — the rule that exists because Claude repeatedly hand-drew icons — instructs the agent to resolve markup from `assets/strata-component-sheet/index.html` before writing any screen. That file is in the repo, and the Power installer doesn't copy it. In every workspace installed the documented way, Protocol 1 has been pointing at a path that doesn't exist.
+
+- `install-aox-power.sh` copies it to the workspace root (not under `.kiro/`, so the steering path resolves as written).
+- Protocol 1 now says what to do when it's absent: flag it *before* building, offer the installer, and if the user presses on, name every piece of markup that went unverified. Building from memory and staying quiet about it is the exact failure the protocol was written to stop.
+
+### Documentation
+
+- **`POWER.md`** — new *design-system guard* section with the scan/review comparison and the `ds-allow` escape hatch; install section rewritten around the script; file structure, onboarding batch table and `STATUS.md` table updated.
+- **`docs/how-to-use.md`** §3 rewritten: the installer, a what-lands-where table calling out why the component sheet matters, and the two hooks. Three new troubleshooting entries, including the one for anyone still on the old guard hook.
+- **`README.md`** — Quickstart step 2 is now the installer rather than a `cp`; repository layout updated; version bumped.
+- **`templates/STATUS.md`** — separate boxes for hooks and the component sheet, plus *Ran a Design System Review*.
+- **`templates/QUICKSTART.md`** — a guard section explaining the two hooks and when to run the review.
+
+### Why this matters
+
+The guard hook was costing more than the mistakes it caught. Reviewing markup mid-write is close to worthless — the file is meant to be wrong at that point — so what the old hook mostly bought was a running commentary on unfinished work. Splitting it means the checks that can be mechanical run constantly and free, and judgement is spent once, on finished work, where a review is actually worth paying for.
+
+The install gap was smaller in appearance and larger in effect: the one file Protocol 1 depends on was never being delivered, which means the protocol that exists to stop hand-drawn icons has been unenforceable in every correctly-installed workspace since v1.0.
+
 ## v1.2.1 — 2026-07-29
 
 **Onboarding now writes `FIGMA-BRIDGE.md`, removing the last manual-copy step for spec files.**

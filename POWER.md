@@ -16,8 +16,9 @@ A shareable Kiro Power that packages the AOX design-system prototyping kit — t
 - **Guided onboarding** (`steering/onboarding-flow.md`) — when your project's spec files are missing or unfilled, Kiro offers a five-batch conversational questionnaire and writes them for you. Self-gating: once they're filled, it never fires again.
 - **Fillable project templates** (`templates/`) — `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, each with a quick-fill *At a Glance* section on top and the deeper thinking sections below. Plus `STATUS.md` (live progress), `QUICKSTART.md` (command reference), and `FIGMA-BRIDGE.md` (per-project Figma push record). Onboarding writes all of these for you.
 - **A worked example** (`example-switch24/`) — the Switch24 MVNO signup flow, fully filled: real `DISCOVERY.md`/`PRODUCT.md`/`DESIGN.md`, a real `IDEATION.md` ideation history, a real `FIGMA-BRIDGE.md` push log, and the polished final-flow prototypes. Read this to see what a completed project looks like end to end.
-- **Skills** (`skills/`) — `figma-bridge` (push an HTML prototype into Figma), `ideation` (structured divergent/convergent design exploration), and `ideate-mode` (the gate between locked and exploratory work — invoke `/ideate-mode` to deliberately leave the locked design system and explore).
-- **A hook** (`hooks/`) — flags hand-drawn SVG icons and raw hex colours on save, instead of Strata icon-font classes and `design.md` tokens.
+- **Skills** (`skills/`) — `figma-bridge` (push an HTML prototype into Figma), `ideation` (structured divergent/convergent design exploration), `ideate-mode` (the gate between locked and exploratory work — invoke `/ideate-mode` to deliberately leave the locked design system and explore), and `design-review` (the compliance pass over finished work, `/design-review`).
+- **Two hooks** (`hooks/`) — a **scan** that runs a shell script on every HTML save (free, milliseconds, no agent turn) flagging raw hex and inline `<svg>`, and a **review** you trigger by hand when a screen or flow is finished, which judges those findings and adds the checks a grep can't make. The expensive half only runs when you ask for it.
+- **An installer** (`scripts/install-aox-power.sh`) — copies the skills, hooks, scan script and component sheet into your workspace, because Kiro's Power installer doesn't. Onboarding offers to run it; you can also run it yourself any time.
 - **Figma steering** (`steering/figma-library.md`) — component keys, icon mappings, font gotchas, and known gaps for DS 2025, shared by all projects using this Power.
 - **Figma MCP** (`mcp.json`) — the `figma-console` server, for the Figma bridge skill and direct Figma builds.
 
@@ -34,12 +35,19 @@ AOX UX/product designers working with Kiro (or Claude Code, which reads the same
 
 Kiro's Power installer copies **`POWER.md`, `steering/`, and `mcp.json`** into your environment. That's the whole automatic part, and it's enough for the Power's core promise: the design system is live, and onboarding will offer itself on your next session.
 
-Everything else in this repo — `skills/`, `hooks/`, `templates/`, `assets/`, `example-switch24/` — is **not** copied by the installer. Kiro has no install-script mechanism, so those are a one-time manual copy if you want them:
+Everything else in this repo — `skills/`, `hooks/`, `scripts/`, `assets/`, `templates/`, `example-switch24/` — is **not** copied by the installer, and Kiro has no install-script mechanism inside a Power to do it for you.
+
+So the Power ships its own installer. Run it once, from your workspace root:
 
 ```bash
-cp -r skills/figma-bridge skills/ideation skills/ideate-mode <your-workspace>/.kiro/skills/
-cp hooks/design-system-guard.kiro.hook <your-workspace>/.kiro/hooks/
+bash ~/.kiro/powers/repos/aox-prototyper/scripts/install-aox-power.sh
 ```
+
+Or just ask Kiro — *"install the AOX skills and hooks"* — and it'll find the repo and run it for you. **Onboarding also offers this in Batch 4**, so on a fresh project you can simply say yes.
+
+It copies four things: the skills into `.kiro/skills/`, the hooks into `.kiro/hooks/`, the scan script into `.kiro/scripts/`, and the Strata component sheet into `assets/` — the last one matters, because Protocol 1 tells Kiro to read `assets/strata-component-sheet/index.html` before writing any screen, and until it's there that instruction points at nothing.
+
+It's idempotent, backs up anything it would overwrite, and takes `--dry-run`, `--only skills,hooks`, `--target <dir>`, `--agent claude`, and `--uninstall`. On Windows without Git Bash, ask Kiro to make the copies with its file tools instead — `steering/onboarding-flow.md` has the source→destination table.
 
 You don't need to copy `templates/` — if `DISCOVERY.md` / `PRODUCT.md` / `DESIGN.md` / `FIGMA-BRIDGE.md` are missing, onboarding writes them all from scratch, in the same pass. `FIGMA-BRIDGE.md` gets written with a placeholder target file even if you don't have a Figma token yet; fill in the real file once you're ready to push.
 
@@ -58,12 +66,38 @@ Say yes and it walks you through five batches:
 | 1. Discovery | Project name, owner, problem, users, constraints | `DISCOVERY.md` |
 | 2. Product | User stories, flows, screens, out of scope | `PRODUCT.md` |
 | 3. Design | Layout, components, locked decisions, a11y target | `DESIGN.md` |
-| 4. Tools | Figma token, impeccable install | `STATUS.md`, `FIGMA-BRIDGE.md` |
+| 4. Tools | Figma token, skills/hooks install, impeccable install | `STATUS.md`, `FIGMA-BRIDGE.md`, `.kiro/` |
 | 5. References | Figma links, competitor and inspiration refs | `DESIGN.md` |
 
 About two minutes. Say "skip onboarding" at any point — including mid-flow — and it writes what's been gathered so far and leaves the rest to you.
 
 Once complete: the templates lose their markers (so onboarding won't trigger again), `STATUS.md` is created with setup items checked off, `FIGMA-BRIDGE.md` is written with a placeholder target file ready for your first push, and `QUICKSTART.md` opens as your command reference.
+
+## The design-system guard: free on save, paid on demand
+
+Two hooks, split along the line between what a grep can decide and what needs judgement.
+
+| | **Design System Scan** | **Design System Review** |
+|---|---|---|
+| Fires | Every `.html` save | When you click it |
+| Runs | `.kiro/scripts/ds-scan.sh` | An agent turn |
+| Costs | Nothing, ~50ms | Credits and time |
+| Finds | Raw hex outside `:root`, inline `<svg>` | Which of those are real, plus header variant, typography, spacing scale, `data-aods` coverage |
+| Output | `.kiro/ds-guard-report.md` | A grouped report; it never edits your files |
+
+The scan is deliberately dumb: it flags candidates and writes them down. The review reads that report instead of re-deriving it, so the expensive pass starts with the mechanical work already done — and it only happens when a screen or flow is actually finished, which is when a review is worth paying for. Kiro will offer it at those moments; you can also run it yourself from the Agent Hooks panel.
+
+A legitimate `<svg>` — a brand logo, a sprite sheet, an illustration — stops being reported once you mark it:
+
+```html
+<svg data-ds-allow="brand logo" viewBox="0 0 132 34">…</svg>
+```
+
+The review also ships as a skill — **`/design-review`** — running the same pass. Use it when hooks aren't installed, when your Kiro uses the newer PascalCase hook format (which has no manual trigger), or in Claude Code, where `.kiro.hook` files don't apply. See `docs/how-to-use.md` §3.
+
+A third hook, **Design System Review (automatic)**, ships **disabled**. It runs the review once per agent turn rather than on demand, and exits without spending anything when the scan is clean. Enable it in `.kiro/hooks/design-system-review-on-stop.kiro.hook` if you'd rather not remember to click — but the manual one is the default for a reason.
+
+> **Upgrading from v1.2 or earlier:** the old `design-system-guard.kiro.hook` fired a full agent review on *every* HTML save, including every save Kiro itself made mid-build. That's what this replaces. The installer retires it automatically; if you copied it in by hand, delete it.
 
 ## Live progress tracking
 
@@ -72,8 +106,9 @@ Once complete: the templates lose their markers (so onboarding won't trigger aga
 | What you do | What gets checked off |
 |---|---|
 | Complete onboarding | Project templates filled in |
-| Copy the skills / guard hook in | Skills copied / hook copied |
+| Run `install-aox-power.sh` | Skills / hooks / component sheet copied |
 | Save an HTML prototype | Built first screen prototype |
+| Run a Design System Review | Ran a design-system review |
 | Prototype passes a compliance pass | Uses tokens, Strata icons, `data-aods` |
 | Fill in your real target file in `FIGMA-BRIDGE.md` | `FIGMA-BRIDGE.md` target file filled in |
 | Use figma-bridge | Pushed a prototype to Figma |
@@ -108,13 +143,20 @@ steering/                      ← installed automatically; always active
   figma-library.md               Figma component keys, icon maps, font names, known gaps
   onboarding-flow.md             guided project setup (self-gating)
 
-skills/                        ← manual copy → .kiro/skills/
+scripts/                       ← run install-aox-power.sh; it copies the four blocks below
+  install-aox-power.sh           skills + hooks + scan script + component sheet → your workspace
+  ds-scan.sh                     the free save-time scan → .kiro/scripts/
+
+skills/                        ← installed by the script → .kiro/skills/
   figma-bridge/SKILL.md
   ideation/SKILL.md
   ideate-mode/SKILL.md
+  design-review/SKILL.md         the review pass, also available as a hook
 
-hooks/                         ← manual copy → .kiro/hooks/
-  design-system-guard.kiro.hook
+hooks/                         ← installed by the script → .kiro/hooks/
+  design-system-scan.kiro.hook             on save · shell script · free
+  design-system-review.kiro.hook           on demand · agent · the paid one
+  design-system-review-on-stop.kiro.hook   per turn · agent · ships disabled
 
 templates/                     ← reference copies; onboarding writes all of these for you
   DISCOVERY.md  PRODUCT.md  DESIGN.md
@@ -122,8 +164,8 @@ templates/                     ← reference copies; onboarding writes all of th
   FIGMA-BRIDGE.md                written with a placeholder target file, filled in before your first push
   IMPECCABLE.md                  written only when impeccable is installed
 
-assets/
-  strata-component-sheet/        authoritative rendered Strata markup
+assets/                        ← installed by the script → your workspace root
+  strata-component-sheet/        authoritative rendered Strata markup; Protocol 1 reads this
 
 example-switch24/              ← worked example, filled in end to end
 docs/how-to-use.md
