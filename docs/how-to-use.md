@@ -6,7 +6,7 @@ A walkthrough for a designer installing this Power for the first time and starti
 
 <img width="1570" height="898" alt="image" src="https://github.com/user-attachments/assets/256f33df-511d-43a2-af64-51fdaf130630" />
 
-### The installer copies three things into your environment (Not your project folder, yet):
+### The installer copies three things into your environment:
 - `POWER.md`
 - `steering`
 - `mcp.json`
