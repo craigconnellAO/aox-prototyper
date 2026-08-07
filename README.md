@@ -18,7 +18,7 @@ See [`POWER.md`](POWER.md) for the full onboarding steps, and [`docs/how-to-use.
    bash ~/.kiro/powers/repos/aox-prototyper/scripts/install-aox-power.sh
    ```
 
-   Or say *"install the AOX skills and hooks"* and Kiro will find it and run it. Onboarding offers this too, so on a new project you can just say yes. This is the step people miss — without it `/ideate-mode`, the Figma bridge, and the component sheet Protocol 1 depends on aren't there. Add `--dry-run` to preview it.
+   Or say *"install the AOX skills and hooks"* and Kiro will find it and run it. Onboarding offers this too, so on a new project you can just say yes. Without it `/ideate-mode`, the Figma bridge, and the component sheet Protocol 1 depends on aren't there. Add `--dry-run` to preview it.
 3. **Set `FIGMA_ACCESS_TOKEN`** in your environment if you'll push to Figma.
 4. **Start a session in your project folder.** Kiro sees the spec files aren't there and offers a two-minute onboarding questionnaire that writes `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, and `FIGMA-BRIDGE.md` for you — or copy them from `templates/` and fill them in by hand.
 5. **Build.** Ask for a screen; Kiro pulls tokens and components from the design system automatically.
