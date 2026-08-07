@@ -20,13 +20,35 @@ Every output follows the locked design system — real tokens, the Strata icon f
 
 ## Skills
 
-These need copying into `.kiro/skills/` once — see `docs/how-to-use.md`.
+Installed by `install-aox-power.sh`. If `/ideate-mode` isn't recognised, they aren't in —
+just say *"install the AOX skills and hooks"*.
 
 | Skill | What it does | How to use |
 |---|---|---|
 | **figma-bridge** | Push an HTML prototype into your Figma file | "Push this prototype to Figma" |
 | **ideation** | Generate multiple design directions for a screen | "Explore 3 directions for the checkout layout" |
 | **ideate-mode** | Temporarily leave the locked system to experiment | "/ideate-mode" |
+| **design-review** | Compliance pass over a **finished** screen or flow | "/design-review" |
+
+---
+
+## The Design System Guard
+
+| | Design System Scan | Design System Review |
+|---|---|---|
+| When | Every `.html` save | When you run it |
+| Cost | Free, ~50ms | An agent turn |
+| Finds | Raw hex, inline `<svg>` | Which of those are real, plus header variant, typography, spacing, `data-aods` |
+
+The scan writes `.kiro/ds-guard-report.md`. The review reads it — so run the review when a
+screen or flow is **finished**, not as you go. That's what keeps it cheap. Kiro will offer
+it at the right moments; you can also click it in the Agent Hooks panel.
+
+A legitimate SVG (logo, sprite, illustration) stops being flagged once you mark it:
+
+```html
+<svg data-ds-allow="brand logo" viewBox="0 0 132 34">…</svg>
+```
 
 ---
 
@@ -39,6 +61,8 @@ These need copying into `.kiro/skills/` once — see `docs/how-to-use.md`.
 | "Explore directions for [screen]" | Runs structured ideation (3+ options) |
 | "/ideate-mode" | Unlocks exploratory mode (leaves the design system) |
 | "Check my design system compliance" | Audits the current file against AOX rules |
+| "Run the design system review" | Full compliance pass over the finished work |
+| "Install the AOX skills and hooks" | Runs `install-aox-power.sh` into this workspace |
 | "What token for [intent]?" | Returns the correct design token |
 | "Update STATUS.md" | Refreshes the live checklist |
 

@@ -44,6 +44,8 @@ These four rules exist because they were the concrete, repeated failure modes su
 
 **Rule:** Before writing any screen or component, resolve the exact markup you will use for the header, icons, and logo from `assets/strata-component-sheet/index.html` and `design.md` — never from prose descriptions, memory, or invented SVGs. For anything non-trivial (a full screen, a new flow), state which header variant, which icon glyphs, and which logo asset you're using, before writing code. Never hand-draw an icon that exists in the Strata icon font.
 
+**If `assets/strata-component-sheet/index.html` isn't in the workspace, say so before you build, not after.** The Power installer doesn't copy it, so on a fresh workspace this rule routinely points at nothing — and building anyway, from memory, is precisely the failure it exists to prevent. Offer to run `scripts/install-aox-power.sh` (see `steering/onboarding-flow.md` → *Installing skills, hooks and the component sheet*). If the user would rather press on without it, build from `design.md` alone and name every piece of markup you couldn't verify.
+
 ### 2. Verify-or-flag
 
 **Problem this fixes:** Preview panes and browser tooling went unresponsive mid-session more than once; output got shipped without the usual visual diff against the reference, and the mismatch surfaced only when the user caught it later.

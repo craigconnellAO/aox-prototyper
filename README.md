@@ -2,7 +2,7 @@
 
 A Kiro Power for AOX-compliant prototypes and Figma builds — Kiro reads your actual design tokens, components, and brand rules instead of guessing at them.
 
-> **What it is:** An installable Kiro Power bundling locked design-system steering, guided project onboarding, per-project spec templates, a worked example (Switch24), and three workflow skills — `figma-bridge`, `ideation`, and `ideate-mode`.
+> **What it is:** An installable Kiro Power bundling locked design-system steering, guided project onboarding, per-project spec templates, a worked example (Switch24), four workflow skills — `figma-bridge`, `ideation`, `ideate-mode`, `design-review` — and a two-tier design-system guard.
 > **What it isn't:** A component library, or a handoff package. It's what makes the prototypes accurate enough that handoff stops being a translation exercise.
 
 ---
@@ -11,8 +11,14 @@ A Kiro Power for AOX-compliant prototypes and Figma builds — Kiro reads your a
 
 See [`POWER.md`](POWER.md) for the full onboarding steps, and [`docs/how-to-use.md`](docs/how-to-use.md) for a walkthrough. The short version:
 
-1. **Install this Power in Kiro.** The installer copies `POWER.md`, `steering/`, and `mcp.json` — and nothing else. Skills and the guard hook are a one-time manual copy (see [`POWER.md`](POWER.md)). Using Claude Code instead? No install step; just open this folder.
-2. **Copy the skills in.** `cp -r skills/* <your-workspace>/.kiro/skills/` — this is the step people miss, and without it `/ideate-mode` and the Figma bridge aren't available. (all optional for now)
+1. **Install this Power in Kiro.** The installer copies `POWER.md`, `steering/`, and `mcp.json` — and nothing else. Using Claude Code instead? No install step; just open this folder.
+2. **Run the installer for the rest.** Kiro's Power installer can't copy skills, hooks or assets, so this repo ships a script that does. From your workspace root:
+
+   ```bash
+   bash ~/.kiro/powers/repos/aox-prototyper/scripts/install-aox-power.sh
+   ```
+
+   Or say *"install the AOX skills and hooks"* and Kiro will find it and run it. Onboarding offers this too, so on a new project you can just say yes. This is the step people miss — without it `/ideate-mode`, the Figma bridge, and the component sheet Protocol 1 depends on aren't there. Add `--dry-run` to preview it.
 3. **Set `FIGMA_ACCESS_TOKEN`** in your environment if you'll push to Figma.
 4. **Start a session in your project folder.** Kiro sees the spec files aren't there and offers a two-minute onboarding questionnaire that writes `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, and `FIGMA-BRIDGE.md` for you — or copy them from `templates/` and fill them in by hand.
 5. **Build.** Ask for a screen; Kiro pulls tokens and components from the design system automatically.
@@ -35,13 +41,22 @@ steering/                   installed automatically, always active
   figma-library.md            Figma component keys, icon mappings, font names, known gaps
   onboarding-flow.md          guided project setup, dormant once the spec files are filled
 
-skills/                     manual copy into .kiro/skills/
+scripts/                    the install step Kiro's Power installer can't do
+  install-aox-power.sh        copies skills, hooks, ds-scan.sh and the component sheet
+                              into a workspace; idempotent, --dry-run, --uninstall
+  ds-scan.sh                  the free save-time scan; installed to .kiro/scripts/
+
+skills/                     installed by the script into .kiro/skills/
   figma-bridge/SKILL.md       pushes an HTML prototype into Figma
   ideation/SKILL.md           structured divergent/convergent design exploration
   ideate-mode/SKILL.md        the gate between locked and exploratory mode
+  design-review/SKILL.md      compliance pass over a finished screen or flow
 
-hooks/                      manual copy into .kiro/hooks/
-  design-system-guard.kiro.hook   flags hand-drawn SVGs and raw hex on save
+hooks/                      installed by the script into .kiro/hooks/
+  design-system-scan.kiro.hook            on save — shell script, free, milliseconds
+  design-system-review.kiro.hook          on demand — the agent review, run it when
+                                          a screen or flow is finished
+  design-system-review-on-stop.kiro.hook  once per turn — ships disabled
 
 templates/                  per-project files; onboarding writes these, or copy them yourself
   DISCOVERY.md                research, evidence, hypotheses
@@ -80,6 +95,10 @@ Every prototype built under this Power will:
 - Respect the component variant API — no invented states
 - Stay in locked design-system mode unless you deliberately invoke `/ideate-mode`
 
+And be checked twice, at two different prices: a free shell scan on every save that flags
+raw hex and inline `<svg>`, and an agent review you run when a screen or flow is *finished*
+— not after every edit. See [`POWER.md`](POWER.md) § *The design-system guard*.
+
 ---
 
 ## Working alongside impeccable
@@ -94,4 +113,4 @@ AOX-Prototyper is part of the broader **AOX-DesignSystem** initiative, which coo
 
 ---
 
-**v1.2** · 2026-07-28 · AOX-DesignSystem
+**v1.3.0** · 2026-08-06 · AOX-DesignSystem
