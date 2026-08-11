@@ -5,6 +5,8 @@ A Kiro Power for AOX-compliant prototypes and Figma builds — Kiro reads your a
 > **What it is:** An installable Kiro Power bundling locked design-system steering, guided project onboarding, per-project spec templates, a worked example (Switch24), four workflow skills — `figma-bridge`, `ideation`, `ideate-mode`, `design-review` — and a two-tier design-system guard.
 > **What it isn't:** A component library, or a handoff package. It's what makes the prototypes accurate enough that handoff stops being a translation exercise.
 
+> <img width="1020" height="545" alt="image" src="https://github.com/user-attachments/assets/8ef1a475-81d1-45f4-a9aa-b75bbc0c2c7f" />
+
 ---
 
 ## Quickstart
