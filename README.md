@@ -1,5 +1,7 @@
 # AOX-Prototyper
 
+<img width="53" height="58" alt="image" src="https://github.com/user-attachments/assets/97265e07-408c-4053-8fca-f256e9ba9065" />
+
 A Kiro Power for AOX-compliant prototypes and Figma builds — Kiro reads your actual design tokens, components, and brand rules instead of guessing at them.
 
 > **What it is:** An installable Kiro Power bundling locked design-system steering, guided project onboarding, per-project spec templates, a worked example (Switch24), four workflow skills — `figma-bridge`, `ideation`, `ideate-mode`, `design-review` — and a two-tier design-system guard.
