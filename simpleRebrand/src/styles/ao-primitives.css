@@ -1,0 +1,111 @@
+/*
+ * ao-primitives.css — layer 1 of 3
+ *
+ * AO's raw token values, copied verbatim from steering/design.md §Tokens.
+ * This is the ONLY file in simpleRebrand permitted to contain a hex value.
+ *
+ * Do not add, interpolate, or "fill in" a step that design.md does not
+ * define. Where SDS expects a ramp position AO has no value for, the
+ * semantic layer picks the nearest real token and the gap is logged in
+ * TOKEN-MAP.md § Gaps. An invented hex is the exact failure this design
+ * system exists to prevent.
+ *
+ * Source of truth: steering/design.md (AO Design Tokens)
+ */
+
+:root {
+  /* ---- Neutrals ------------------------------------------------------ */
+  --ao-gray-10: #f8f9fa;
+  --ao-gray-20: #f0f2f2;
+  --ao-gray-30: #e2e7e8;
+  --ao-gray-40: #d6dddf;
+  --ao-gray-50: #c1c7c9;
+  --ao-gray-60: #abb1b4;
+  --ao-gray-70: #727677;
+  --ao-gray-80: #595d5e;
+  --ao-gray-90: #3f4344;
+  --ao-gray-100: #212121;
+
+  --ao-white: #ffffff;
+
+  /* ---- Brand green ---------------------------------------------------- */
+  --ao-brand-primary-base: #12c35a;
+  --ao-brand-primary-light: #befcc8;
+  --ao-brand-primary-dark: #02422b;
+
+  /* ---- Action: primary (green) ---------------------------------------- */
+  --ao-action-primary-base: #00893e;
+  --ao-action-primary-hover: #00560b;
+  --ao-action-primary-focus: #00893e;
+  --ao-action-primary-active: #003d00;
+  --ao-action-primary-contrast: #ffffff;
+  --ao-action-primary-glow: #12c35a;
+
+  /* ---- Action: secondary (blue / Action Main) -------------------------- */
+  --ao-action-secondary-base: #0564c2;
+  --ao-action-secondary-hover: #00318f;
+  --ao-action-secondary-focus: #0564c2;
+  --ao-action-secondary-active: #001876;
+  --ao-action-secondary-contrast: #ffffff;
+  --ao-action-secondary-glow: #40a1f8;
+
+  /* ---- Action: light / dark / inactive --------------------------------- */
+  --ao-action-light-base: #ffffff;
+  --ao-action-light-contrast: #011f44;
+  --ao-action-light-glow: #40a1f8;
+  --ao-action-dark-base: #011f44;
+  --ao-action-dark-contrast: #ffffff;
+  --ao-action-dark-glow: #40a1f8;
+  --ao-action-inactive-base: #727677;
+  --ao-action-inactive-contrast: #ffffff;
+
+  /* ---- Typography colour ----------------------------------------------- */
+  --ao-type-primary: #011f44;
+  --ao-type-secondary: #212121;
+  --ao-type-tertiary: #595d5e;
+  --ao-shadow-overlay: #011630;
+
+  /* ---- UI surface groups (base / contrast / accent) --------------------- */
+  --ao-ui-core-base: #ffffff;
+  --ao-ui-core-contrast: #212121;
+  --ao-ui-core-accent: #d6dddf;
+  --ao-ui-neutral-base: #f0f2f2;
+  --ao-ui-neutral-contrast: #212121;
+  --ao-ui-neutral-accent: #abb1b4;
+  --ao-ui-highlight-base: #edf2ff;
+  --ao-ui-highlight-contrast: #00318f;
+  --ao-ui-highlight-accent: #00318f;
+  --ao-ui-success-base: #f4fce3;
+  --ao-ui-success-contrast: #02422b;
+  --ao-ui-success-accent: #00893e;
+  --ao-ui-warning-base: #fff4e6;
+  --ao-ui-warning-contrast: #ad5a00;
+  --ao-ui-warning-accent: #ff9e36;
+  --ao-ui-error-base: #fff0f6;
+  --ao-ui-error-contrast: #b50016;
+  --ao-ui-error-accent: #b50016;
+  --ao-ui-light-base: #ffffff;
+  --ao-ui-light-contrast: #011f44;
+  --ao-ui-light-accent: #ffffff;
+  --ao-ui-dark-base: #011f44;
+  --ao-ui-dark-contrast: #ffffff;
+  --ao-ui-dark-accent: #011f44;
+
+  /* ---- Notice surfaces (more saturated than the ui-* group) ------------- */
+  --ao-notice-warning-bg: #ffe3c2;
+  --ao-notice-success-bg: #befcc8;
+  --ao-notice-error-bg: #ffd8d2;
+
+  /* ---- Radius ----------------------------------------------------------- */
+  --ao-radius-xs: 4px;
+  --ao-radius-sm: 8px;
+  --ao-radius-md: 16px;
+  --ao-radius-xl: 24px;
+  --ao-radius-2xl: 40px;
+
+  /* ---- Shadow ----------------------------------------------------------- */
+  --ao-shadow: 0 1px 3px rgba(1, 22, 48, 0.08), 0 1px 2px rgba(1, 22, 48, 0.05);
+  --ao-shadow-md: 0 4px 8px rgba(1, 22, 48, 0.10), 0 2px 4px rgba(1, 22, 48, 0.06);
+  --ao-shadow-lg: 0 10px 28px rgba(1, 22, 48, 0.13), 0 4px 8px rgba(1, 22, 48, 0.07);
+  --ao-shadow-xl: 0 20px 48px rgba(1, 22, 48, 0.18), 0 8px 16px rgba(1, 22, 48, 0.10);
+}

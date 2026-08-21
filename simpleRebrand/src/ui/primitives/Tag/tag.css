@@ -1,0 +1,57 @@
+/*
+ * Tag — AO
+ * Status pill. Intent names follow SDS roles so the mapping stays legible.
+ */
+
+.ao-tag {
+  align-items: center;
+  background: var(--ao-tag-background);
+  border: var(--sds-size-stroke-border) solid var(--ao-tag-border);
+  border-radius: var(--sds-size-radius-full);
+  color: var(--ao-tag-color);
+  display: inline-flex;
+  font: var(--sds-font-body-small);
+  gap: var(--sds-size-space-100);
+  padding: var(--sds-size-space-100) var(--sds-size-space-300);
+  white-space: nowrap;
+}
+
+.ao-tag-square {
+  border-radius: var(--sds-size-radius-100);
+}
+
+.ao-tag-intent-neutral {
+  --ao-tag-background: var(--sds-color-background-default-secondary);
+  --ao-tag-border: var(--sds-color-border-default-default);
+  --ao-tag-color: var(--sds-color-text-default-default);
+}
+
+.ao-tag-intent-brand {
+  --ao-tag-background: var(--sds-color-background-brand-secondary);
+  --ao-tag-border: var(--sds-color-border-brand-secondary);
+  --ao-tag-color: var(--sds-color-text-brand-on-brand-secondary);
+}
+
+.ao-tag-intent-positive {
+  --ao-tag-background: var(--sds-color-background-positive-secondary);
+  --ao-tag-border: var(--sds-color-border-positive-secondary);
+  --ao-tag-color: var(--sds-color-text-positive-on-positive-secondary);
+}
+
+.ao-tag-intent-warning {
+  --ao-tag-background: var(--sds-color-background-warning-secondary);
+  --ao-tag-border: var(--sds-color-border-warning-secondary);
+  --ao-tag-color: var(--sds-color-text-warning-on-warning-secondary);
+}
+
+.ao-tag-intent-danger {
+  --ao-tag-background: var(--sds-color-background-danger-secondary);
+  --ao-tag-border: var(--sds-color-border-danger-secondary);
+  --ao-tag-color: var(--sds-color-text-danger-on-danger-secondary);
+}
+
+.ao-tag-intent-highlight {
+  --ao-tag-background: var(--ao-x-accent-surface);
+  --ao-tag-border: var(--ao-x-accent-on-surface);
+  --ao-tag-color: var(--ao-x-accent-on-surface);
+}

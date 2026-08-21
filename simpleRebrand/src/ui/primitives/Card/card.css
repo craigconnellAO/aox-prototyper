@@ -1,0 +1,65 @@
+/*
+ * Card — AO
+ * Surface primitive. 16px radius (--ao-radius-md) is AO's card default;
+ * buttons and inputs sit at 8px, which is what keeps a card reading as a
+ * container rather than an oversized control.
+ */
+
+.ao-card {
+  background: var(--sds-color-background-default-default);
+  border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-secondary);
+  border-radius: var(--sds-size-radius-400);
+  color: var(--sds-color-text-default-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-400);
+  overflow: hidden;
+  padding: var(--sds-size-space-600);
+}
+
+.ao-card-elevated {
+  border-color: transparent;
+  box-shadow: var(--sds-elevation-200);
+}
+
+.ao-card-interactive {
+  cursor: pointer;
+  transition: box-shadow 150ms, border-color 150ms, transform 150ms;
+}
+.ao-card-interactive:hover {
+  border-color: var(--sds-color-border-default-default);
+  box-shadow: var(--sds-elevation-300);
+}
+.ao-card-interactive:focus-visible {
+  outline: var(--global-focus-ring-size) solid var(--global-focus-ring-color);
+  outline-offset: 2px;
+}
+
+.ao-card-selected {
+  border-color: var(--sds-color-border-brand-default);
+  box-shadow: inset 0 0 0 var(--sds-size-stroke-border)
+    var(--sds-color-border-brand-default);
+}
+
+/* Card slots */
+.ao-card-title {
+  color: var(--sds-color-text-neutral-default);
+  font-family: var(--sds-typography-heading-font-family);
+  font-size: var(--sds-typography-scale-04);
+  font-weight: var(--sds-typography-heading-font-weight);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.ao-card-body {
+  color: var(--sds-color-text-default-secondary);
+  font: var(--sds-font-body-base);
+  margin: 0;
+}
+
+.ao-card-footer {
+  align-items: center;
+  display: flex;
+  gap: var(--sds-size-space-300);
+  margin-top: auto;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "simple-rebrand",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AO-branded component library — Figma's Simple Design System re-pointed at AO's design tokens",
+  "type": "module",
+  "main": "src/ui/primitives/index.ts",
+  "scripts": {
+    "audit:contrast": "node scripts/contrast-audit.mjs",
+    "audit:ds": "bash ../.claude/scripts/ds-scan.sh",
+    "audit": "npm run audit:contrast && npm run audit:ds",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "typescript": "^5.0.2"
+  }
+}

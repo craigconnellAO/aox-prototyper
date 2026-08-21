@@ -1,0 +1,68 @@
+/*
+ * Input — AO
+ * Body font is Inter (form fields are body text, never SmileyFace).
+ */
+
+.ao-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-150);
+}
+
+.ao-field-label {
+  color: var(--sds-color-text-default-default);
+  font: var(--sds-font-body-strong);
+}
+
+.ao-field-hint {
+  color: var(--sds-color-text-default-secondary);
+  font: var(--sds-font-body-small);
+}
+
+.ao-field-error {
+  color: var(--sds-color-text-danger-default);
+  font: var(--sds-font-body-small);
+}
+
+.ao-input {
+  background: var(--sds-color-background-default-default);
+  border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+  border-radius: var(--sds-size-radius-200);
+  color: var(--sds-color-text-default-default);
+  font: var(--sds-font-body-base);
+  padding: var(--sds-size-space-300) var(--sds-size-space-400);
+  transition: border-color 150ms, box-shadow 150ms;
+  width: 100%;
+}
+
+.ao-input::placeholder {
+  color: var(--sds-color-text-default-tertiary);
+}
+
+.ao-input:hover:not(:disabled) {
+  border-color: var(--sds-color-border-neutral-secondary);
+}
+
+.ao-input:focus-visible {
+  border-color: var(--ao-x-accent-default);
+  outline: var(--global-focus-ring-size) solid var(--global-focus-ring-color);
+  outline-offset: 1px;
+}
+
+.ao-input:disabled {
+  background: var(--sds-color-background-disabled-default);
+  border-color: var(--sds-color-border-disabled-default);
+  color: var(--sds-color-text-disabled-default);
+  cursor: not-allowed;
+}
+
+.ao-input.is-error {
+  border-color: var(--sds-color-border-danger-default);
+}
+.ao-input.is-error:focus-visible {
+  outline-color: var(--sds-color-border-danger-default);
+}
+
+.ao-input.is-success {
+  border-color: var(--sds-color-border-positive-default);
+}

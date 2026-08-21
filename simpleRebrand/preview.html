@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>simpleRebrand — AO component library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles/index.css">
+<link rel="stylesheet" href="src/ui/primitives/Button/button.css">
+<link rel="stylesheet" href="src/ui/primitives/Input/input.css">
+<link rel="stylesheet" href="src/ui/primitives/Select/select.css">
+<link rel="stylesheet" href="src/ui/primitives/Tag/tag.css">
+<link rel="stylesheet" href="src/ui/primitives/Card/card.css">
+<style>
+  .page { max-width: 62rem; margin: 0 auto; padding: var(--sds-size-space-800) var(--sds-size-space-600) var(--sds-size-space-2400); }
+  .lede { color: var(--sds-color-text-default-secondary); font: var(--sds-font-body-large); margin: var(--sds-size-space-300) 0 0; max-width: 42rem; }
+  section { margin-top: var(--sds-size-space-1200); }
+  h2 { font-size: var(--sds-typography-scale-05); margin-bottom: var(--sds-size-space-400); }
+  h3 { color: var(--sds-color-text-default-secondary); font-family: var(--sds-typography-body-font-family); font-size: var(--sds-typography-scale-02); font-weight: 600; letter-spacing: 0.04em; margin: var(--sds-size-space-600) 0 var(--sds-size-space-300); text-transform: uppercase; }
+  .row { align-items: center; display: flex; flex-wrap: wrap; gap: var(--sds-size-space-300); }
+  .grid { display: grid; gap: var(--sds-size-space-400); grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .swatch { border: 1px solid var(--sds-color-border-default-secondary); border-radius: var(--sds-size-radius-200); overflow: hidden; }
+  .swatch-chip { height: 3.5rem; }
+  .swatch-meta { font: var(--sds-font-body-small); padding: var(--sds-size-space-200) var(--sds-size-space-300); }
+  .swatch-meta code { color: var(--sds-color-text-default-secondary); font-size: var(--sds-typography-scale-01); }
+  .on-dark { background: var(--sds-color-background-neutral-default); border-radius: var(--sds-size-radius-400); padding: var(--sds-size-space-600); }
+  .note { background: var(--ao-x-accent-surface); border-left: 4px solid var(--ao-x-accent-on-surface); border-radius: var(--sds-size-radius-100); color: var(--ao-x-accent-on-surface); font: var(--sds-font-body-small); margin-top: var(--sds-size-space-600); padding: var(--sds-size-space-400); }
+  .type-sample { border-bottom: 1px solid var(--sds-color-border-default-tertiary); padding: var(--sds-size-space-300) 0; }
+  .type-label { color: var(--sds-color-text-default-tertiary); font: var(--sds-font-body-small); }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <h1 style="font-size: var(--sds-typography-scale-07);">simpleRebrand</h1>
+  <p class="lede">Figma&rsquo;s Simple Design System, rebranded to AO. Every colour below resolves through the semantic token layer &mdash; no component holds a hex value of its own.</p>
+
+  <section>
+    <h2>Buttons</h2>
+    <h3>Action tiers</h3>
+    <div class="row">
+      <button class="ao-button ao-button-variant-primary ao-button-size-medium" data-aods="button">Add to basket</button>
+      <button class="ao-button ao-button-variant-secondary ao-button-size-medium" data-aods="button">View details</button>
+      <button class="ao-button ao-button-variant-tertiary ao-button-size-medium" data-aods="button">Compare</button>
+      <button class="ao-button ao-button-variant-dark ao-button-size-medium" data-aods="button">Sign in</button>
+      <button class="ao-button ao-button-variant-inactive ao-button-size-medium" data-aods="button">Out of stock</button>
+      <button class="ao-button ao-button-variant-primary ao-button-size-medium" data-aods="button" disabled>Disabled</button>
+    </div>
+
+    <h3>Sizes</h3>
+    <div class="row">
+      <button class="ao-button ao-button-variant-primary ao-button-size-small" data-aods="button">Small</button>
+      <button class="ao-button ao-button-variant-primary ao-button-size-medium" data-aods="button">Medium</button>
+      <button class="ao-button ao-button-variant-primary ao-button-size-large" data-aods="button">Large</button>
+    </div>
+
+    <h3>Status</h3>
+    <div class="row">
+      <button class="ao-button ao-button-variant-primary ao-button-size-medium is-loading" data-aods="button">Adding&hellip;</button>
+      <button class="ao-button ao-button-variant-primary ao-button-size-medium is-success" data-aods="button">Added</button>
+      <button class="ao-button ao-button-variant-primary ao-button-size-medium is-error" data-aods="button">Try again</button>
+    </div>
+
+    <h3>On dark</h3>
+    <div class="on-dark row">
+      <button class="ao-button ao-button-variant-inverse ao-button-size-medium" data-aods="button">Continue</button>
+      <button class="ao-button ao-button-variant-primary ao-button-size-medium" data-aods="button">Add to basket</button>
+    </div>
+
+    <p class="note"><strong>Primary is rationed.</strong> AO allows one primary CTA per visual section. The row above shows the variants side by side for reference only &mdash; it is not a layout to copy.</p>
+  </section>
+
+  <section>
+    <h2>Form fields</h2>
+    <div class="grid">
+      <div class="ao-field" data-aods="input">
+        <label class="ao-field-label" for="p-email">Email address</label>
+        <input class="ao-input" id="p-email" type="email" placeholder="you@example.com" aria-describedby="p-email-msg">
+        <span class="ao-field-hint" id="p-email-msg">We&rsquo;ll only use this for your order.</span>
+      </div>
+      <div class="ao-field" data-aods="input">
+        <label class="ao-field-label" for="p-post">Postcode</label>
+        <input class="ao-input is-error" id="p-post" value="XX1 9ZZ" aria-invalid="true" aria-describedby="p-post-msg">
+        <span class="ao-field-error" id="p-post-msg">We don&rsquo;t deliver to this postcode yet.</span>
+      </div>
+      <div class="ao-field" data-aods="select">
+        <label class="ao-field-label" for="p-slot">Delivery slot</label>
+        <div class="ao-select-wrapper">
+          <select class="ao-select" id="p-slot">
+            <option>Tomorrow, 7am &ndash; 12pm</option>
+            <option>Tomorrow, 12pm &ndash; 6pm</option>
+            <option>Saturday, 7am &ndash; 12pm</option>
+          </select>
+        </div>
+      </div>
+      <div class="ao-field" data-aods="input">
+        <label class="ao-field-label" for="p-dis">Account number</label>
+        <input class="ao-input" id="p-dis" value="Not available" disabled>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tags</h2>
+    <div class="row">
+      <span class="ao-tag ao-tag-intent-neutral" data-aods="tag">Refurbished</span>
+      <span class="ao-tag ao-tag-intent-brand" data-aods="tag">AO exclusive</span>
+      <span class="ao-tag ao-tag-intent-positive" data-aods="tag">In stock</span>
+      <span class="ao-tag ao-tag-intent-warning" data-aods="tag">Low stock</span>
+      <span class="ao-tag ao-tag-intent-danger" data-aods="tag">Out of stock</span>
+      <span class="ao-tag ao-tag-intent-highlight" data-aods="tag">Price match</span>
+      <span class="ao-tag ao-tag-intent-positive ao-tag-square" data-aods="tag">Square</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cards</h2>
+    <div class="grid">
+      <div class="ao-card" data-aods="card">
+        <h3 class="ao-card-title">Standard delivery</h3>
+        <p class="ao-card-body">Free on orders over &pound;30. Arrives in 3&ndash;5 working days.</p>
+        <div class="ao-card-footer">
+          <span class="ao-tag ao-tag-intent-positive" data-aods="tag">Free</span>
+        </div>
+      </div>
+      <div class="ao-card ao-card-elevated" data-aods="card">
+        <h3 class="ao-card-title">Next-day delivery</h3>
+        <p class="ao-card-body">Order before 8pm and we&rsquo;ll get it to you tomorrow.</p>
+        <div class="ao-card-footer">
+          <button class="ao-button ao-button-variant-primary ao-button-size-small" data-aods="button">Choose</button>
+        </div>
+      </div>
+      <div class="ao-card ao-card-selected" data-aods="card">
+        <h3 class="ao-card-title">Install &amp; recycle</h3>
+        <p class="ao-card-body">We&rsquo;ll fit the new one and take the old one away.</p>
+        <div class="ao-card-footer">
+          <span class="ao-tag ao-tag-intent-brand" data-aods="tag">Selected</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="type-sample">
+      <div class="type-label">Heading &mdash; SmileyFace Bold</div>
+      <div style="font-family: var(--sds-typography-heading-font-family); font-size: var(--sds-typography-scale-06); font-weight: 700;">Built for the home</div>
+    </div>
+    <div class="type-sample">
+      <div class="type-label">CTA label &mdash; SmileyFace Bold, line-height 1</div>
+      <div style="font: var(--ao-font-cta);">Add to basket</div>
+    </div>
+    <div class="type-sample">
+      <div class="type-label">Body &mdash; Inter Regular</div>
+      <div style="font: var(--sds-font-body-base);">Free delivery on thousands of products, seven days a week.</div>
+    </div>
+    <p class="note">SmileyFace loads from <code>media.ao.com</code>. Offline or outside the AO network it falls back to Georgia, so headings and CTA labels will look wrong here but correct in situ.</p>
+  </section>
+
+  <section>
+    <h2>Token proof</h2>
+    <p class="lede" style="font-size: var(--sds-typography-scale-03);">Each chip is painted by a semantic role, not a literal. Re-point the role in <code>ao-theme.css</code> and every component using it moves with it.</p>
+    <div class="grid" style="margin-top: var(--sds-size-space-600);">
+      <div class="swatch"><div class="swatch-chip" style="background: var(--sds-color-background-brand-default);"></div><div class="swatch-meta"><strong>brand / default</strong><br><code>--ao-action-primary-base</code></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background: var(--sds-color-background-positive-default);"></div><div class="swatch-meta"><strong>positive / default</strong><br><code>--ao-ui-success-accent</code></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background: var(--sds-color-background-danger-default);"></div><div class="swatch-meta"><strong>danger / default</strong><br><code>--ao-ui-error-accent</code></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background: var(--sds-color-background-warning-default);"></div><div class="swatch-meta"><strong>warning / default</strong><br><code>--ao-ui-warning-accent</code></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background: var(--sds-color-background-neutral-default);"></div><div class="swatch-meta"><strong>neutral / default</strong><br><code>--ao-ui-dark-base</code></div></div>
+      <div class="swatch"><div class="swatch-chip" style="background: var(--ao-x-accent-default);"></div><div class="swatch-meta"><strong>AO ext / accent</strong><br><code>--ao-action-secondary-base</code></div></div>
+    </div>
+    <!-- ds-allow: the hex below is quoted as documentation, not applied as a value -->
+    <p class="note"><strong>Worth knowing:</strong> AO defines <code>--action-primary-base</code> and <code>--ui-success-accent</code> as the same green (<code>#00893e</code>), so the brand and positive chips above are identical by design. Components must separate &ldquo;this is the action&rdquo; from &ldquo;this succeeded&rdquo; by shape and context, never by colour alone.</p>
+  </section>
+
+</main>
+</body>
+</html>

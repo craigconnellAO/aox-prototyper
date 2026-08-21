@@ -1,0 +1,47 @@
+/*
+ * ao-size.css — radius, spacing, stroke
+ *
+ * SDS's size roles kept; values re-pointed at AO's radius scale.
+ * AO's spacing is an 8pt-derived scale, which SDS's space-* ladder already
+ * matches step for step, so those pass through unchanged.
+ */
+
+:root {
+  /* ---- Radius: AO's scale is 4/8/16/24/40. SDS carries 100/200/400/full. */
+  --sds-size-radius-100: var(--ao-radius-xs);   /* 4px  */
+  --sds-size-radius-200: var(--ao-radius-sm);   /* 8px  — AO default for buttons, inputs, cards */
+  --sds-size-radius-400: var(--ao-radius-md);   /* 16px */
+  --sds-size-radius-600: var(--ao-radius-xl);   /* 24px — AO addition, no SDS equivalent */
+  --sds-size-radius-800: var(--ao-radius-2xl);  /* 40px — AO addition, no SDS equivalent */
+  --sds-size-radius-full: 624.9375rem;
+
+  /* ---- Spacing (8pt scale — unchanged from SDS, already AO-compatible) */
+  --sds-size-space-0: 0rem;
+  --sds-size-space-050: 0.125rem;
+  --sds-size-space-100: 0.25rem;
+  --sds-size-space-150: 0.375rem;
+  --sds-size-space-200: 0.5rem;
+  --sds-size-space-300: 0.75rem;
+  --sds-size-space-400: 1rem;
+  --sds-size-space-600: 1.5rem;
+  --sds-size-space-800: 2rem;
+  --sds-size-space-1200: 3rem;
+  --sds-size-space-1600: 4rem;
+  --sds-size-space-2400: 6rem;
+  --sds-size-space-4000: 10rem;
+
+  /* ---- Icon sizing — matches AO's Strata icon box sizes */
+  --sds-size-icon-small: 1rem;
+  --sds-size-icon-medium: 1.5rem;
+  --sds-size-icon-large: 2rem;
+
+  /* ---- Stroke. AO borders are 1px; AO focus ring is 3px (see ao-theme). */
+  --sds-size-stroke-border: 1px;
+  --sds-size-stroke-focus-ring: 3px;
+
+  /* ---- Elevation, mapped to AO's four-step shadow scale */
+  --sds-elevation-100: var(--ao-shadow);
+  --sds-elevation-200: var(--ao-shadow-md);
+  --sds-elevation-300: var(--ao-shadow-lg);
+  --sds-elevation-400: var(--ao-shadow-xl);
+}

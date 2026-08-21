@@ -1,0 +1,104 @@
+/*
+ * ao-typography.css — SmileyFace + Inter
+ *
+ * AO runs two typefaces with strict role separation (design.md §Typography):
+ *
+ *   SmileyFace  headings, display text, AND all button labels (CTAs)
+ *   Inter       body text, UI labels, helper copy, form fields
+ *
+ * Never swap them. A button label in Inter is an AO brand error, not a
+ * styling preference — it is the single most common way generated AO UI
+ * gives itself away.
+ *
+ * @font-face block is verbatim from design.md. Do not re-host or rename.
+ */
+
+@font-face {
+  font-family: 'SmileyFace-Headline';
+  font-display: swap;
+  src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff2') format('woff2'),
+       url('https://media.ao.com/fonts/smiley-face/SmileyFace-Headline.woff') format('woff');
+}
+@font-face {
+  font-family: 'SmileyFace';
+  font-weight: 100;
+  font-display: swap;
+  src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Light.woff2') format('woff2'),
+       url('https://media.ao.com/fonts/smiley-face/SmileyFace-Light.woff') format('woff');
+}
+@font-face {
+  font-family: 'SmileyFace';
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Regular.woff2') format('woff2'),
+       url('https://media.ao.com/fonts/smiley-face/SmileyFace-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'SmileyFace';
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Medium.woff2') format('woff2'),
+       url('https://media.ao.com/fonts/smiley-face/SmileyFace-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'SmileyFace';
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff2') format('woff2'),
+       url('https://media.ao.com/fonts/smiley-face/SmileyFace-Bold.woff') format('woff');
+}
+
+:root {
+  /* ---- Families. SDS shipped Inter for everything; AO splits the roles. */
+  --sds-typography-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --sds-typography-family-display: 'SmileyFace', Georgia, serif;
+  --sds-typography-family-headline: 'SmileyFace-Headline', Georgia, serif;
+  --sds-typography-family-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---- Scale (unchanged from SDS — a sound modular ladder) */
+  --sds-typography-scale-01: 0.75rem;
+  --sds-typography-scale-02: 0.875rem;
+  --sds-typography-scale-03: 1rem;
+  --sds-typography-scale-04: 1.25rem;
+  --sds-typography-scale-05: 1.5rem;
+  --sds-typography-scale-06: 2rem;
+  --sds-typography-scale-07: 2.5rem;
+  --sds-typography-scale-08: 3rem;
+  --sds-typography-scale-09: 4rem;
+  --sds-typography-scale-10: 4.5rem;
+
+  --sds-typography-weight-regular: 400;
+  --sds-typography-weight-medium: 500;
+  --sds-typography-weight-semibold: 600;
+  --sds-typography-weight-bold: 700;
+
+  /* ---- Body -> Inter */
+  --sds-typography-body-font-family: var(--sds-typography-family-sans);
+  --sds-typography-body-font-weight-regular: var(--sds-typography-weight-regular);
+  --sds-typography-body-font-weight-strong: var(--sds-typography-weight-semibold);
+  --sds-typography-body-size-small: var(--sds-typography-scale-02);
+  --sds-typography-body-size-medium: var(--sds-typography-scale-03);
+  --sds-typography-body-size-large: var(--sds-typography-scale-04);
+
+  /* ---- Headings -> SmileyFace */
+  --sds-typography-heading-font-family: var(--sds-typography-family-display);
+  --sds-typography-heading-font-weight: var(--sds-typography-weight-bold);
+
+  /* ---- Composed font shorthands used by components */
+  --sds-font-body-small: var(--sds-typography-body-font-weight-regular)
+    var(--sds-typography-body-size-small) / 1.5 var(--sds-typography-body-font-family);
+  --sds-font-body-base: var(--sds-typography-body-font-weight-regular)
+    var(--sds-typography-body-size-medium) / 1.5 var(--sds-typography-body-font-family);
+  --sds-font-body-large: var(--sds-typography-body-font-weight-regular)
+    var(--sds-typography-body-size-large) / 1.5 var(--sds-typography-body-font-family);
+  --sds-font-body-strong: var(--sds-typography-body-font-weight-strong)
+    var(--sds-typography-body-size-medium) / 1.5 var(--sds-typography-body-font-family);
+
+  /* CTA labels: SmileyFace Bold, 1rem, line-height 1 (design.md .btn) */
+  --ao-font-cta: var(--sds-typography-weight-bold) var(--sds-typography-scale-03) / 1
+    var(--sds-typography-family-display);
+  --ao-font-cta-small: var(--sds-typography-weight-bold) var(--sds-typography-scale-02) / 1
+    var(--sds-typography-family-display);
+  --ao-font-cta-large: var(--sds-typography-weight-bold) var(--sds-typography-scale-04) / 1
+    var(--sds-typography-family-display);
+}

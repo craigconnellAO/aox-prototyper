@@ -1,0 +1,250 @@
+/*
+ * ao-theme.css — layer 2 of 3
+ *
+ * Maps every SDS semantic role onto an AO primitive. SDS's role NAMES are
+ * kept deliberately: components address roles, never values, so an SDS
+ * component compiles against this file unchanged and comes out AO-branded.
+ *
+ * Two mappings are worth understanding before you change anything here:
+ *
+ *   SDS "brand"  -> AO action-primary (#00893e)
+ *     SDS uses background-brand-* for primary CTAs. AO's brand green
+ *     (#12c35a) is a *brand* colour, not an *action* colour — AO separates
+ *     the two on purpose. Mapping brand->brand would put #12c35a on every
+ *     button and quietly break AO's action hierarchy. The functional
+ *     mapping is the correct one.
+ *
+ *   SDS "neutral" -> AO action-dark / ui-dark (#011f44 navy)
+ *     SDS neutral is a dark slate used for high-contrast surfaces. AO's
+ *     equivalent is the navy dark group.
+ *
+ * AO's blue secondary action (#0564c2, "Action Main") has no SDS role — SDS
+ * has no secondary-action intent. It is added below as an AO extension
+ * rather than forced into an ill-fitting SDS role.
+ *
+ * No hex values here. Layer 1 (ao-primitives.css) owns those.
+ * Every approximation is logged in TOKEN-MAP.md § Gaps.
+ */
+
+:root {
+  /* ===== BACKGROUND ==================================================== */
+
+  /* brand -> action-primary (green). Primary CTA. */
+  --sds-color-background-brand-default: var(--ao-action-primary-base);
+  --sds-color-background-brand-hover: var(--ao-action-primary-hover);
+  --sds-color-background-brand-secondary: var(--ao-brand-primary-light);
+  --sds-color-background-brand-secondary-hover: var(--ao-ui-success-base);
+  --sds-color-background-brand-tertiary: var(--ao-ui-success-base);
+  --sds-color-background-brand-tertiary-hover: var(--ao-brand-primary-light);
+
+  /* danger -> ui-error */
+  --sds-color-background-danger-default: var(--ao-ui-error-accent);
+  --sds-color-background-danger-hover: var(--ao-ui-error-contrast);
+  --sds-color-background-danger-secondary: var(--ao-notice-error-bg);
+  --sds-color-background-danger-secondary-hover: var(--ao-ui-error-base);
+  --sds-color-background-danger-tertiary: var(--ao-ui-error-base);
+  --sds-color-background-danger-tertiary-hover: var(--ao-notice-error-bg);
+
+  /* default -> ui-core / gray ramp */
+  --sds-color-background-default-default: var(--ao-ui-core-base);
+  --sds-color-background-default-default-hover: var(--ao-gray-10);
+  --sds-color-background-default-secondary: var(--ao-gray-20);
+  --sds-color-background-default-secondary-hover: var(--ao-gray-30);
+  --sds-color-background-default-tertiary: var(--ao-gray-30);
+  --sds-color-background-default-tertiary-hover: var(--ao-gray-40);
+
+  /* disabled */
+  --sds-color-background-disabled-default: var(--ao-gray-30);
+
+  /* neutral -> ui-dark (navy) */
+  --sds-color-background-neutral-default: var(--ao-ui-dark-base);
+  --sds-color-background-neutral-hover: var(--ao-action-secondary-active);
+  --sds-color-background-neutral-secondary: var(--ao-gray-40);
+  --sds-color-background-neutral-secondary-hover: var(--ao-gray-50);
+  --sds-color-background-neutral-tertiary: var(--ao-gray-20);
+  --sds-color-background-neutral-tertiary-hover: var(--ao-gray-30);
+
+  /* positive -> ui-success */
+  --sds-color-background-positive-default: var(--ao-ui-success-accent);
+  --sds-color-background-positive-hover: var(--ao-action-primary-hover);
+  --sds-color-background-positive-secondary: var(--ao-notice-success-bg);
+  --sds-color-background-positive-secondary-hover: var(--ao-brand-primary-light);
+  --sds-color-background-positive-tertiary: var(--ao-ui-success-base);
+  --sds-color-background-positive-tertiary-hover: var(--ao-notice-success-bg);
+
+  /* warning -> ui-warning */
+  --sds-color-background-warning-default: var(--ao-ui-warning-accent);
+  --sds-color-background-warning-hover: var(--ao-ui-warning-contrast);
+  --sds-color-background-warning-secondary: var(--ao-notice-warning-bg);
+  --sds-color-background-warning-secondary-hover: var(--ao-ui-warning-base);
+  --sds-color-background-warning-tertiary: var(--ao-ui-warning-base);
+  --sds-color-background-warning-tertiary-hover: var(--ao-notice-warning-bg);
+
+  /* utilities — overlays built from AO's overlay navy */
+  --sds-color-background-utilities-blanket: rgb(1 22 48 / 0.70);
+  --sds-color-background-utilities-overlay: rgb(1 22 48 / 0.50);
+  --sds-color-background-utilities-scrim: rgb(255 255 255 / 0.80);
+  --sds-color-background-utilities-measurement: var(--ao-ui-highlight-base);
+
+  /* ===== BORDER ======================================================== */
+
+  --sds-color-border-brand-default: var(--ao-action-primary-base);
+  --sds-color-border-brand-secondary: var(--ao-brand-primary-base);
+  --sds-color-border-brand-tertiary: var(--ao-brand-primary-light);
+
+  --sds-color-border-danger-default: var(--ao-ui-error-accent);
+  --sds-color-border-danger-secondary: var(--ao-ui-error-accent);
+  --sds-color-border-danger-tertiary: var(--ao-notice-error-bg);
+
+  /* Control boundaries use gray-50 per design.md .field-input; containers
+     and dividers use gray-40. See TOKEN-MAP.md § Known AO-level gap — at
+     1.71:1 gray-50 is below WCAG 1.4.11's 3:1 for control boundaries, but
+     deviating from design.md unilaterally is not this library's call. */
+  --sds-color-border-default-default: var(--ao-gray-50);
+  --sds-color-border-default-secondary: var(--ao-gray-40);
+  --sds-color-border-default-tertiary: var(--ao-gray-30);
+
+  --sds-color-border-disabled-default: var(--ao-gray-30);
+
+  --sds-color-border-neutral-default: var(--ao-ui-dark-base);
+  --sds-color-border-neutral-secondary: var(--ao-gray-60);
+  --sds-color-border-neutral-tertiary: var(--ao-gray-40);
+
+  --sds-color-border-positive-default: var(--ao-ui-success-accent);
+  --sds-color-border-positive-secondary: var(--ao-brand-primary-base);
+  --sds-color-border-positive-tertiary: var(--ao-brand-primary-light);
+
+  --sds-color-border-warning-default: var(--ao-ui-warning-accent);
+  --sds-color-border-warning-secondary: var(--ao-ui-warning-accent);
+  --sds-color-border-warning-tertiary: var(--ao-notice-warning-bg);
+
+  --sds-color-border-utilities-measurement: var(--ao-ui-highlight-accent);
+  --sds-color-border-utilities-swatch: var(--ao-gray-40);
+
+  /* ===== TEXT ========================================================== */
+
+  --sds-color-text-brand-default: var(--ao-action-primary-base);
+  --sds-color-text-brand-secondary: var(--ao-action-primary-hover);
+  --sds-color-text-brand-tertiary: var(--ao-ui-success-contrast);
+  --sds-color-text-brand-on-brand: var(--ao-action-primary-contrast);
+  --sds-color-text-brand-on-brand-secondary: var(--ao-ui-success-contrast);
+  --sds-color-text-brand-on-brand-tertiary: var(--ao-ui-success-contrast);
+
+  --sds-color-text-danger-default: var(--ao-ui-error-accent);
+  --sds-color-text-danger-secondary: var(--ao-ui-error-contrast);
+  --sds-color-text-danger-tertiary: var(--ao-ui-error-contrast);
+  --sds-color-text-danger-on-danger: var(--ao-action-primary-contrast);
+  --sds-color-text-danger-on-danger-secondary: var(--ao-ui-error-contrast);
+  --sds-color-text-danger-on-danger-tertiary: var(--ao-ui-error-contrast);
+
+  --sds-color-text-default-default: var(--ao-type-secondary);
+  --sds-color-text-default-secondary: var(--ao-type-tertiary);
+  --sds-color-text-default-tertiary: var(--ao-gray-70);
+
+  --sds-color-text-disabled-default: var(--ao-gray-70);
+  --sds-color-text-disabled-on-disabled: var(--ao-gray-70);
+
+  --sds-color-text-neutral-default: var(--ao-type-primary);
+  --sds-color-text-neutral-secondary: var(--ao-type-secondary);
+  --sds-color-text-neutral-tertiary: var(--ao-type-tertiary);
+  --sds-color-text-neutral-on-neutral: var(--ao-ui-dark-contrast);
+  --sds-color-text-neutral-on-neutral-secondary: var(--ao-type-primary);
+  --sds-color-text-neutral-on-neutral-tertiary: var(--ao-type-primary);
+
+  --sds-color-text-positive-default: var(--ao-ui-success-accent);
+  --sds-color-text-positive-secondary: var(--ao-ui-success-contrast);
+  --sds-color-text-positive-tertiary: var(--ao-ui-success-contrast);
+  --sds-color-text-positive-on-positive: var(--ao-action-primary-contrast);
+  --sds-color-text-positive-on-positive-secondary: var(--ao-ui-success-contrast);
+  --sds-color-text-positive-on-positive-tertiary: var(--ao-ui-success-contrast);
+
+  /* AO's #ad5a00 is tuned for the PALE warning surface (#fff4e6, 4.56:1).
+     On the saturated accent and the notice surface it drops to 2.41 and
+     4.01, so those two use type-primary instead. Verified, not assumed —
+     see TOKEN-MAP.md § Contrast. */
+  --sds-color-text-warning-default: var(--ao-ui-warning-contrast);
+  --sds-color-text-warning-secondary: var(--ao-ui-warning-contrast);
+  --sds-color-text-warning-tertiary: var(--ao-ui-warning-contrast);
+  --sds-color-text-warning-on-warning: var(--ao-type-primary);
+  --sds-color-text-warning-on-warning-secondary: var(--ao-type-primary);
+  --sds-color-text-warning-on-warning-tertiary: var(--ao-ui-warning-contrast);
+
+  --sds-color-text-utilities-text-on-measurement: var(--ao-ui-highlight-contrast);
+  --sds-color-text-utilities-text-on-overlay: var(--ao-ui-dark-contrast);
+
+  /* ===== ICON ========================================================== */
+
+  --sds-color-icon-brand-default: var(--ao-action-primary-base);
+  --sds-color-icon-brand-secondary: var(--ao-action-primary-hover);
+  --sds-color-icon-brand-tertiary: var(--ao-ui-success-contrast);
+  --sds-color-icon-brand-on-brand: var(--ao-action-primary-contrast);
+  --sds-color-icon-brand-on-brand-secondary: var(--ao-ui-success-contrast);
+  --sds-color-icon-brand-on-brand-tertiary: var(--ao-ui-success-contrast);
+
+  --sds-color-icon-danger-default: var(--ao-ui-error-accent);
+  --sds-color-icon-danger-secondary: var(--ao-ui-error-contrast);
+  --sds-color-icon-danger-tertiary: var(--ao-ui-error-contrast);
+  --sds-color-icon-danger-on-danger: var(--ao-action-primary-contrast);
+  --sds-color-icon-danger-on-danger-secondary: var(--ao-ui-error-contrast);
+  --sds-color-icon-danger-on-danger-tertiary: var(--ao-ui-error-contrast);
+
+  --sds-color-icon-default-default: var(--ao-type-secondary);
+  --sds-color-icon-default-secondary: var(--ao-type-tertiary);
+  --sds-color-icon-default-tertiary: var(--ao-gray-70);
+
+  --sds-color-icon-disabled-default: var(--ao-gray-70);
+  --sds-color-icon-disabled-on-disabled: var(--ao-gray-70);
+
+  --sds-color-icon-neutral-default: var(--ao-type-primary);
+  --sds-color-icon-neutral-secondary: var(--ao-type-secondary);
+  --sds-color-icon-neutral-tertiary: var(--ao-type-tertiary);
+  --sds-color-icon-neutral-on-neutral: var(--ao-ui-dark-contrast);
+  --sds-color-icon-neutral-on-neutral-secondary: var(--ao-type-primary);
+  --sds-color-icon-neutral-on-neutral-tertiary: var(--ao-type-primary);
+
+  --sds-color-icon-positive-default: var(--ao-ui-success-accent);
+  --sds-color-icon-positive-secondary: var(--ao-ui-success-contrast);
+  --sds-color-icon-positive-tertiary: var(--ao-ui-success-contrast);
+  --sds-color-icon-positive-on-positive: var(--ao-action-primary-contrast);
+  --sds-color-icon-positive-on-positive-secondary: var(--ao-ui-success-contrast);
+  --sds-color-icon-positive-on-positive-tertiary: var(--ao-ui-success-contrast);
+
+  --sds-color-icon-warning-default: var(--ao-ui-warning-contrast);
+  --sds-color-icon-warning-secondary: var(--ao-ui-warning-contrast);
+  --sds-color-icon-warning-tertiary: var(--ao-ui-warning-contrast);
+  --sds-color-icon-warning-on-warning: var(--ao-type-primary);
+  --sds-color-icon-warning-on-warning-secondary: var(--ao-type-primary);
+  --sds-color-icon-warning-on-warning-tertiary: var(--ao-ui-warning-contrast);
+
+  --sds-color-icon-utilities-icon: var(--ao-type-secondary);
+  --sds-color-icon-utilities-icon-on-measurement: var(--ao-ui-highlight-contrast);
+
+  /* ===== AO EXTENSIONS ================================================= */
+  /* No SDS role exists for these. AO needs them; SDS never had them.     */
+
+  /* Pressed state. SDS models default+hover but has no active/pressed
+     role; AO specifies one for every action tier, so it is added here
+     rather than let components reach into the primitive layer. */
+  --ao-x-brand-active: var(--ao-action-primary-active);
+
+  /* Secondary action — AO "Action Main" blue. AO's second CTA tier.      */
+  --ao-x-accent-default: var(--ao-action-secondary-base);
+  --ao-x-accent-hover: var(--ao-action-secondary-hover);
+  --ao-x-accent-active: var(--ao-action-secondary-active);
+  --ao-x-accent-contrast: var(--ao-action-secondary-contrast);
+  --ao-x-accent-glow: var(--ao-action-secondary-glow);
+  --ao-x-accent-surface: var(--ao-ui-highlight-base);
+  --ao-x-accent-on-surface: var(--ao-ui-highlight-contrast);
+
+  /* Light-on-dark action — AO btn-white, for use on navy/photography.    */
+  --ao-x-inverse-default: var(--ao-action-light-base);
+  --ao-x-inverse-contrast: var(--ao-action-light-contrast);
+
+  /* Inactive — AO's explicit "unavailable" grey, distinct from disabled. */
+  --ao-x-inactive-default: var(--ao-action-inactive-base);
+  --ao-x-inactive-contrast: var(--ao-action-inactive-contrast);
+
+  /* Focus ring — AO focuses with the blue glow at 3px, not the brand green. */
+  --global-focus-ring-color: var(--ao-action-secondary-glow);
+  --global-focus-ring-size: 3px;
+}

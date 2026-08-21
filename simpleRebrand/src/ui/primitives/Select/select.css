@@ -1,0 +1,61 @@
+/*
+ * Select — AO
+ * Shares Input's field chrome so a form reads as one system.
+ * Chevron is a CSS-drawn caret: no inline <svg>, so the design-system scan
+ * stays clean and no hand-drawn glyph stands in for a Strata icon.
+ */
+
+.ao-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.ao-select {
+  appearance: none;
+  background: var(--sds-color-background-default-default);
+  border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+  border-radius: var(--sds-size-radius-200);
+  color: var(--sds-color-text-default-default);
+  cursor: pointer;
+  font: var(--sds-font-body-base);
+  padding: var(--sds-size-space-300) var(--sds-size-space-800)
+    var(--sds-size-space-300) var(--sds-size-space-400);
+  transition: border-color 150ms;
+  width: 100%;
+}
+
+.ao-select:hover:not(:disabled) {
+  border-color: var(--sds-color-border-neutral-secondary);
+}
+
+.ao-select:focus-visible {
+  border-color: var(--ao-x-accent-default);
+  outline: var(--global-focus-ring-size) solid var(--global-focus-ring-color);
+  outline-offset: 1px;
+}
+
+.ao-select:disabled {
+  background: var(--sds-color-background-disabled-default);
+  border-color: var(--sds-color-border-disabled-default);
+  color: var(--sds-color-text-disabled-default);
+  cursor: not-allowed;
+}
+
+.ao-select.is-error {
+  border-color: var(--sds-color-border-danger-default);
+}
+
+/* Caret, drawn in CSS. Replace with the Strata ico-chevron-down component
+   when porting into a codebase that already ships the Strata icon font. */
+.ao-select-wrapper::after {
+  border-bottom: 2px solid var(--sds-color-icon-default-secondary);
+  border-right: 2px solid var(--sds-color-icon-default-secondary);
+  content: "";
+  height: 0.5rem;
+  pointer-events: none;
+  position: absolute;
+  right: var(--sds-size-space-400);
+  top: 50%;
+  transform: translateY(-65%) rotate(45deg);
+  width: 0.5rem;
+}

@@ -1,0 +1,40 @@
+/*
+ * simpleRebrand — stylesheet entry point
+ *
+ * Import order matters. Each layer may only reference the layer above it:
+ *
+ *   1. ao-primitives   raw AO values          (the only file with hex)
+ *   2. ao-theme        SDS roles -> AO values (no hex)
+ *   3. ao-size         radius / spacing / stroke
+ *   4. ao-typography   SmileyFace + Inter
+ *   5. components      consume roles only     (no hex, no primitives)
+ *
+ * A component reaching past the semantic layer to a primitive is a bug: it
+ * is how a rebrand ends up only 90% applied.
+ */
+
+@import "./ao-primitives.css";
+@import "./ao-theme.css";
+@import "./ao-size.css";
+@import "./ao-typography.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--sds-color-background-default-default);
+  color: var(--sds-color-text-default-default);
+  font: var(--sds-font-body-base);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--sds-typography-heading-font-family);
+  font-weight: var(--sds-typography-heading-font-weight);
+  line-height: 1.2;
+  margin: 0;
+}

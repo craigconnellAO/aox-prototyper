@@ -1,0 +1,171 @@
+/*
+ * Button — AO
+ *
+ * Variants map to AO's action tiers (design.md §Component Blueprints §1):
+ *   primary    green   the ONE main CTA per visual section
+ *   secondary  blue    transparent, Action Main border + label
+ *   tertiary   grey    low-emphasis
+ *   dark       navy    on light backgrounds
+ *   inverse    white   on navy / photography
+ *   inactive   grey    unavailable, not the same as :disabled
+ *
+ * Label font is SmileyFace Bold — not Inter. See ao-typography.css.
+ */
+
+.ao-button {
+  --ao-button-radius: var(--sds-size-radius-200);
+
+  align-items: center;
+  background: var(--ao-button-background);
+  border: var(--sds-size-stroke-border) solid var(--ao-button-border);
+  border-radius: var(--ao-button-radius);
+  color: var(--ao-button-color);
+  cursor: pointer;
+  display: inline-flex;
+  font: var(--ao-font-cta);
+  gap: var(--sds-size-space-200);
+  justify-content: center;
+  padding: var(--ao-button-padding-y) var(--ao-button-padding-x);
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 150ms, color 150ms, border-color 150ms,
+    box-shadow 150ms, transform 150ms;
+
+  > .ao-icon {
+    --ao-icon-color: var(--ao-button-color);
+  }
+}
+
+/* ---- Sizes. Default padding from design.md: 0.875rem 1.5rem ------------ */
+.ao-button-size-medium {
+  --ao-button-padding-x: var(--sds-size-space-600);
+  --ao-button-padding-y: 0.875rem;
+  font: var(--ao-font-cta);
+}
+.ao-button-size-small {
+  --ao-button-padding-x: var(--sds-size-space-400);
+  --ao-button-padding-y: var(--sds-size-space-200);
+  font: var(--ao-font-cta-small);
+}
+.ao-button-size-large {
+  --ao-button-padding-x: var(--sds-size-space-800);
+  --ao-button-padding-y: var(--sds-size-space-400);
+  font: var(--ao-font-cta-large);
+}
+.ao-button-full {
+  width: 100%;
+}
+.ao-button-icon-only {
+  --ao-button-padding-x: var(--ao-button-padding-y);
+  aspect-ratio: 1;
+}
+
+/* ---- Focus: AO uses a 3px blue glow, offset 2px ------------------------ */
+.ao-button:focus-visible {
+  outline: var(--global-focus-ring-size) solid var(--global-focus-ring-color);
+  outline-offset: 2px;
+}
+
+/* ---- Press. Suppressed under reduced-motion. -------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .ao-button:active:not(:disabled):not(.is-disabled) {
+    transform: translateY(1px);
+    box-shadow: var(--sds-elevation-100);
+  }
+}
+
+/* ---- primary: green ---------------------------------------------------- */
+.ao-button-variant-primary {
+  --ao-button-background: var(--sds-color-background-brand-default);
+  --ao-button-border: var(--sds-color-border-brand-default);
+  --ao-button-color: var(--sds-color-text-brand-on-brand);
+}
+.ao-button-variant-primary:hover:not(:disabled):not(.is-disabled) {
+  --ao-button-background: var(--sds-color-background-brand-hover);
+  --ao-button-border: var(--sds-color-background-brand-hover);
+}
+.ao-button-variant-primary:active:not(:disabled):not(.is-disabled) {
+  --ao-button-background: var(--ao-x-brand-active);
+  --ao-button-border: var(--ao-x-brand-active);
+}
+
+/* ---- secondary: blue, transparent until hover -------------------------- */
+.ao-button-variant-secondary {
+  --ao-button-background: transparent;
+  --ao-button-border: var(--ao-x-accent-default);
+  --ao-button-color: var(--ao-x-accent-default);
+}
+.ao-button-variant-secondary:hover:not(:disabled):not(.is-disabled) {
+  --ao-button-background: var(--ao-x-accent-surface);
+  --ao-button-border: var(--ao-x-accent-hover);
+  --ao-button-color: var(--ao-x-accent-hover);
+}
+.ao-button-variant-secondary:active:not(:disabled):not(.is-disabled) {
+  --ao-button-border: var(--ao-x-accent-active);
+  --ao-button-color: var(--ao-x-accent-active);
+}
+
+/* ---- tertiary: low emphasis -------------------------------------------- */
+.ao-button-variant-tertiary {
+  --ao-button-background: var(--sds-color-background-default-secondary);
+  --ao-button-border: var(--sds-color-border-default-default);
+  --ao-button-color: var(--sds-color-text-default-default);
+}
+.ao-button-variant-tertiary:hover:not(:disabled):not(.is-disabled) {
+  --ao-button-background: var(--sds-color-background-default-secondary-hover);
+}
+
+/* ---- dark: navy --------------------------------------------------------- */
+.ao-button-variant-dark {
+  --ao-button-background: var(--sds-color-background-neutral-default);
+  --ao-button-border: var(--sds-color-border-neutral-default);
+  --ao-button-color: var(--sds-color-text-neutral-on-neutral);
+}
+.ao-button-variant-dark:hover:not(:disabled):not(.is-disabled) {
+  --ao-button-background: var(--sds-color-background-neutral-hover);
+  --ao-button-border: var(--sds-color-background-neutral-hover);
+}
+
+/* ---- inverse: white, for navy / photography ---------------------------- */
+.ao-button-variant-inverse {
+  --ao-button-background: var(--ao-x-inverse-default);
+  --ao-button-border: var(--ao-x-inverse-default);
+  --ao-button-color: var(--ao-x-inverse-contrast);
+}
+.ao-button-variant-inverse:hover:not(:disabled):not(.is-disabled) {
+  --ao-button-background: var(--sds-color-background-default-default-hover);
+}
+
+/* ---- inactive: explicitly unavailable ---------------------------------- */
+.ao-button-variant-inactive {
+  --ao-button-background: var(--ao-x-inactive-default);
+  --ao-button-border: var(--ao-x-inactive-default);
+  --ao-button-color: var(--ao-x-inactive-contrast);
+}
+
+/* ---- disabled ---------------------------------------------------------- */
+.ao-button:disabled,
+.ao-button.is-disabled {
+  --ao-button-background: var(--sds-color-background-disabled-default);
+  --ao-button-border: var(--sds-color-border-disabled-default);
+  --ao-button-color: var(--sds-color-text-disabled-default);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---- status modifiers (design.md: is-loading / is-error / is-success) --- */
+.ao-button.is-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+.ao-button.is-error {
+  --ao-button-background: var(--sds-color-background-danger-default);
+  --ao-button-border: var(--sds-color-border-danger-default);
+  --ao-button-color: var(--sds-color-text-danger-on-danger);
+}
+.ao-button.is-success {
+  --ao-button-background: var(--sds-color-background-positive-default);
+  --ao-button-border: var(--sds-color-border-positive-default);
+  --ao-button-color: var(--sds-color-text-positive-on-positive);
+}
