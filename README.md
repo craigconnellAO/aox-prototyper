@@ -1,13 +1,11 @@
-# AOX-Prototyper
-
 <img width="53" height="58" alt="image" src="https://github.com/user-attachments/assets/97265e07-408c-4053-8fca-f256e9ba9065" />
 
-A Kiro Power for AOX-compliant prototypes and Figma builds — Kiro reads your actual design tokens, components, and brand rules instead of guessing at them.
+# AOX-Prototyper
+This UX Kiro Power is the engine that powers the AO design-system prototyping kit. Locked rules, templates, and a Figma-Bridge workflow — for any designer or team to install and use on a new project to create HTML prototypes from Figma, Wireframes, Flows, and Sketches.
 
-> **What it is:** An installable Kiro Power bundling locked design-system steering, guided project onboarding, per-project spec templates, four workflow skills — `figma-bridge`, `ideation`, `ideate-mode`, `design-review` — and a two-tier design-system guard.
-> **What it isn't:** A component library, or a handoff package. It's what makes the prototypes accurate enough that handoff stops being a translation exercise.
-
----
+## Your new UX Superpowers
+- Guided onboarding (steering/onboarding-flow.md). 
+When your project's spec files are missing or unfilled, Kiro offers a five-batch conversational questionnaire and writes them for you. Self-gating: once they're filled, it never fires again.
 
 ## Quickstart
 
