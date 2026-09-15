@@ -107,7 +107,6 @@ disagree, `assets/strata-component-sheet/index.html` wins.
 ## Need Help?
 
 - "What components are available?" — lists the AOX component blueprints
-- "Show me the Switch24 example" — walks through the worked example
 - "What's locked vs open?" — reads DESIGN.md's locked decisions and open questions
 
 ---

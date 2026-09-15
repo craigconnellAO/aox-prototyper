@@ -9,7 +9,7 @@ argument-hint: "[ideate|lock] [flow or screen name]"
 
 Every project built with this Power defaults to **locked**: build strictly from the org `design.md`, `brand.md`, and this project's own `DESIGN.md` — approved variants only, no new decisions made on the fly. **`/ideate-mode` is how you deliberately step out of that** to explore freely, without committing.
 
-Conflating the two causes real damage: exploratory motion/interaction choices get written into `DESIGN.md` as if they were settled rules, which then quietly constrains (or gets contradicted by) the next round of ideation. That happened once already on the Switch24 example project with the trust-bridge motion work (see `example-switch24/DESIGN.md` §Layout and §Motion, and the full history in `example-switch24/IDEATION.md` if present) — this skill exists to stop it happening again.
+Conflating the two causes real damage: exploratory motion/interaction choices get written into `DESIGN.md` as if they were settled rules, which then quietly constrains (or gets contradicted by) the next round of ideation. This has happened before with trust-bridge motion work written prematurely into a locked file — this skill exists to stop it happening again.
 
 ## When to ask
 

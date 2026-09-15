@@ -6,7 +6,7 @@
 
 Living record of research, evidence, assumptions, and learnings for **[project name]**.
 
-*[One or two sentences: what is this product/feature, and what problem does it exist to solve? See `example-switch24/DISCOVERY.md` for a worked reference.]*
+*[One or two sentences: what is this product/feature, and what problem does it exist to solve?]*
 
 This document captures why we're building it, what we've learned so far, and what evidence should drive future design decisions.
 

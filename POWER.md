@@ -1,21 +1,20 @@
 ---
 name: "aox-prototyper"
 displayName: "AOX-Prototyper"
-description: "AOX design-system-strict prototyping kit: locked tokens/components/brand rules, guided project onboarding, per-project discovery/product/design templates, a worked Switch24 example, the Figma bridge and ideation workflows, and the impeccable frontend-craft skill."
-keywords: ["aox", "ao.com", "design system", "strata", "design.md", "figma", "prototype", "switch24", "impeccable", "ideation", "steering", "onboarding"]
+description: "AOX design-system-strict prototyping kit: locked tokens/components/brand rules, guided project onboarding, per-project discovery/product/design templates, the Figma bridge and ideation workflows, and the impeccable frontend-craft skill."
+keywords: ["aox", "ao.com", "design system", "strata", "design.md", "figma", "prototype", "impeccable", "ideation", "steering", "onboarding"]
 author: "AOX-DesignSystem"
 ---
 
 # AOX-Prototyper
 
-A shareable Kiro Power that packages the AOX design-system prototyping kit — the same rules, templates, and Figma workflow used to build Switch24 — for any designer or team to install and use on a new project.
+A shareable Kiro Power that packages the AOX design-system prototyping kit — locked rules, templates, and a Figma workflow — for any designer or team to install and use on a new project.
 
 ## What this Power gives you
 
 - **Locked steering** (`steering/`) — the AOX design system (`design.md`: tokens, typography, components, patterns, anti-patterns) and brand guidelines (`brand.md`). Always active once installed; this is what makes generated output token-accurate and brand-accurate instead of guessed.
 - **Guided onboarding** (`steering/onboarding-flow.md`) — when your project's spec files are missing or unfilled, Kiro offers a five-batch conversational questionnaire and writes them for you. Self-gating: once they're filled, it never fires again.
 - **Fillable project templates** (`templates/`) — `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, each with a quick-fill *At a Glance* section on top and the deeper thinking sections below. Plus `STATUS.md` (live progress), `QUICKSTART.md` (command reference), and `FIGMA-BRIDGE.md` (per-project Figma push record). Onboarding writes all of these for you.
-- **A worked example** (`example-switch24/`) — the Switch24 MVNO signup flow, fully filled: real `DISCOVERY.md`/`PRODUCT.md`/`DESIGN.md`, a real `IDEATION.md` ideation history, a real `FIGMA-BRIDGE.md` push log, and the polished final-flow prototypes. Read this to see what a completed project looks like end to end.
 - **Skills** (`skills/`) — `figma-bridge` (push an HTML prototype into Figma), `ideation` (structured divergent/convergent design exploration), `ideate-mode` (the gate between locked and exploratory work — invoke `/ideate-mode` to deliberately leave the locked design system and explore), and `design-review` (the compliance pass over finished work, `/design-review`).
 - **Two hooks** (`hooks/`) — a **scan** that runs a shell script on every HTML save (free, milliseconds, no agent turn) flagging raw hex and inline `<svg>`, and a **review** you trigger by hand when a screen or flow is finished, which judges those findings and adds the checks a grep can't make. The expensive half only runs when you ask for it.
 - **An installer** (`scripts/install-aox-power.sh`) — copies the skills, hooks, scan script and component sheet into your workspace, because Kiro's Power installer doesn't. Onboarding offers to run it; you can also run it yourself any time.
@@ -35,7 +34,7 @@ AOX UX/product designers working with Kiro (or Claude Code, which reads the same
 
 Kiro's Power installer copies **`POWER.md`, `steering/`, and `mcp.json`** into your environment. That's the whole automatic part, and it's enough for the Power's core promise: the design system is live, and onboarding will offer itself on your next session.
 
-Everything else in this repo — `skills/`, `hooks/`, `scripts/`, `assets/`, `templates/`, `example-switch24/` — is **not** copied by the installer, and Kiro has no install-script mechanism inside a Power to do it for you.
+Everything else in this repo — `skills/`, `hooks/`, `scripts/`, `assets/`, `templates/` — is **not** copied by the installer, and Kiro has no install-script mechanism inside a Power to do it for you.
 
 So the Power ships its own installer. Run it once, from your workspace root:
 
@@ -167,7 +166,6 @@ templates/                     ← reference copies; onboarding writes all of th
 assets/                        ← installed by the script → your workspace root
   strata-component-sheet/        authoritative rendered Strata markup; Protocol 1 reads this
 
-example-switch24/              ← worked example, filled in end to end
 docs/how-to-use.md
 ```
 

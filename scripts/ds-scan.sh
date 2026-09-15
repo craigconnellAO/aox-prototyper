@@ -54,7 +54,6 @@ if [ ${#FILES[@]} -eq 0 ]; then
       -not -path '*/.git/*' \
       -not -path '*/.kiro/*' \
       -not -path '*/assets/strata-component-sheet/*' \
-      -not -path '*/example-switch24/*' \
       -not -path '*/dist/*' \
       -not -path '*/build/*' \
       2>/dev/null | sort

@@ -4,7 +4,7 @@
 
 A Kiro Power for AOX-compliant prototypes and Figma builds — Kiro reads your actual design tokens, components, and brand rules instead of guessing at them.
 
-> **What it is:** An installable Kiro Power bundling locked design-system steering, guided project onboarding, per-project spec templates, a worked example (Switch24), four workflow skills — `figma-bridge`, `ideation`, `ideate-mode`, `design-review` — and a two-tier design-system guard.
+> **What it is:** An installable Kiro Power bundling locked design-system steering, guided project onboarding, per-project spec templates, four workflow skills — `figma-bridge`, `ideation`, `ideate-mode`, `design-review` — and a two-tier design-system guard.
 > **What it isn't:** A component library, or a handoff package. It's what makes the prototypes accurate enough that handoff stops being a translation exercise.
 
 ---
@@ -72,12 +72,6 @@ templates/                  per-project files; onboarding writes these, or copy 
 assets/
   strata-component-sheet/     the rendered Strata markup, authoritative over prose
                               when a component's exact HTML/CSS is in question
-
-example-switch24/           a completed project, filled in end to end
-  DISCOVERY.md, PRODUCT.md, DESIGN.md    filled spec files
-  IDEATION.md                            trust-bridge ideation history (rounds 1-3b)
-  FIGMA-BRIDGE.md                        a real push log with component and font maps
-  prototypes/                            the polished final-flow screens
 
 docs/
   how-to-use.md               full designer-facing walkthrough

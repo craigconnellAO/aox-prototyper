@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.4.0 — 2026-09-15
+
+**The bundled Switch24 example project is removed.**
+
+`example-switch24/` — the filled DISCOVERY/PRODUCT/DESIGN spec files, the IDEATION history, the FIGMA-BRIDGE push log, and the final-flow prototypes — has been deleted, along with every pointer to it in `POWER.md`, `README.md`, `docs/how-to-use.md`, the `templates/`, `skills/ideation`, `skills/ideate-mode`, and the `scripts/ds-scan.sh` ignore list. The templates and skills keep their guidance; they just no longer point at a worked example that ships with the Power.
+
+**Switch24 as a design-system feature is untouched.** The Switch24 payment selectors (component §16) and the sanctioned `--switch-purple` sub-brand token remain in `steering/design.md`, `steering/aox-design-system.md`, and the Strata component sheet — those are real, shipped parts of the AO design system, not part of the removed example.
+
+Historical entries below reference `example-switch24/` as it existed at the time of those releases; they are left intact as an accurate record.
+
 ## v1.3.0 — 2026-08-06
 
 **The design-system guard stops charging for every keystroke, and the manual install step becomes a script.**

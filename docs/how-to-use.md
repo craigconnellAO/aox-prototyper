@@ -118,9 +118,7 @@ Then fill them in, in this order:
 
 1. **`DISCOVERY.md` first** — the research, problem statement, hypotheses. Everything else should trace back to this.
 2. **`PRODUCT.md` second** — users, purpose, commercial goals, brand personality, and (important) what the product explicitly is *not*.
-3. **`DESIGN.md` last, and lightly at first** — only fill in what's genuinely locked. Leave open questions for `IDEATION.md` (create it when you first need it, following `example-switch24/IDEATION.md`'s structure) rather than guessing early.
-
-Use `example-switch24/` as your reference throughout — it's the same three files, filled in for a real shipped flow, plus the ideation history and Figma push log that came out of actually building it.
+3. **`DESIGN.md` last, and lightly at first** — only fill in what's genuinely locked. Leave open questions for `IDEATION.md` (create it when you first need it) rather than guessing early.
 
 ## 7. Build
 
@@ -143,7 +141,7 @@ If you built your project by hand instead of through onboarding, copy `templates
 
 ## 9. Explore multiple directions (optional)
 
-For a genuinely open design question — several plausible structural approaches, not just visual variants — invoke `/ideate-mode` to enter exploratory mode, then use the `ideation` skill to run a structured divergence/scoring/convergence round. See `example-switch24/IDEATION.md` for what a full round looks like end to end, including a round that caught its own internal contradiction and led to a follow-up round.
+For a genuinely open design question — several plausible structural approaches, not just visual variants — invoke `/ideate-mode` to enter exploratory mode, then use the `ideation` skill to run a structured divergence/scoring/convergence round.
 
 ## Troubleshooting
 

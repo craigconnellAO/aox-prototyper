@@ -7,7 +7,7 @@ argument-hint: "[screen or flow name] [optional: number of concepts]"
 
 # Ideation: structured divergence and convergence
 
-A method for generating and narrowing multiple genuinely distinct design directions, rather than iterating serially on one idea. Extracted from the trust-bridge ideation rounds on the AO Switch24 project — see `example-switch24/IDEATION.md` for the full worked history (rounds 1 through 3b) if you want a concrete reference for how this reads in practice.
+A method for generating and narrowing multiple genuinely distinct design directions, rather than iterating serially on one idea. Extracted from real trust-bridge ideation rounds that ran through several rounds of divergence and convergence.
 
 Always run this under `/ideate-mode`'s ideate mode — see `skills/ideate-mode/SKILL.md`. Nothing produced here goes into a project's `DESIGN.md`/`PRODUCT.md` directly; it goes into that project's `IDEATION.md` until a decision is explicitly locked.
 

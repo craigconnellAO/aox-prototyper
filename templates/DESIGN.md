@@ -8,7 +8,7 @@
 > `steering/design.md` is authoritative for all tokens, component blueprints, and anti-patterns.
 > This file answers what those tokens *mean* in the context of this project.
 >
-> Everything in this file is a **locked** decision — settled, and something other work should be built against. If a decision is still being explored, it belongs in this project's `IDEATION.md` instead, via `/ideate-mode`. See `example-switch24/DESIGN.md` for a worked reference, including how a deliberate departure from a locked rule gets cross-referenced to `IDEATION.md` rather than silently overriding it.
+> Everything in this file is a **locked** decision — settled, and something other work should be built against. If a decision is still being explored, it belongs in this project's `IDEATION.md` instead, via `/ideate-mode`. A deliberate departure from a locked rule should be cross-referenced to `IDEATION.md` rather than silently overriding it.
 
 ---
 
@@ -88,7 +88,7 @@ From the AO design system (`steering/design.md`):
 
 - *[List the components this project actually uses]*
 
-*[If this project needs a component that doesn't exist in the system, that's a deliberate exception — document it here the way `example-switch24/DESIGN.md` documents its trust-bridge card: what it is, why it doesn't generalise, and a pointer to the reference implementation.]*
+*[If this project needs a component that doesn't exist in the system, that's a deliberate exception — document it here: what it is, why it doesn't generalise, and a pointer to the reference implementation.]*
 
 Do not introduce components not in the AO system without first checking `design.md` blueprints.
 

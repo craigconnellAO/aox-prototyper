@@ -78,7 +78,7 @@
 
 ## Users
 
-*[Who is the primary user? What are they trying to do, and in what state of mind/urgency? See `example-switch24/PRODUCT.md` for a worked reference.]*
+*[Who is the primary user? What are they trying to do, and in what state of mind/urgency?]*
 
 ---
 
@@ -169,7 +169,7 @@ This product should:
 - Follow existing interaction patterns
 - Avoid introducing custom visual systems unnecessarily
 
-If this product genuinely needs a sanctioned exception (a sub-brand colour, a bespoke component), that exception gets proposed and recorded in `design.md` §7a — not invented silently in this file. See `example-switch24/DESIGN.md`'s "Sub-brand accent" section for how that resolution reads once settled.
+If this product genuinely needs a sanctioned exception (a sub-brand colour, a bespoke component), that exception gets proposed and recorded in `design.md` §7a — not invented silently in this file.
 
 The product's character should come primarily from:
 
