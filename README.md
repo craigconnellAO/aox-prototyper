@@ -1,11 +1,15 @@
-<img width="53" height="58" alt="image" src="https://github.com/user-attachments/assets/97265e07-408c-4053-8fca-f256e9ba9065" />
-
-# AOX-Prototyper
+# AOX Prototyper
 This UX Kiro Power is the engine that powers the AO design-system prototyping kit. Locked rules, templates, and a Figma-Bridge workflow — for any designer or team to install and use on a new project to create HTML prototypes from Figma, Wireframes, Flows, and Sketches.
 
-## Your new UX Superpowers
-- Guided onboarding (steering/onboarding-flow.md). 
-When your project's spec files are missing or unfilled, Kiro offers a five-batch conversational questionnaire and writes them for you. Self-gating: once they're filled, it never fires again.
+## UX Superpowers
+- **Locked steering** (`steering/`) — the AOX design system (`design.md`: tokens, typography, components, patterns, anti-patterns) and brand guidelines (`brand.md`). Always active once installed; this is what makes generated output token-accurate and brand-accurate instead of guessed.
+- **Guided onboarding** (`steering/onboarding-flow.md`) — when your project's spec files are missing or unfilled, Kiro offers a five-batch conversational questionnaire and writes them for you. Self-gating: once they're filled, it never fires again.
+- **Fillable project templates** (`templates/`) — `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, each with a quick-fill *At a Glance* section on top and the deeper thinking sections below. Plus `STATUS.md` (live progress), `QUICKSTART.md` (command reference), and `FIGMA-BRIDGE.md` (per-project Figma push record). Onboarding writes all of these for you.
+- **Skills** (`skills/`) — `figma-bridge` (push an HTML prototype into Figma), `ideation` (structured divergent/convergent design exploration), `ideate-mode` (the gate between locked and exploratory work — invoke `/ideate-mode` to deliberately leave the locked design system and explore), and `design-review` (the compliance pass over finished work, `/design-review`).
+- **Two hooks** (`hooks/`) — a **scan** that runs a shell script on every HTML save (free, milliseconds, no agent turn) flagging raw hex and inline `<svg>`, and a **review** you trigger by hand when a screen or flow is finished, which judges those findings and adds the checks a grep can't make. The expensive half only runs when you ask for it.
+- **An installer** (`scripts/install-aox-power.sh`) — copies the skills, hooks, scan script and component sheet into your workspace, because Kiro's Power installer doesn't. Onboarding offers to run it; you can also run it yourself any time.
+- **Figma steering** (`steering/figma-library.md`) — component keys, icon mappings, font gotchas, and known gaps for DS 2025, shared by all projects using this Power.
+- **Figma MCP** (`mcp.json`) — the `figma-console` server, for the Figma bridge skill and direct Figma builds.
 
 ## Quickstart
 
