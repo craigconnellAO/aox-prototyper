@@ -41,7 +41,7 @@ On Windows without Git Bash or WSL, ask Kiro to make the copies with its file to
 
 | | |
 |---|---|
-| `.kiro/skills/` | `figma-bridge`, `ideation`, `ideate-mode` — without these, `/ideate-mode` and the Figma push simply aren't available |
+| `.kiro/skills/` | `figma-bridge`, `ideation`, `ideate-mode`, `design-review`, `copywriting` — without these, `/ideate-mode` and the Figma push simply aren't available |
 | `.kiro/hooks/` | the design-system scan and review (next section) |
 | `.kiro/scripts/ds-scan.sh` | what the save-time hook runs |
 | `assets/strata-component-sheet/` | **the one most people miss.** Protocol 1 tells Kiro to resolve headers, icons and the logo from `assets/strata-component-sheet/index.html` before writing any screen. Until that file is in your workspace, the instruction points at nothing — and hand-drawn icons are exactly what you get. |

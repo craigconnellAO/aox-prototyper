@@ -203,7 +203,7 @@ say ""
 
 if [ "$UNINSTALL" -eq 1 ]; then
   say "Skills"
-  for s in figma-bridge ideation ideate-mode; do
+  for s in figma-bridge ideation ideate-mode copywriting; do
     remove_path "$TARGET/$AGENT_DIR/skills/$s" "$AGENT_DIR/skills/$s"
   done
   say ""
@@ -281,7 +281,7 @@ fi
 
 say "Done."
 say ""
-say "  Skills      /ideate-mode, plus the figma-bridge and ideation skills"
+say "  Skills      /ideate-mode and /copywriting, plus the figma-bridge and ideation skills"
 say "  Scan        runs free on every HTML save, writes $AGENT_DIR/ds-guard-report.md"
 say "  Review      run \"Design System Review\" from the Agent Hooks panel when a"
 say "              screen or flow is ready — that's the one that costs credits"
