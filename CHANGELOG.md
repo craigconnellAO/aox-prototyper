@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.5.0 — 2026-09-30
+
+**New `copywriting` skill for blog posts and articles.**
+
+`skills/copywriting/SKILL.md` (`/copywriting`) writes articles the way an experienced editorial writer would: one clear point, an opening that starts at the interesting part, and short, direct prose. It covers two jobs: writing from a brief or rough notes, and explaining a technical or specialist topic (a design-system concept, a product or engineering change, UX research) to people outside that specialism.
+
+- **Brevity is the main standard.** The requested length is a ceiling, not a target, and the default with no length given is 500–800 words. Each point is made once, with one example and at most one analogy. Paragraphs stay short and sections have few subheadings. Articles end on the next step, not a recap.
+- **Brand voice when it applies.** If the article is being published by AO, it writes in the tone of voice from `steering/brand.md` §6 and follows its hard rules (AO spelling, "AOers", inclusive language, UK spelling). Work for another client gets a plain editorial voice instead.
+- **No invented facts.** Facts are looked up when web search is available, with sources listed for the user. Anything that can't be confirmed becomes a marked placeholder (`[STAT: …]`, `[CHECK: …]`).
+- **`references/revision.md`** is the revision pass: structure, then cutting (about a quarter of the first draft), clarity, the phrases and habits that make writing read as generated, facts, and a word and heading count done with a tool.
+- **`references/explaining.md`** covers explaining technical topics: explain less, start from the reader's problem, give a concrete example before the general rule, show the mechanism, use one analogy and say where it breaks, and name the common misconception.
+
+Tested over two rounds against the same briefs written without the skill. In the second round every article came in under its length ceiling, for example 747 words against a 1,000-word brief for the design-tokens explainer.
+
+`README.md`, `POWER.md` and `docs/how-to-use.md` list the new skill. `scripts/install-aox-power.sh` already copies every skill; its uninstall list and closing summary now include `copywriting`.
+
 ## v1.4.0 — 2026-09-15
 
 **The bundled Switch24 example project is removed.**

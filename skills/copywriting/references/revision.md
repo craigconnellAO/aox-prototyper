@@ -81,9 +81,11 @@ These patterns mark text as generated or padded, and readers stop trusting a pie
 
 Every number, name, date and quote comes from the user's material, the project, a source you looked up (listed in your note), or something you're certain of. Anything else becomes a marked placeholder. Brand and product names are spelled exactly right.
 
-## Pass 6: Check the length
+## Pass 6: Check the length and headings
 
 Save the file and count the words with a tool (e.g. `wc -w`). Don't estimate. If you're over the requested length, go back to Pass 2. If you're well under and the point is fully made, that's fine: the requested length is a ceiling.
+
+Then count the subheadings against the final length. Cutting shrinks sections but leaves their headings behind. Use none under about 500 words, two or three up to about 800, and three or four at about 1,000. Fold any section of only two or three sentences into its neighbour.
 
 ---
 

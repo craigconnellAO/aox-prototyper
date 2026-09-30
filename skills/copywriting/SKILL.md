@@ -1,6 +1,6 @@
 ---
 name: copywriting
-description: Write blog posts and articles like an experienced editorial writer: one clear point, a reader-first opening, plain explanations of complex ideas, and tight prose with no filler. Use this whenever the user asks for a blog post, article, explainer, thought-leadership piece, newsletter feature, case study write-up or "a post about X", or hands over notes, research, a transcript or a spec and wants it turned into something people will actually read. Also use it when a technical or specialist topic (a product feature, a design decision, UX research, an engineering change) needs explaining to a less specialist audience, even if the user doesn't say "article".
+description: Write blog posts and articles like an experienced editorial writer, with one clear point, a reader-first opening, plain explanations of complex ideas, and tight prose with no filler. Use this whenever the user asks for a blog post, article, explainer, thought-leadership piece, newsletter feature, case study write-up or "a post about X", or hands over notes, research, a transcript or a spec and wants it turned into something people will actually read. Also use it when a technical or specialist topic (a product feature, a design decision, UX research, an engineering change) needs explaining to a less specialist audience, even if the user doesn't say "article".
 user-invocable: true
 argument-hint: "[topic or brief] [optional: audience, length, where it'll be published]"
 ---
@@ -52,7 +52,7 @@ Outline before drafting, in scratch notes rather than the deliverable.
 
 - **Each section makes one move** toward the point: the problem, the mechanism, the example, the objection, the implication. Merge sections that overlap; cut ones that don't serve the point.
 - **The skim test:** the headline, subheadings and first sentence of each paragraph should tell the story on their own.
-- **Subheadings say something** ("Why big images stall the whole page", not "The problem"). A 600-word piece may need none; a 1,000-word piece three or four.
+- **Few subheadings, and they say something** ("Why big images stall the whole page", not "The problem"). Under about 500 words, use none. Up to about 800 words, two or three at most. A 1,000-word piece, three or four. A section should run to at least a few paragraphs; if it's only two or three sentences, fold it into its neighbour. Too many headings make an article read like slides and chop up the line of argument.
 - **Prose by default.** Arguments live in "because", "so" and "but", and bullets strip those out. Use a list only for steps, parallel options or a checklist. Use a table only when the reader will look things up in it.
 
 ## 5. Draft
