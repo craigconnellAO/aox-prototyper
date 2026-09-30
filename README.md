@@ -5,7 +5,7 @@ This UX Kiro Power is the engine that powers the AO design-system prototyping ki
 - **Locked steering** (`steering/`) — the AOX design system (`design.md`: tokens, typography, components, patterns, anti-patterns) and brand guidelines (`brand.md`). Always active once installed; this is what makes generated output token-accurate and brand-accurate instead of guessed.
 - **Guided onboarding** (`steering/onboarding-flow.md`) — when your project's spec files are missing or unfilled, Kiro offers a five-batch conversational questionnaire and writes them for you. Self-gating: once they're filled, it never fires again.
 - **Fillable project templates** (`templates/`) — `DISCOVERY.md`, `PRODUCT.md`, `DESIGN.md`, each with a quick-fill *At a Glance* section on top and the deeper thinking sections below. Plus `STATUS.md` (live progress), `QUICKSTART.md` (command reference), and `FIGMA-BRIDGE.md` (per-project Figma push record). Onboarding writes all of these for you.
-- **Skills** (`skills/`) — `figma-bridge` (push an HTML prototype into Figma), `ideation` (structured divergent/convergent design exploration), `ideate-mode` (the gate between locked and exploratory work — invoke `/ideate-mode` to deliberately leave the locked design system and explore), and `design-review` (the compliance pass over finished work, `/design-review`).
+- **Skills** (`skills/`) — `figma-bridge` (push an HTML prototype into Figma), `ideation` (structured divergent/convergent design exploration), `ideate-mode` (the gate between locked and exploratory work — invoke `/ideate-mode` to deliberately leave the locked design system and explore), `design-review` (the compliance pass over finished work, `/design-review`), and `copywriting` (blog posts and articles written like an experienced editorial writer, in AO's tone of voice when the piece is for AO, `/copywriting`).
 - **Two hooks** (`hooks/`) — a **scan** that runs a shell script on every HTML save (free, milliseconds, no agent turn) flagging raw hex and inline `<svg>`, and a **review** you trigger by hand when a screen or flow is finished, which judges those findings and adds the checks a grep can't make. The expensive half only runs when you ask for it.
 - **An installer** (`scripts/install-aox-power.sh`) — copies the skills, hooks, scan script and component sheet into your workspace, because Kiro's Power installer doesn't. Onboarding offers to run it; you can also run it yourself any time.
 - **Figma steering** (`steering/figma-library.md`) — component keys, icon mappings, font gotchas, and known gaps for DS 2025, shared by all projects using this Power.
@@ -55,6 +55,7 @@ skills/                     installed by the script into .kiro/skills/
   ideation/SKILL.md           structured divergent/convergent design exploration
   ideate-mode/SKILL.md        the gate between locked and exploratory mode
   design-review/SKILL.md      compliance pass over a finished screen or flow
+  copywriting/SKILL.md        blog posts and articles, plus references/ for revision and explaining
 
 hooks/                      installed by the script into .kiro/hooks/
   design-system-scan.kiro.hook            on save — shell script, free, milliseconds
