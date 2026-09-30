@@ -1,67 +1,61 @@
 # Explaining complex things clearly
 
-Read this when the subject is technical or specialist and the reader isn't: an engineering change for a business audience, a UX research finding for executives, a product feature for customers, a design-system concept for people outside the design team.
+Read this when the subject is technical or specialist and the reader isn't: an engineering change for a business audience, a research finding for executives, a product feature for customers, a design-system concept for people outside the design team.
 
-The test of an explainer isn't whether it's accurate (it must be) but whether the reader could now explain the idea to a colleague. Descriptions list what something is. Explanations make the reader understand why it works the way it does.
+The test: after one read, could the reader explain the idea to a colleague? A description lists what something is. An explanation makes the reader see why it works that way.
 
-## The curse of knowledge
+## Explain less, better
 
-The source material (a spec, a research deck, an engineer's notes) was written by people who already understand the subject, for people who already understand it. It skips the steps that feel obvious to them, and those are the steps your reader needs. It also contains a lot that's true and interesting to its authors and irrelevant to your reader.
+The biggest risk in an explainer is saying too much. Specialist topics are full of true, interesting detail, and every piece of it you include makes the core idea harder to find. Work out the one or two ideas that make everything else click, explain those well, and leave the rest out. A tight 600-word explanation beats a thorough 1,200-word one, because the reader actually finishes it.
 
-So don't summarise the source. Work out what your reader needs to understand to reach the point, and build that path. Leave out anything that isn't on it, however accurate.
+## Beat the curse of knowledge
 
-## Start from the reader's question
+Source material (specs, research decks, engineers' notes) is written by experts for experts. It skips the steps that feel obvious to them, and those are exactly the steps your reader needs. It also includes lots your reader doesn't need.
 
-Concepts make sense as answers to questions. Before explaining what something is, establish the problem it solves, in terms the reader has felt themselves. Someone who has watched a checkout page freeze understands why load order matters before you've said "render-blocking". Someone who has had a password stolen already wants to know how passkeys are different.
+So don't summarise the source. Work out what this reader needs to understand to reach the point, build that path, and drop everything off it.
 
-Open with the problem, then the idea as the answer to it.
+## Start from the reader's problem
 
-## Build from what they already know
+Ideas make sense as answers to questions. Open with the problem the concept solves, in terms the reader has experienced: the page that froze, the ticket that stalled, the bill that went up. Then give the idea as the answer.
 
-Find the nearest thing the reader already understands and anchor the new idea to it. Then add one new idea at a time, and make sure each one is solid before stacking the next on it. If an explanation needs three unfamiliar terms in one paragraph, it's going too fast.
+## Build from what they know
 
-Introduce a technical term only when the reader needs a handle for something you've already explained. Explain first, name second: "The browser can't draw anything until it has finished reading certain files. Developers call these *render-blocking*." That way the term arrives as a label for something already understood, instead of as a word to decode.
+Anchor the new idea to the nearest thing the reader already understands, then add one new idea at a time.
 
-Once you've named something, keep calling it by that name. Switching between synonyms makes a newcomer think you mean different things.
+Explain first, name second: "The browser can't draw anything until it has read certain files. Developers call these *render-blocking*." The term then arrives as a label for something already understood.
+
+Once something has a name, keep using that name. Switching synonyms makes a newcomer think you mean different things.
 
 ## Concrete, then general
 
-Walk through one specific case step by step before stating the general rule. The reader follows the example, sees the pattern, and then the principle confirms what they've just worked out, rather than arriving as an abstraction they have to take on trust.
+Walk through one specific case before stating the rule. Use an example from the reader's world: their product, their customers, their day-to-day work. One good example is enough.
 
-Pick an example from the reader's world: their product, their customers, their daily work. A hypothetical is fine when it's plainly framed as one.
+## Show the mechanism, briefly
 
-## Show the mechanism
+"Passkeys are more secure" is an assertion. "A passkey never leaves your phone, so there's nothing for a fake login page to steal" is a mechanism, and readers believe and remember mechanisms. Include one link of cause and effect for each important claim. You rarely need the whole chain.
 
-"Passkeys are more secure" is an assertion. "A passkey never leaves your phone, so there's nothing for a fake login page to steal" is a mechanism. Readers remember and believe mechanisms, and they can use them to reason about new situations.
+## Analogies: one, well chosen
 
-For each important claim, ask "why is that true?" and include at least one link of the causal chain. You don't need the whole chain, just enough that the claim stops being magic.
+A good analogy maps how the thing works, not just how it feels. "A passkey is like a key that only works in your hand" says something about the mechanism. "Passkeys are the Fort Knox of logins" only says "secure".
 
-## Analogies: choose carefully, then say where they break
+Use one analogy at most, and add a short clause saying where it breaks ("unlike a real key, you can't lend it out") so the reader doesn't carry the wrong part forward. If nothing maps well, a concrete example does the job better than a strained analogy.
 
-A good analogy maps the *mechanism*, not just the general feel. "A passkey is like a key that only works in your own hand" captures something real about how it works. "Passkeys are the Fort Knox of logins" captures only that it's secure, which the reader already knew you were going to say.
+## Human-scale numbers
 
-- Use one analogy and follow it through, rather than switching between several.
-- Say where it stops being accurate ("unlike a real key, you can't lend it to anyone"), so the reader doesn't carry the wrong part forward.
-- If you can't find an analogy that maps well, a concrete example does the job better than a strained one.
+"4 MB" means little; "eight seconds of blank screen on a phone" means something. Translate numbers into time, money or things people can picture. Keep one or two numbers that matter.
 
-## Make numbers human-scale
+## Name the misconception
 
-"4 MB" means nothing to most readers; "about eight seconds on a phone on a slow connection" does. Translate numbers into time, money, people or everyday objects the reader can picture. Keep one or two numbers that matter; a paragraph with six statistics has none that stick. (And every number needs a real source or a placeholder; see SKILL.md.)
+Most technical topics come with a common wrong belief the reader probably holds ("a faster server would fix it"). State it fairly and show in a sentence or two why it doesn't hold. This is often the most useful part of the piece.
 
-## Get ahead of the misconception
+## Simplify, but don't say false things
 
-Most complex topics come with a common wrong idea the reader probably holds ("a faster server would fix it", "two-factor codes are just as good"). Find it, say it plainly and fairly, and show why it doesn't hold. This is often the most useful paragraph in the piece.
+Leaving detail out is fine. Saying something untrue because it's easier is not. "Your phone keeps a private key that never leaves the device" is a simplification. "Passkeys can't be hacked" is false. Could a newcomer follow it, and could an expert read it without wincing? You need both.
 
-## Simplify without saying false things
+## Say what it means for them
 
-Leaving detail out is fine. Saying something that isn't true, because it's easier, is not. "Your phone keeps a private key that never leaves the device" is a simplification. "Passkeys can't be hacked" is false. If a precise statement would derail the reader, simplify and flag it lightly ("there's more to it, but this is the part that matters here").
+Before the end, tell the reader what changes for them: what to do, expect, ask for or decide. Then stop.
 
-Check your draft against both readers: could the newcomer follow it, and could an expert read it without wincing? You need both.
+## Visuals
 
-## Answer "so what does this mean for me?"
-
-The reader didn't come to understand the concept for its own sake. Somewhere, usually near the end, tell them what changes for them: what to do, what to expect, what to ask for, what decision this helps with.
-
-## Suggest visuals where they'd do the work
-
-Some ideas (sequences, comparisons, before-and-after, how parts connect) are much easier to show than to describe. If the piece will be published somewhere that supports images, drop a placeholder where a diagram would help and say what it should show: `[DIAGRAM: page loading in two orders side by side, price appearing first on the right]`. Then write the prose so it still works without the picture.
+If a sequence or comparison would be much easier to show than to describe, and the destination supports images, add a placeholder such as `[DIAGRAM: the two loading orders side by side]`. Write the prose so it works without the picture.
